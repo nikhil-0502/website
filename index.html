@@ -30,7 +30,7 @@
   "@type": "Person",
   "name": "Nikhil Rajan",
   "url": "https://nikhil-0502.github.io/website/",
-  "email": "nikhilrajan0502@gmail.com",
+  "email": "n.rajan2@lse.ac.uk",
   "jobTitle": "Economics Student and Teaching Assistant",
   "affiliation": [
     {
@@ -64,882 +64,855 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:          #fafaf8;
-  --bg-alt:      #f3f2ee;
-  --bg-card:     #ffffff;
-  --border:      #e2ddd6;
-  --border-mid:  #ccc8c0;
-  --text:        #1a1916;
-  --text-mid:    #3a3730;
-  --text-dim:    #5a5650;
-  --text-faint:  #8a8680;
-  --text-ghost:  #bab6b0;
-  --accent:      #1a4a8a;
-  --accent-mid:  #2256a3;
-  --accent-light:#3a6ec0;
-  --accent-bg:   #eef2f9;
-  --green:       #216238;
-  --amber:       #7a5e12;
-  --purple:      #503e7a;
-  --gold:        #96731c;
-  --serif:       'Source Serif 4', 'Lora', Georgia, serif;
-  --display:     'Lora', 'Source Serif 4', Georgia, serif;
-  --mono:        'JetBrains Mono', monospace;
-  --nav-h:       58px;
+  --paper:      #fcfcfa;
+  --paper-2:    #f2f2ed;
+  --paper-3:    #e9e9e2;
+  --ink:        #14161b;
+  --ink-2:      #3e434b;
+  --ink-3:      #6b7079;
+  --ink-4:      #9aa0a8;
+  --rule:       #e2e1da;
+  --rule-2:     #cfcec5;
+  --accent:     #1c3d6e;
+  --accent-2:   #2f5c9c;
+  --wash:       #eaeff6;
+  --wash-line:  #cfdcee;
+  --green:      #26613f;
+  --green-wash: #e9f2ec;
+  --violet:     #4a3d76;
+  --violet-wash:#efecf7;
+  --ochre:      #8a6a1e;
+  --ochre-wash: #f6efdd;
+  --serif:      'Source Serif 4', Georgia, serif;
+  --display:    'Lora', Georgia, serif;
+  --mono:       'JetBrains Mono', ui-monospace, monospace;
+  --rail:       248px;
+  --measure:    70ch;
 }
 
-html { font-size: 16px; scroll-behavior: smooth; }
+html { font-size: 17px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
-  background: var(--bg);
-  color: var(--text);
+  background: var(--paper);
+  color: var(--ink);
   font-family: var(--serif);
-  line-height: 1.8;
-  min-height: 100vh;
+  font-size: 1rem;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
-a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-a:hover { color: var(--accent-light); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-2); }
+:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; border-radius: 2px; }
+::selection { background: var(--wash); }
 
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  height: var(--nav-h);
-  background: rgba(250,250,248,0.97);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  display: flex; align-items: center; padding: 0 2.8rem;
+/* ---------- RAIL ---------- */
+.rail {
+  position: fixed; top: 0; left: 0; bottom: 0; width: var(--rail); z-index: 100;
+  background: var(--paper);
+  border-right: 1px solid var(--rule);
+  display: flex; flex-direction: column;
+  padding: 2.9rem 0 1.6rem;
 }
-.nav-name {
-  font-family: var(--display); font-size: 1.05rem; font-weight: 600;
-  font-style: italic; color: var(--text); margin-right: 2.8rem;
-  cursor: pointer; white-space: nowrap; flex-shrink: 0; text-decoration: none;
-  transition: color 0.15s;
+.rail-name {
+  font-family: var(--display); font-size: 1.22rem; font-weight: 600; line-height: 1.25;
+  color: var(--ink); background: none; border: none; cursor: pointer; text-align: left;
+  padding: 0 2rem; margin-bottom: 0.35rem; letter-spacing: -0.005em;
 }
-.nav-name:hover { color: var(--accent); }
-.nav-links { display: flex; list-style: none; flex: 1; }
-.nav-links button {
-  font-family: var(--serif); font-size: 0.82rem; color: var(--text-dim);
+.rail-name:hover { color: var(--accent); }
+.rail-role {
+  font-family: var(--serif); font-size: 0.79rem; font-style: italic; color: var(--ink-3);
+  padding: 0 2rem; line-height: 1.55; margin-bottom: 2.2rem;
+}
+.rail-nav { list-style: none; }
+.rail-nav button {
+  display: block; width: 100%; text-align: left;
+  font-family: var(--serif); font-size: 0.93rem; color: var(--ink-2);
   background: none; border: none; cursor: pointer;
-  padding: 0 1rem; height: var(--nav-h);
-  transition: color 0.15s; position: relative;
+  padding: 0.31rem 2rem; position: relative; line-height: 1.5;
 }
-.nav-links button:hover { color: var(--text); }
-.nav-links button.active { color: var(--accent); font-weight: 500; }
-.nav-links button.active::after {
-  content: ''; position: absolute; bottom: 0; left: 1rem; right: 1rem;
-  height: 2px; background: var(--accent); border-radius: 2px 2px 0 0;
+.rail-nav button:hover { color: var(--ink); }
+.rail-nav button.active { color: var(--accent); font-weight: 600; }
+.rail-nav button.active::before {
+  content: ''; position: absolute; left: 0; top: 0.62rem; bottom: 0.62rem;
+  width: 2px; background: var(--accent);
 }
-.nav-cv {
-  margin-left: auto; font-family: var(--serif); font-size: 0.78rem;
-  font-weight: 500; color: var(--accent); text-decoration: none;
-  border: 1.5px solid var(--accent); padding: 0.32rem 1rem;
-  border-radius: 3px; transition: all 0.15s; flex-shrink: 0;
+.rail-foot { margin-top: auto; padding: 1.5rem 2rem 0; border-top: 1px solid var(--rule); }
+.rail-cv {
+  font-family: var(--serif); font-size: 0.86rem; color: var(--accent);
+  border-bottom: 1px solid var(--wash-line); padding-bottom: 1px;
 }
-.nav-cv:hover { background: var(--accent); color: white; text-decoration: none; }
+.rail-cv:hover { border-bottom-color: var(--accent-2); }
+.rail-mail {
+  display: block; margin-top: 0.5rem;
+  font-family: var(--mono); font-size: 0.68rem; color: var(--ink-4); word-break: break-all;
+}
+.rail-mail:hover { color: var(--ink-3); }
 
-/* PAGE SYSTEM */
+/* ---------- PAGE SHELL ---------- */
 .page { display: none; }
-.page.active { display: block; }
+.page.active { display: block; animation: fade 0.22s ease both; }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 
-/* WRAP */
-.wrap { max-width: 980px; margin: 0 auto; padding: calc(var(--nav-h) + 3.5rem) 2.8rem 6rem; }
-.section-label {
-  font-family: var(--mono); font-size: 0.67rem; letter-spacing: 0.20em;
-  text-transform: uppercase; color: var(--text-faint);
-  margin-bottom: 2.4rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border);
+.wrap { margin-left: var(--rail); padding: 4.6rem 3.6rem 5rem; max-width: calc(var(--rail) + 1120px); }
+.col { max-width: 860px; }
+.prose { max-width: var(--measure); }
+
+h2.page-title {
+  font-family: var(--display); font-size: 1.95rem; font-weight: 600; letter-spacing: -0.012em;
+  line-height: 1.2; color: var(--ink); margin-bottom: 0.5rem;
 }
-
-/* ABOUT */
-#page-about .wrap { max-width: 1060px; }
-.about-layout { display: grid; grid-template-columns: 260px 1fr; gap: 5rem; align-items: start; }
-.sidebar { position: sticky; top: calc(var(--nav-h) + 2rem); }
-
-.sidebar-name { font-family: var(--display); font-size: 1.55rem; font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 0.4rem; }
-.sidebar-deg { font-family: var(--serif); font-size: 0.85rem; color: var(--text-dim); line-height: 1.8; margin-bottom: 1.5rem; font-style: italic; }
-
-/* ACHIEVEMENT CARD (redesigned) */
-.sidebar-highlight {
-  position: relative;
-  background: linear-gradient(165deg, #ffffff, var(--accent-bg));
-  border: 1px solid #d4e0f5;
-  border-radius: 8px;
-  padding: 1.15rem 1.25rem 1.05rem;
-  margin-bottom: 1.7rem;
-  box-shadow: 0 1px 3px rgba(26,74,138,0.06), 0 6px 18px rgba(26,74,138,0.05);
-  overflow: hidden;
+.page-lede {
+  font-family: var(--serif); font-size: 1rem; color: var(--ink-3); line-height: 1.72;
+  max-width: 62ch; margin-bottom: 2.9rem;
 }
-.sidebar-highlight::before {
-  content: '';
-  position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
-  background: linear-gradient(180deg, var(--accent), var(--accent-light));
-}
-.sidebar-highlight-top {
-  display: flex; align-items: baseline; gap: 0.45rem; margin-bottom: 0.15rem;
-}
-.sidebar-highlight-stat { font-family: var(--display); font-size: 1.7rem; font-weight: 700; color: var(--accent); line-height: 1; letter-spacing: -0.01em; }
-.sidebar-highlight-outof { font-family: var(--mono); font-size: 0.72rem; color: var(--text-faint); font-weight: 400; }
-.sidebar-highlight-caption { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.10em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.75rem; }
-.sidebar-highlight-badges { display: flex; flex-direction: column; gap: 0.4rem; }
-.sh-badge {
-  display: flex; align-items: center; gap: 0.5rem;
-  font-family: var(--serif); font-size: 0.76rem; color: var(--text-mid);
-  line-height: 1.3;
-}
-.sh-badge-icon {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
-  font-size: 0.62rem;
-}
-.sh-badge-icon.dean { background: var(--accent-bg); color: var(--accent); border: 1px solid #d4e0f5; }
-.sh-badge-icon.gold { background: #fbf3e0; color: var(--gold); border: 1px solid #ecd9a0; }
+.page-lede.tight { margin-bottom: 2.2rem; }
 
-.sidebar-rule { height: 1px; background: var(--border); margin: 1.2rem 0; }
-
-.contact-row { display: grid; grid-template-columns: 64px 1fr; gap: 0.5rem; align-items: baseline; margin-bottom: 0.6rem; }
-.clabel { font-family: var(--mono); font-size: 0.60rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); }
-.cval { font-family: var(--serif); font-size: 0.85rem; color: var(--text-mid); line-height: 1.55; word-break: break-all; }
-.cval a { color: var(--accent); text-decoration: none; }
-.cval a:hover { text-decoration: underline; }
-
-.chip {
-  display: inline-block; font-family: var(--mono); font-size: 0.62rem;
-  color: var(--accent); background: var(--accent-bg);
-  border: 1px solid #d4e0f5; padding: 0.18rem 0.6rem;
-  margin: 0.2rem 0.1rem 0 0; border-radius: 2px;
+/* ---------- HERO (ABOUT) ---------- */
+.hero { position: relative; padding-bottom: 2.2rem; margin-bottom: 2.4rem; border-bottom: 1px solid var(--rule); }
+.hero-plot {
+  position: absolute; right: -1rem; top: -1.4rem; width: 46%; height: 210px;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(100deg, transparent 0%, #000 42%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(100deg, transparent 0%, #000 42%, #000 88%, transparent 100%);
 }
-
-.inst-link {
-  color: var(--accent); text-decoration: none; font-weight: 500;
-  border-bottom: 1.5px solid #d4e0f5; transition: border-color 0.15s, color 0.15s;
+.hero-plot svg { width: 100%; height: 100%; display: block; }
+.hero-plot path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.hero-name {
+  font-family: var(--display); font-size: clamp(2.5rem, 5.4vw, 3.5rem); font-weight: 600;
+  letter-spacing: -0.028em; line-height: 1.02; color: var(--ink); margin-bottom: 1rem; position: relative;
 }
-.inst-link:hover { color: var(--accent-light); border-bottom-color: var(--accent-light); text-decoration: none; }
-
-.about-bio { font-family: var(--serif); font-size: 1.04rem; color: var(--text-mid); line-height: 1.95; }
-.about-bio p { margin-bottom: 1.2rem; }
-.about-bio p:last-child { margin-bottom: 0; }
-
-/* RESEARCH */
-.res-cat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
-.res-cat-card {
-  background: var(--bg-card); border: 1px solid var(--border);
-  padding: 2.2rem 2rem 1.8rem; cursor: pointer;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-  border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+.hero-deg {
+  font-family: var(--serif); font-size: 1.02rem; color: var(--ink-2); line-height: 1.85;
+  max-width: 40ch; position: relative;
 }
-.res-cat-card:hover { border-color: var(--accent); box-shadow: 0 8px 32px rgba(0,0,0,0.10); transform: translateY(-2px); }
-.res-cat-num { font-family: var(--mono); font-size: 0.60rem; letter-spacing: 0.14em; color: var(--text-faint); margin-bottom: 1rem; text-transform: uppercase; }
-.res-cat-title { font-family: var(--display); font-size: 1.3rem; font-weight: 600; color: var(--text); line-height: 1.3; margin-bottom: 1.5rem; }
-.res-cat-papers { border-top: 1px solid var(--border); padding-top: 1rem; margin-bottom: 1.4rem; }
-.res-cat-paper { font-family: var(--serif); font-size: 0.86rem; color: var(--text-dim); padding: 0.5rem 0; border-bottom: 1px solid var(--border); line-height: 1.5; display: flex; align-items: baseline; gap: 0.7rem; }
-.res-cat-paper:last-child { border-bottom: none; }
-.res-cat-paper-num { font-family: var(--mono); font-size: 0.56rem; color: var(--text-ghost); flex-shrink: 0; }
-.res-cat-footer { display: flex; justify-content: space-between; align-items: center; }
-.res-cat-count { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); }
-.res-cat-arrow { font-size: 0.85rem; color: var(--accent); transition: transform 0.2s; display: inline-block; }
-.res-cat-card:hover .res-cat-arrow { transform: translateX(5px); }
-.res-sub-hd { font-family: var(--display); font-size: 1.1rem; font-weight: 600; color: var(--text); margin-bottom: 2rem; padding-bottom: 0.9rem; border-bottom: 1px solid var(--border); }
+.hero-deg em { font-style: italic; color: var(--ink-3); }
 
-/* PROJECTS */
-.proj-item { padding: 1.8rem 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: padding-left 0.18s; }
-.proj-item:first-child { border-top: 1px solid var(--border); }
-.proj-item:hover { padding-left: 0.5rem; }
+.record { display: flex; flex-wrap: wrap; gap: 0 2.6rem; margin-bottom: 2.9rem; }
+.record-item { padding-right: 2.6rem; border-right: 1px solid var(--rule); }
+.record-item:last-child { border-right: none; padding-right: 0; }
+.record-figure {
+  font-family: var(--display); font-size: 1.62rem; font-weight: 600; color: var(--ink);
+  line-height: 1.15; letter-spacing: -0.015em; display: flex; align-items: baseline; gap: 0.35rem;
+}
+.record-figure span { font-family: var(--mono); font-size: 0.72rem; font-weight: 400; color: var(--ink-4); }
+.record-line { font-family: var(--display); font-size: 1.02rem; font-weight: 500; color: var(--ink); line-height: 1.4; }
+.record-line .star { color: var(--ochre); }
+.record-note { font-family: var(--serif); font-size: 0.82rem; font-style: italic; color: var(--ink-3); margin-top: 0.18rem; }
+
+.bio { font-size: 1.045rem; color: var(--ink-2); line-height: 1.84; max-width: var(--measure); }
+.bio p { margin-bottom: 1.15rem; }
+.bio p:last-child { margin-bottom: 0; }
+.bio a, .inst-link { color: var(--accent); border-bottom: 1px solid var(--wash-line); }
+.bio a:hover, .inst-link:hover { border-bottom-color: var(--accent-2); }
+
+.colophon {
+  display: grid; grid-template-columns: 1.15fr 1fr; gap: 3.5rem;
+  margin-top: 3.2rem; padding-top: 1.9rem; border-top: 1px solid var(--rule);
+}
+.colophon-hd { font-family: var(--display); font-size: 0.97rem; font-weight: 600; color: var(--ink); margin-bottom: 0.85rem; }
+.dl { display: grid; grid-template-columns: 5.6rem 1fr; row-gap: 0.42rem; }
+.dl dt { font-family: var(--mono); font-size: 0.67rem; color: var(--ink-4); padding-top: 0.24rem; letter-spacing: 0.02em; }
+.dl dd { font-family: var(--serif); font-size: 0.92rem; color: var(--ink-2); word-break: break-word; }
+.dl dd a { border-bottom: 1px solid var(--wash-line); }
+.int-list { list-style: none; }
+.int-list li {
+  font-family: var(--serif); font-size: 0.92rem; color: var(--ink-2);
+  padding: 0.36rem 0; border-bottom: 1px solid var(--rule);
+}
+.int-list li:first-child { border-top: 1px solid var(--rule); }
+
+/* ---------- RESEARCH INDEX ---------- */
+.res-group { margin-bottom: 3.2rem; }
+.res-group:last-child { margin-bottom: 0; }
+.res-group-hd {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem;
+  padding-bottom: 0.6rem; border-bottom: 1.5px solid var(--ink); cursor: pointer;
+}
+.res-group-hd:hover .res-group-title { color: var(--accent); }
+.res-group-title { font-family: var(--display); font-size: 1.24rem; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+.res-group-count { font-family: var(--mono); font-size: 0.68rem; color: var(--ink-4); white-space: nowrap; }
+.res-row {
+  display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: baseline;
+  padding: 0.78rem 0; border-bottom: 1px solid var(--rule); cursor: pointer;
+}
+.res-row:hover .res-row-title { color: var(--accent); }
+.res-row-title { font-family: var(--serif); font-size: 0.97rem; color: var(--ink-2); line-height: 1.5; }
+
+/* status marker */
+.status { font-family: var(--mono); font-size: 0.63rem; white-space: nowrap; display: inline-flex; align-items: center; gap: 0.38rem; }
+.status::before { content: ''; width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+.status-done { color: var(--green); }
+.status-done::before { background: var(--green); }
+.status-wip { color: var(--ochre); }
+.status-wip::before { background: var(--ochre); }
+.status-wp { color: var(--violet); }
+.status-wp::before { background: var(--violet); }
+
+/* research category view */
+.proj-item { padding: 1.7rem 0; border-bottom: 1px solid var(--rule); cursor: pointer; }
+.proj-item:first-child { border-top: 1.5px solid var(--ink); }
 .proj-item:hover .proj-title { color: var(--accent); }
-.proj-code { font-family: var(--mono); font-size: 0.60rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.4rem; }
-.proj-title { font-family: var(--display); font-size: 1.04rem; font-weight: 600; color: var(--text); line-height: 1.42; margin-bottom: 0.5rem; transition: color 0.15s; }
-.proj-desc { font-family: var(--serif); font-size: 0.92rem; color: var(--text-dim); line-height: 1.8; margin-bottom: 0.8rem; }
-.proj-foot { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
-.proj-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; }
-.proj-tag { font-family: var(--mono); font-size: 0.60rem; color: var(--text-dim); border: 1px solid var(--border-mid); padding: 0.12rem 0.5rem; background: var(--bg-alt); border-radius: 2px; }
-.proj-status { font-family: var(--mono); font-size: 0.60rem; letter-spacing: 0.08em; text-transform: uppercase; margin-left: auto; padding: 0.14rem 0.55rem; border-radius: 2px; }
-.status-done { color: var(--green); background: #f0f8f4; border: 1px solid #c0ddd0; }
-.status-wip  { color: var(--amber); background: #fdf8ee; border: 1px solid #e8d8a0; }
-.status-wp   { color: var(--purple); background: #f4f1fb; border: 1px solid #cec5ec; }
+.proj-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; margin-bottom: 0.42rem; }
+.proj-code { font-family: var(--mono); font-size: 0.63rem; color: var(--ink-4); }
+.proj-title { font-family: var(--display); font-size: 1.14rem; font-weight: 600; color: var(--ink); line-height: 1.4; margin-bottom: 0.55rem; letter-spacing: -0.008em; }
+.proj-desc { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-3); line-height: 1.78; max-width: 76ch; margin-bottom: 0.85rem; }
+.proj-tags { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+.proj-tag { font-family: var(--mono); font-size: 0.63rem; color: var(--ink-4); }
+.proj-tag + .proj-tag { position: relative; padding-left: 0.9rem; }
+.proj-tag + .proj-tag::before { content: ''; position: absolute; left: 0; top: 0.42em; width: 1px; height: 0.8em; background: var(--rule-2); }
 
-/* PROJECT DETAIL */
-.d-back { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: none; border: none; cursor: pointer; padding: 0; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 0.5rem; transition: color 0.15s; }
-.d-back:hover { color: var(--accent-light); }
-.d-cat { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.6rem; }
-.d-title { font-family: var(--display); font-size: 1.55rem; font-weight: 700; color: var(--text); line-height: 1.32; margin-bottom: 0.7rem; }
-.d-meta { font-family: var(--serif); font-size: 0.82rem; color: var(--text-dim); margin-bottom: 0.8rem; font-style: italic; }
-.d-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 2.2rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--border); }
-.d-body h4 { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); margin: 2.2rem 0 0.8rem; }
-.d-body p { font-family: var(--serif); font-size: 0.98rem; color: var(--text-mid); line-height: 1.92; margin-bottom: 0.85rem; }
+/* ---------- DETAIL PAGES ---------- */
+.back {
+  font-family: var(--serif); font-size: 0.86rem; color: var(--accent);
+  background: none; border: none; cursor: pointer; padding: 0; margin-bottom: 2.6rem;
+  border-bottom: 1px solid var(--wash-line);
+}
+.back:hover { border-bottom-color: var(--accent-2); }
+.d-code { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-4); margin-bottom: 0.65rem; }
+.d-title {
+  font-family: var(--display); font-size: clamp(1.5rem, 2.9vw, 1.92rem); font-weight: 600;
+  color: var(--ink); line-height: 1.24; letter-spacing: -0.017em; max-width: 30ch; margin-bottom: 0.8rem;
+}
+.d-meta { font-family: var(--serif); font-size: 0.88rem; color: var(--ink-3); display: flex; flex-wrap: wrap; align-items: center; gap: 1.1rem; }
+.d-meta .yr { font-family: var(--mono); font-size: 0.7rem; color: var(--ink-4); }
+.d-tags { display: flex; flex-wrap: wrap; gap: 0.9rem; margin: 1.1rem 0 0; padding-bottom: 1.7rem; border-bottom: 1.5px solid var(--ink); }
+
+.d-body { max-width: 78ch; }
+.d-body h4 {
+  font-family: var(--display); font-size: 1.06rem; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.008em; margin: 2.5rem 0 0.9rem; padding-top: 1.1rem; border-top: 1px solid var(--rule);
+}
+.d-body h4:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.d-body p { font-family: var(--serif); font-size: 1rem; color: var(--ink-2); line-height: 1.85; margin-bottom: 0.95rem; }
 .d-body ul { list-style: none; margin-bottom: 1rem; }
-.d-body ul li { font-family: var(--serif); font-size: 0.91rem; color: var(--text-mid); padding: 0.5rem 0 0.5rem 1.4rem; position: relative; line-height: 1.75; border-bottom: 1px solid var(--border); }
-.d-body ul li:last-child { border-bottom: none; }
-.d-body ul li::before { content: '/'; position: absolute; left: 0; top: 0.5rem; color: var(--text-faint); font-family: var(--mono); font-size: 0.7rem; }
-.math-block { background: var(--bg-alt); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 1.1rem 1.4rem; margin: 1.3rem 0; font-family: var(--mono); font-size: 0.75rem; color: var(--text-mid); line-height: 2; overflow-x: auto; white-space: pre; border-radius: 0 3px 3px 0; }
-
-/* TEACHING */
-.teaching-intro { font-family: var(--serif); font-size: 0.97rem; color: var(--text-dim); margin-bottom: 2.4rem; font-style: italic; line-height: 1.78; }
-.teaching-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
-.ta-card { background: var(--bg-card); border: 1px solid var(--border); cursor: pointer; transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s; display: flex; flex-direction: column; overflow: hidden; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
-.ta-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.10); }
-.ta-card:hover .ta-card-title { color: var(--accent); }
-.ta-card-icon { width: 100%; height: 84px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border); flex-shrink: 0; }
-.ta-bg-1 { background: linear-gradient(135deg, #eef2f9, #dce8f4); }
-.ta-bg-2 { background: linear-gradient(135deg, #eef7f2, #dcf0e6); }
-.ta-bg-3 { background: linear-gradient(135deg, #f7f4ee, #f0e8dc); }
-.ta-bg-4 { background: linear-gradient(135deg, #f5eef7, #ecdcf4); }
-.ta-bg-5 { background: linear-gradient(135deg, #eef7f7, #dceeee); }
-.ta-bg-6 { background: linear-gradient(135deg, #fdf8ee, #f5ecda); }
-.ta-bg-7 { background: linear-gradient(135deg, #f2eef7, #e4daf0); }
-.ta-icon-text { font-family: var(--mono); font-size: 1.6rem; color: var(--accent); opacity: 0.8; }
-.ta-card-body { padding: 1rem 1.1rem 1.1rem; flex: 1; display: flex; flex-direction: column; }
-.ta-card-sem { font-family: var(--mono); font-size: 0.60rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.4rem; }
-.ta-card-title { font-family: var(--display); font-size: 0.95rem; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 0.35rem; transition: color 0.15s; flex: 1; }
-.ta-card-inst { font-family: var(--serif); font-size: 0.75rem; color: var(--text-faint); font-style: italic; }
-.ta-card-prof { font-family: var(--serif); font-size: 0.72rem; color: var(--text-faint); margin-top: 0.25rem; font-style: italic; }
-.ta-card-cta { font-family: var(--mono); font-size: 0.60rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-top: 0.7rem; }
-
-/* TEACHING DETAIL */
-.td-section { margin-top: 2rem; }
-.td-hd { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.8rem; padding-bottom: 0.45rem; border-bottom: 1px solid var(--border); }
-.td-section p { font-family: var(--serif); font-size: 0.98rem; color: var(--text-mid); line-height: 1.88; }
-.td-topics { list-style: none; }
-.td-topics li { font-family: var(--serif); font-size: 0.92rem; color: var(--text-mid); padding: 0.5rem 0 0.5rem 1.4rem; position: relative; border-bottom: 1px solid var(--border); line-height: 1.72; }
-.td-topics li:last-child { border-bottom: none; }
-.td-topics li::before { content: '/'; position: absolute; left: 0; top: 0.5rem; color: var(--text-faint); font-family: var(--mono); font-size: 0.7rem; }
-
-/* PROFESSOR BADGE */
-.prof-badge {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  background: var(--accent-bg); border: 1px solid #d4e0f5;
-  border-radius: 3px; padding: 0.45rem 0.9rem; margin-top: 0.6rem;
-  font-family: var(--serif); font-size: 0.82rem; color: var(--text-mid);
+.d-body ul li {
+  font-family: var(--serif); font-size: 0.95rem; color: var(--ink-2); line-height: 1.8;
+  padding: 0.62rem 0; border-bottom: 1px solid var(--rule);
 }
-.prof-badge .prof-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.10em; text-transform: uppercase; color: var(--text-faint); margin-right: 0.2rem; }
-.prof-badge a { color: var(--accent); text-decoration: none; font-weight: 500; border-bottom: 1.5px solid #d4e0f5; transition: all 0.15s; }
-.prof-badge a:hover { color: var(--accent-light); border-bottom-color: var(--accent-light); }
-.cota-badge {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  background: #f0f8f4; border: 1px solid #c0ddd0;
-  border-radius: 3px; padding: 0.45rem 0.9rem; margin-top: 0.4rem; margin-left: 0.5rem;
-  font-family: var(--serif); font-size: 0.82rem; color: var(--text-mid);
+.d-body ul li:first-child { border-top: 1px solid var(--rule); }
+.math-block {
+  background: var(--paper-2); border-left: 2px solid var(--accent);
+  padding: 1.15rem 1.4rem; margin: 1.4rem 0;
+  font-family: var(--mono); font-size: 0.735rem; font-weight: 300; color: var(--ink-2);
+  line-height: 1.95; overflow-x: auto; white-space: pre;
 }
-.cota-badge .prof-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.10em; text-transform: uppercase; color: #5a9070; margin-right: 0.2rem; }
 
-/* ASSIGNMENT LIST */
-.assign-section { margin-top: 2rem; }
-.assign-intro { font-family: var(--serif); font-size: 0.95rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 1.2rem; background: var(--bg-alt); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 1rem 1.2rem; border-radius: 0 3px 3px 0; }
-.assign-list { list-style: none; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+/* ---------- TEACHING ---------- */
+.rec {
+  display: grid; grid-template-columns: 2.9rem 1fr auto; gap: 1.4rem; align-items: start;
+  padding: 1.35rem 0 1.35rem 0.1rem; border-bottom: 1px solid var(--rule); cursor: pointer;
+}
+.rec:first-child { border-top: 1.5px solid var(--ink); }
+.rec:hover { background: var(--paper-2); }
+.rec:hover .rec-title { color: var(--accent); }
+.rec-right { text-align: right; padding-top: 0.3rem; }
+.rec-open {
+  display: inline-block; margin-top: 0.4rem;
+  font-family: var(--serif); font-size: 0.85rem; color: var(--accent);
+  border-bottom: 1px solid var(--wash-line); white-space: nowrap;
+}
+.rec:hover .rec-open { border-bottom-color: var(--accent-2); }
+.rec-glyph {
+  font-family: var(--mono); font-size: 1.32rem; font-weight: 300; color: var(--accent);
+  opacity: 0.55; line-height: 1.3; text-align: center;
+}
+.rec-title { display: block; font-family: var(--display); font-size: 1.04rem; font-weight: 600; color: var(--ink); line-height: 1.38; letter-spacing: -0.006em; }
+.rec-sub { display: block; font-family: var(--serif); font-size: 0.87rem; font-style: italic; color: var(--ink-3); margin-top: 0.22rem; }
+.rec-prof { display: block; font-family: var(--serif); font-size: 0.85rem; color: var(--ink-3); margin-top: 0.22rem; }
+.rec-prof a { border-bottom: 1px solid var(--wash-line); }
+.rec-term { display: block; font-family: var(--mono); font-size: 0.66rem; color: var(--ink-4); white-space: nowrap; }
+
+/* teaching detail */
+.td-section { margin-top: 2.4rem; }
+.td-hd {
+  font-family: var(--display); font-size: 1.06rem; font-weight: 600; color: var(--ink);
+  margin-bottom: 0.95rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule);
+}
+.td-section > p { font-family: var(--serif); font-size: 1rem; color: var(--ink-2); line-height: 1.85; max-width: 78ch; }
+.td-topics { list-style: none; max-width: 80ch; }
+.td-topics li { font-family: var(--serif); font-size: 0.95rem; color: var(--ink-2); padding: 0.58rem 0; border-bottom: 1px solid var(--rule); line-height: 1.76; }
+.roles { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.9rem; }
+.role-badge {
+  display: inline-flex; align-items: baseline; gap: 0.45rem;
+  font-family: var(--serif); font-size: 0.87rem; color: var(--ink-2);
+  background: var(--wash); border: 1px solid var(--wash-line); padding: 0.34rem 0.8rem;
+}
+.role-badge.alt { background: var(--green-wash); border-color: #cbdfd2; }
+.role-badge .lbl { font-family: var(--mono); font-size: 0.6rem; color: var(--ink-4); }
+.role-badge a { border-bottom: 1px solid var(--wash-line); }
+
+.assign-intro {
+  font-family: var(--serif); font-size: 0.95rem; color: var(--ink-2); line-height: 1.82;
+  max-width: 78ch; margin-bottom: 1.3rem;
+}
+.assign-list { list-style: none; border-top: 1px solid var(--rule); max-width: 640px; }
 .assign-item {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0.75rem 1.1rem; border-bottom: 1px solid var(--border);
-  background: var(--bg-card); transition: background 0.15s;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 0.62rem 0.3rem; border-bottom: 1px solid var(--rule);
 }
-.assign-item:last-child { border-bottom: none; }
-.assign-item:hover { background: var(--accent-bg); }
-.assign-item-left { display: flex; align-items: center; gap: 0.75rem; }
-.assign-num { font-family: var(--mono); font-size: 0.60rem; color: var(--text-faint); background: var(--bg-alt); border: 1px solid var(--border); padding: 0.1rem 0.4rem; border-radius: 2px; flex-shrink: 0; }
-.assign-name { font-family: var(--serif); font-size: 0.90rem; color: var(--text-mid); }
-.assign-link {
-  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.06em;
-  color: var(--accent); text-decoration: none; border: 1px solid var(--accent);
-  padding: 0.2rem 0.6rem; border-radius: 2px; transition: all 0.15s; white-space: nowrap;
-  display: flex; align-items: center; gap: 0.3rem;
-}
-.assign-link:hover { background: var(--accent); color: white; text-decoration: none; }
+.assign-item:hover { background: var(--paper-2); }
+.assign-left { display: flex; align-items: baseline; gap: 0.85rem; }
+.assign-num { font-family: var(--mono); font-size: 0.64rem; color: var(--ink-4); width: 1.6rem; }
+.assign-name { font-family: var(--serif); font-size: 0.93rem; color: var(--ink-2); }
+.assign-link { font-family: var(--serif); font-size: 0.85rem; color: var(--accent); border-bottom: 1px solid var(--wash-line); white-space: nowrap; }
+.assign-link:hover { border-bottom-color: var(--accent-2); }
 
-/* FINAL EXAM CARD */
 .exam-card {
-  margin-top: 2rem; border: 1.5px solid var(--accent); border-radius: 4px;
-  background: var(--accent-bg); padding: 1.2rem 1.4rem;
-  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
-  flex-wrap: wrap;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.6rem; flex-wrap: wrap;
+  background: var(--wash); border-left: 2px solid var(--accent); padding: 1.15rem 1.35rem; max-width: 720px;
 }
-.exam-card-left {}
-.exam-label { font-family: var(--mono); font-size: 0.60rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.3rem; }
-.exam-title { font-family: var(--display); font-size: 1.02rem; font-weight: 600; color: var(--text); line-height: 1.35; }
-.exam-sub { font-family: var(--serif); font-size: 0.82rem; color: var(--text-dim); font-style: italic; margin-top: 0.2rem; }
-.exam-dl-btn {
-  font-family: var(--mono); font-size: 0.70rem; letter-spacing: 0.08em; text-transform: uppercase;
-  background: var(--accent); color: white; border: none; border-radius: 3px;
-  padding: 0.5rem 1.1rem; cursor: pointer; text-decoration: none; transition: background 0.15s;
-  display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap; flex-shrink: 0;
+.exam-title { font-family: var(--display); font-size: 1.02rem; font-weight: 600; color: var(--ink); line-height: 1.35; }
+.exam-sub { font-family: var(--serif); font-size: 0.86rem; font-style: italic; color: var(--ink-3); margin-top: 0.2rem; }
+.exam-btn {
+  font-family: var(--serif); font-size: 0.87rem; color: #fff; background: var(--accent);
+  padding: 0.45rem 1.05rem; white-space: nowrap;
 }
-.exam-dl-btn:hover { background: var(--accent-light); color: white; text-decoration: none; }
+.exam-btn:hover { background: var(--accent-2); color: #fff; }
 
-/* NOTES CARD */
-.notes-card {
-  margin-top: 2rem; background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+/* notes */
+.note-card { border: 1px solid var(--rule); border-top: 2px solid var(--violet); background: #fff; max-width: 760px; }
+.note-card + .note-card { margin-top: 1.6rem; }
+.note-head { padding: 1.25rem 1.5rem 0.9rem; }
+.note-src { font-family: var(--mono); font-size: 0.63rem; color: var(--ink-4); margin-bottom: 0.4rem; }
+.note-title { font-family: var(--display); font-size: 1.12rem; font-weight: 600; color: var(--ink); line-height: 1.34; }
+.note-sub { font-family: var(--serif); font-size: 0.88rem; font-style: italic; color: var(--ink-3); margin-top: 0.22rem; }
+.note-body { padding: 0 1.5rem 1.3rem; }
+.note-desc { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-2); line-height: 1.82; margin-bottom: 1.05rem; }
+.note-warn {
+  display: flex; gap: 0.65rem; background: var(--ochre-wash); border-left: 2px solid var(--ochre);
+  padding: 0.7rem 0.95rem; margin-bottom: 1.05rem;
 }
-.notes-card-header {
-  background: linear-gradient(135deg, #f3f0f9, #e8e2f4);
-  padding: 1.2rem 1.4rem; border-bottom: 1px solid var(--border);
-  display: flex; align-items: center; gap: 1rem;
-}
-.notes-icon { font-size: 1.8rem; opacity: 0.75; }
-.notes-header-text {}
-.notes-tag { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.2rem; }
-.notes-card-title { font-family: var(--display); font-size: 1.05rem; font-weight: 600; color: var(--text); line-height: 1.3; }
-.notes-card-body { padding: 1.3rem 1.4rem; }
-.notes-desc { font-family: var(--serif); font-size: 0.93rem; color: var(--text-mid); line-height: 1.88; margin-bottom: 1rem; }
-.notes-warning {
-  display: flex; align-items: flex-start; gap: 0.6rem;
-  background: #fdf8ee; border: 1px solid #e8d8a0; border-radius: 3px;
-  padding: 0.65rem 0.9rem; margin-bottom: 1rem;
-}
-.notes-warning-icon { font-size: 0.85rem; flex-shrink: 0; padding-top: 0.1rem; }
-.notes-warning-text { font-family: var(--serif); font-size: 0.82rem; color: var(--amber); line-height: 1.65; }
-.notes-topics-mini { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.1rem; }
-.notes-topic-chip { font-family: var(--mono); font-size: 0.60rem; color: var(--purple); background: #f4f1fb; border: 1px solid #cec5ec; padding: 0.15rem 0.55rem; border-radius: 2px; }
-.notes-dl-row { display: flex; align-items: center; justify-content: space-between; padding-top: 0.9rem; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 0.6rem; }
-.notes-file-info { font-family: var(--mono); font-size: 0.65rem; color: var(--text-faint); display: flex; align-items: center; gap: 0.4rem; }
-.notes-dl-btn {
-  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--purple); border: 1.5px solid var(--purple); border-radius: 3px;
-  padding: 0.4rem 1rem; text-decoration: none; transition: all 0.15s;
-  display: inline-flex; align-items: center; gap: 0.35rem;
-}
-.notes-dl-btn:hover { background: var(--purple); color: white; text-decoration: none; }
+.note-warn-t { font-family: var(--serif); font-size: 0.85rem; color: var(--ochre); line-height: 1.68; }
+.note-chips { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-bottom: 1.15rem; }
+.note-chip { font-family: var(--mono); font-size: 0.63rem; color: var(--violet); }
+.note-chip + .note-chip { position: relative; padding-left: 0.85rem; }
+.note-chip + .note-chip::before { content: ''; position: absolute; left: 0; top: 0.42em; width: 1px; height: 0.8em; background: #cec5ec; }
+.note-foot { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; padding-top: 0.95rem; border-top: 1px solid var(--rule); }
+.note-file { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-4); }
+.note-btn { font-family: var(--serif); font-size: 0.87rem; color: var(--violet); border-bottom: 1px solid #cec5ec; }
+.note-btn:hover { color: #6a5aa0; }
+.note-xref { margin-top: 0.9rem; font-family: var(--serif); font-size: 0.86rem; color: var(--accent); cursor: pointer; border-bottom: 1px solid var(--wash-line); display: inline-block; }
 
-/* STUDENTS GRID */
-.students-section { margin-top: 2rem; }
-.students-intro { font-family: var(--serif); font-size: 0.92rem; color: var(--text-dim); line-height: 1.78; margin-bottom: 1rem; font-style: italic; }
-.students-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.student-chip {
-  font-family: var(--serif); font-size: 0.82rem; color: var(--green);
-  background: #f0f8f4; border: 1px solid #c0ddd0;
-  padding: 0.3rem 0.8rem; border-radius: 2px; line-height: 1.4;
-}
+/* students */
+.students-intro { font-family: var(--serif); font-size: 0.93rem; font-style: italic; color: var(--ink-3); line-height: 1.76; margin-bottom: 1rem; max-width: 70ch; }
+.students-grid { display: flex; flex-wrap: wrap; gap: 0.45rem; max-width: 820px; }
+.student-chip { font-family: var(--serif); font-size: 0.85rem; color: var(--green); background: var(--green-wash); border: 1px solid #cbdfd2; padding: 0.24rem 0.7rem; }
 
-/* NOTES PAGE */
-.notes-page-intro { font-family: var(--serif); font-size: 0.97rem; color: var(--text-dim); margin-bottom: 2.4rem; font-style: italic; line-height: 1.78; }
-.notes-page-grid { display: flex; flex-direction: column; gap: 1.4rem; }
-.notes-page-card {
-  background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
-}
-.notes-page-card:hover { border-color: var(--accent); box-shadow: 0 8px 28px rgba(0,0,0,0.09); transform: translateY(-2px); }
-.notes-page-card-header {
-  padding: 1.3rem 1.6rem; border-bottom: 1px solid var(--border);
-  display: flex; align-items: flex-start; gap: 1.2rem;
-}
-.notes-page-icon {
-  width: 52px; height: 52px; border-radius: 3px; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.5rem;
-}
-.notes-page-icon-purple { background: linear-gradient(135deg, #f3f0f9, #e8e2f4); }
-.notes-page-icon-blue   { background: linear-gradient(135deg, #eef2f9, #dce8f4); }
-.notes-page-icon-green  { background: linear-gradient(135deg, #eef7f2, #dcf0e6); }
-.notes-page-meta { flex: 1; }
-.notes-page-course-tag { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 0.3rem; }
-.notes-page-title { font-family: var(--display); font-size: 1.1rem; font-weight: 600; color: var(--text); line-height: 1.32; margin-bottom: 0.2rem; }
-.notes-page-sub { font-family: var(--serif); font-size: 0.82rem; color: var(--text-dim); font-style: italic; }
-.notes-page-card-body { padding: 1.2rem 1.6rem; }
-.notes-page-desc { font-family: var(--serif); font-size: 0.93rem; color: var(--text-mid); line-height: 1.88; margin-bottom: 1rem; }
-.notes-page-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.1rem; }
-.notes-page-chip { font-family: var(--mono); font-size: 0.60rem; color: var(--purple); background: #f4f1fb; border: 1px solid #cec5ec; padding: 0.15rem 0.55rem; border-radius: 2px; }
-.notes-page-footer {
-  display: flex; align-items: center; justify-content: space-between;
-  padding-top: 0.9rem; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 0.7rem;
-}
-.notes-page-file { font-family: var(--mono); font-size: 0.65rem; color: var(--text-faint); display: flex; align-items: center; gap: 0.4rem; }
-.notes-page-warning {
-  display: flex; align-items: flex-start; gap: 0.6rem;
-  background: #fdf8ee; border: 1px solid #e8d8a0; border-radius: 3px;
-  padding: 0.6rem 0.85rem; margin-bottom: 1rem;
-}
-.notes-page-warning-text { font-family: var(--serif); font-size: 0.82rem; color: var(--amber); line-height: 1.65; }
-.notes-page-dl-btn {
-  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--purple); border: 1.5px solid var(--purple); border-radius: 3px;
-  padding: 0.42rem 1.1rem; text-decoration: none; transition: all 0.15s;
-  display: inline-flex; align-items: center; gap: 0.35rem;
-}
-.notes-page-dl-btn:hover { background: var(--purple); color: white; text-decoration: none; }
+/* ---------- EDUCATION / EXPERIENCE ---------- */
+.entry { padding: 2.1rem 0; border-bottom: 1px solid var(--rule); }
+.entry:first-of-type { border-top: 1.5px solid var(--ink); }
+.entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 2rem; }
+.entry-school { font-family: var(--display); font-size: 1.16rem; font-weight: 600; color: var(--ink); letter-spacing: -0.008em; }
+.entry-deg { font-family: var(--serif); font-size: 0.95rem; font-style: italic; color: var(--ink-3); margin-top: 0.15rem; }
+.entry-meta { font-family: var(--mono); font-size: 0.66rem; color: var(--ink-4); white-space: nowrap; }
+.entry-note { font-family: var(--serif); font-size: 0.92rem; color: var(--ink-3); line-height: 1.78; margin: 1rem 0 0.4rem; max-width: 74ch; }
+.entry-note strong { font-family: var(--mono); font-size: 0.82rem; font-weight: 500; color: var(--ink); }
 
-/* EDUCATION */
-.edu-entry { padding: 2.2rem 0; border-bottom: 1px solid var(--border); }
-.edu-entry:first-child { border-top: 1px solid var(--border); }
-.edu-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 0.2rem; }
-.edu-school { font-family: var(--display); font-size: 1.1rem; font-weight: 600; color: var(--text); }
-.edu-deg { font-family: var(--serif); font-size: 0.9rem; color: var(--text-dim); font-style: italic; margin-top: 0.18rem; }
-.edu-meta { font-family: var(--mono); font-size: 0.68rem; color: var(--text-faint); letter-spacing: 0.04em; white-space: nowrap; padding-top: 0.25rem; flex-shrink: 0; }
-.edu-note { font-family: var(--serif); font-size: 0.9rem; color: var(--text-dim); line-height: 1.8; margin: 0.9rem 0 1.1rem; }
-.edu-note strong { color: var(--green); font-weight: 600; }
-
-.course-sub-label { font-family: var(--mono); font-size: 0.60rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); padding: 0.7rem 0 0.4rem; border-top: 1px solid var(--border); }
-.course-block { margin-top: 0.7rem; }
-.course-row { border-top: 1px solid var(--border); cursor: pointer; }
-.course-row:last-child { border-bottom: 1px solid var(--border); }
-.course-hdr { display: flex; justify-content: space-between; align-items: center; padding: 0.65rem 0; }
-.course-nm { font-family: var(--serif); font-size: 0.9rem; color: var(--text-mid); transition: color 0.15s; line-height: 1.5; }
+.course-block { margin-top: 1.2rem; max-width: 780px; }
+.course-row { border-top: 1px solid var(--rule); cursor: pointer; }
+.course-row:last-child { border-bottom: 1px solid var(--rule); }
+.course-hdr { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.62rem 0; }
+.course-nm { font-family: var(--serif); font-size: 0.95rem; color: var(--ink-2); line-height: 1.5; }
 .course-row:hover .course-nm { color: var(--accent); }
-.course-arr { font-family: var(--mono); font-size: 0.6rem; color: var(--text-faint); transition: transform 0.18s; flex-shrink: 0; margin-left: 1rem; }
-.course-row.open .course-arr { transform: rotate(90deg); }
-.course-body { display: none; font-family: var(--serif); font-size: 0.88rem; color: var(--text-dim); line-height: 1.85; background: var(--bg-alt); padding: 0.8rem 1rem; border-radius: 3px; margin-bottom: 0.4rem; }
-.course-row.open .course-body { display: block; }
-.course-code { font-family: var(--mono); font-size: 0.64rem; color: var(--accent); margin-right: 0.55rem; letter-spacing: 0.04em; background: var(--accent-bg); padding: 0.08rem 0.35rem; border-radius: 2px; }
-
-/* EXPERIENCE */
-.exp-entry { padding: 2rem 0; border-bottom: 1px solid var(--border); }
-.exp-entry:first-child { border-top: 1px solid var(--border); }
-.exp-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 0.15rem; }
-.exp-role { font-family: var(--display); font-size: 1.04rem; font-weight: 600; color: var(--text); }
-.exp-org { font-family: var(--serif); font-size: 0.88rem; color: var(--text-dim); font-style: italic; margin-top: 0.1rem; }
-.exp-date { font-family: var(--mono); font-size: 0.68rem; color: var(--text-faint); letter-spacing: 0.04em; white-space: nowrap; padding-top: 0.25rem; flex-shrink: 0; }
-.exp-ul { list-style: none; margin-top: 0.8rem; }
-.exp-ul li { font-family: var(--serif); font-size: 0.90rem; color: var(--text-mid); padding: 0.45rem 0 0.45rem 1.4rem; position: relative; line-height: 1.78; border-bottom: 1px solid var(--border); }
-.exp-ul li:last-child { border-bottom: none; }
-.exp-ul li::before { content: '/'; position: absolute; left: 0; top: 0.45rem; color: var(--text-faint); font-family: var(--mono); font-size: 0.7rem; }
-.sub-label { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-faint); margin: 2.8rem 0 0; padding-top: 2.2rem; border-top: 1px solid var(--border); }
-
-/* ARTICLES */
-.articles-empty { padding: 3rem 0; font-family: var(--serif); font-size: 0.95rem; color: var(--text-faint); font-style: italic; }
-
-/* FOOTER */
-footer { border-top: 1px solid var(--border); padding: 1.4rem 2.8rem; max-width: 980px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-footer p { font-family: var(--mono); font-size: 0.68rem; color: var(--text-faint); letter-spacing: 0.06em; }
-
-/* RESPONSIVE */
-@media (max-width: 820px) {
-  nav {
-    padding: 0;
-    height: auto;
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .nav-top-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1.2rem;
-    height: 48px;
-    flex-shrink: 0;
-  }
-  .nav-name { margin-right: 0; font-size: 0.95rem; }
-  .nav-cv { margin-left: 0; font-size: 0.72rem; padding: 0.26rem 0.75rem; }
-  .nav-links-wrap {
-    display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; border-top: 1px solid var(--border); padding: 0 0.4rem;
-  }
-  .nav-links-wrap::-webkit-scrollbar { display: none; }
-  .nav-links { display: flex; flex: none; flex-wrap: nowrap; white-space: nowrap; gap: 0; }
-  .nav-links button { font-size: 0.78rem; padding: 0 0.9rem; height: 38px; white-space: nowrap; flex-shrink: 0; }
-  .nav-links button.active::after { left: 0.9rem; right: 0.9rem; bottom: 0; }
-  :root { --nav-h: 86px; }
-  .wrap { padding: calc(var(--nav-h) + 2.2rem) 1.4rem 4rem; }
-  footer { padding: 1.2rem 1.4rem; }
-  .about-layout { grid-template-columns: 1fr; gap: 2.4rem; }
-  .sidebar { position: static; }
-  .teaching-grid { grid-template-columns: repeat(2, 1fr); }
-  .edu-header, .exp-header { flex-direction: column; gap: 0.2rem; }
-  .res-cat-grid { grid-template-columns: 1fr; }
-  .exam-card { flex-direction: column; align-items: flex-start; }
+.course-sign { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-4); flex-shrink: 0; line-height: 1; }
+.course-row.open .course-sign::before { content: '\2212'; }
+.course-sign::before { content: '+'; }
+.course-body {
+  display: none; font-family: var(--serif); font-size: 0.91rem; color: var(--ink-3);
+  line-height: 1.82; padding: 0 0 0.95rem 0; max-width: 74ch;
 }
-@media (max-width: 520px) { .teaching-grid { grid-template-columns: 1fr; } }
+.course-row.open .course-body { display: block; }
+.course-code { font-family: var(--mono); font-size: 0.66rem; color: var(--accent); margin-right: 0.6rem; }
+
+.exp-role { font-family: var(--display); font-size: 1.1rem; font-weight: 600; color: var(--ink); }
+.exp-org { font-family: var(--serif); font-size: 0.93rem; font-style: italic; color: var(--ink-3); margin-top: 0.12rem; }
+.exp-ul { list-style: none; margin-top: 1rem; max-width: 80ch; }
+.exp-ul li { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-2); line-height: 1.8; padding: 0.55rem 0; border-bottom: 1px solid var(--rule); }
+.exp-ul li:first-child { border-top: 1px solid var(--rule); }
+.exp-ul li:last-child { border-bottom: none; }
+.sub-head { font-family: var(--display); font-size: 1.1rem; font-weight: 600; color: var(--ink); margin: 3rem 0 0.2rem; }
+
+.empty { font-family: var(--serif); font-size: 1rem; font-style: italic; color: var(--ink-3); padding: 2.4rem 0; border-top: 1px solid var(--rule); max-width: 60ch; }
+
+/* ---------- FOOTER ---------- */
+footer {
+  margin-left: var(--rail); padding: 1.5rem 3.6rem 2.4rem; max-width: calc(var(--rail) + 1120px);
+  border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+footer p, footer a { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-4); }
+footer a:hover { color: var(--ink-3); }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1040px) { :root { --rail: 216px; } .wrap { padding-left: 2.6rem; padding-right: 2.6rem; } footer { padding-left: 2.6rem; padding-right: 2.6rem; } }
+
+@media (max-width: 860px) {
+  :root { --rail: 0px; }
+  .rail {
+    position: sticky; top: 0; bottom: auto; width: 100%; height: auto;
+    flex-direction: column; padding: 0; border-right: none; border-bottom: 1px solid var(--rule);
+    background: rgba(252,252,250,0.97); backdrop-filter: blur(10px);
+  }
+  .rail-name { padding: 0.85rem 1.3rem 0.1rem; font-size: 1.05rem; margin-bottom: 0; }
+  .rail-role { display: none; }
+  .rail-nav {
+    display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    padding: 0 0.8rem; gap: 0;
+  }
+  .rail-nav::-webkit-scrollbar { display: none; }
+  .rail-nav li { flex: none; }
+  .rail-nav button { padding: 0.55rem 0.65rem; white-space: nowrap; font-size: 0.88rem; }
+  .rail-nav button.active::before { left: 0.65rem; right: 0.65rem; top: auto; bottom: 0; width: auto; height: 2px; }
+  .rail-foot { margin-top: 0; padding: 0.6rem 1.3rem 0.75rem; display: flex; align-items: baseline; gap: 1rem; }
+  .rail-mail { margin-top: 0; }
+  .wrap { margin-left: 0; padding: 2.4rem 1.4rem 3.5rem; }
+  footer { margin-left: 0; padding: 1.3rem 1.4rem 2rem; }
+  .hero-plot { display: none; }
+  .hero-name { font-size: 2.35rem; }
+  .colophon { grid-template-columns: 1fr; gap: 2.2rem; }
+  .record { gap: 1.2rem 0; }
+  .record-item { border-right: none; padding-right: 0; flex: 0 0 100%; }
+  .rec { grid-template-columns: 2.2rem 1fr; gap: 0.9rem; }
+  .rec-right { grid-column: 2; text-align: left; padding-top: 0.45rem; }
+  .rec-open { margin-top: 0.25rem; }
+  .entry-head { flex-direction: column; gap: 0.3rem; }
+  .res-row { grid-template-columns: 1fr; gap: 0.3rem; }
+  .proj-head { flex-direction: column; gap: 0.25rem; }
+  .math-block { font-size: 0.66rem; padding: 0.9rem 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .page.active { animation: none; }
+  .hero-plot path { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; transition: none !important; }
+}
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-top-row">
-    <span class="nav-name" onclick="showResearchLanding(); showPage('about');">Nikhil Rajan</span>
-    <a href="RESUME_NIKHIL_RAJAN .pdf" download class="nav-cv">CV &#8595;</a>
+<aside class="rail">
+  <button class="rail-name" onclick="showResearchLanding(); showPage('about');">Nikhil Rajan</button>
+  <div class="rail-role">Mathematical finance<br/>and economics</div>
+  <ul class="rail-nav">
+    <li><button onclick="showPage('about')" id="nb-about" class="active">About</button></li>
+    <li><button onclick="showResearchLanding()" id="nb-research">Research</button></li>
+    <li><button onclick="showPage('teaching')" id="nb-teaching">Teaching</button></li>
+    <li><button onclick="showPage('notes')" id="nb-notes">Notes</button></li>
+    <li><button onclick="showPage('education')" id="nb-education">Education</button></li>
+    <li><button onclick="showPage('experience')" id="nb-experience">Experience</button></li>
+    <li><button onclick="showPage('articles')" id="nb-articles">Articles</button></li>
+  </ul>
+  <div class="rail-foot">
+    <a href="RESUME_NIKHIL_RAJAN .pdf" download class="rail-cv">Curriculum vitae</a>
+    <a href="mailto:n.rajan2@lse.ac.uk" class="rail-mail">n.rajan2@lse.ac.uk</a>
   </div>
-  <div class="nav-links-wrap">
-    <ul class="nav-links">
-      <li><button onclick="showPage('about')" id="nb-about" class="active">About</button></li>
-      <li><button onclick="showResearchLanding()" id="nb-research">Research</button></li>
-      <li><button onclick="showPage('teaching')" id="nb-teaching">Teaching</button></li>
-      <li><button onclick="showPage('notes')" id="nb-notes">Notes</button></li>
-      <li><button onclick="showPage('education')" id="nb-education">Education</button></li>
-      <li><button onclick="showPage('experience')" id="nb-experience">Experience</button></li>
-      <li><button onclick="showPage('articles')" id="nb-articles">Articles</button></li>
-    </ul>
-  </div>
-</nav>
+</aside>
 
 <!-- ABOUT -->
 <div class="page active" id="page-about">
   <div class="wrap">
-    <div class="section-label">About</div>
-    <div class="about-layout">
-      <div class="sidebar">
-        <div class="sidebar-name">Nikhil Rajan</div>
-        <div class="sidebar-deg">
-          Bachelors in Mathematical Economics, <a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a> (2023 to 2026)<br/>
-          Masters in Financial Statistics; Mathematics, <a href="https://www.lse.ac.uk/" target="_blank" class="inst-link">LSE</a> (2026 to 2027)
-        </div>
+    <div class="col">
+      <header class="hero">
+        <div class="hero-plot" aria-hidden="true"><svg id="gbm" viewBox="0 0 620 210" preserveAspectRatio="none"></svg></div>
+        <h1 class="hero-name">Nikhil Rajan</h1>
+        <p class="hero-deg">
+          Bachelors in Mathematical Economics, <a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a> <em>(2023 to 2026)</em><br/>
+          Masters in Financial Statistics; Mathematics, <a href="https://www.lse.ac.uk/" target="_blank" class="inst-link">LSE</a> <em>(2026 to 2027)</em>
+        </p>
+      </header>
 
-        <div class="sidebar-highlight">
-          <div class="sidebar-highlight-top">
-            <span class="sidebar-highlight-stat">9.61</span>
-            <span class="sidebar-highlight-outof">/ 10.0 CGPA</span>
-          </div>
-          <div class="sidebar-highlight-caption">Madras School of Economics</div>
-          <div class="sidebar-highlight-badges">
-            <div class="sh-badge"><span class="sh-badge-icon dean">&#9679;</span>Dean's List every graded semester</div>
-            <div class="sh-badge"><span class="sh-badge-icon gold">&#9733;</span>University Gold Medalist &middot; Rank 1</div>
-          </div>
+      <div class="record">
+        <div class="record-item">
+          <div class="record-figure">9.61 <span>/ 10.0 CGPA</span></div>
+          <div class="record-note">Madras School of Economics</div>
         </div>
-
-        <div class="contact-block">
-          <div class="contact-row">
-            <span class="clabel">Location</span>
-            <span class="cval">Chennai, India</span>
-          </div>
-          <div class="contact-row">
-            <span class="clabel">Email</span>
-            <span class="cval"><a href="mailto:nikhilrajan0502@gmail.com">nikhilrajan0502@gmail.com</a></span>
-          </div>
-          <div class="contact-row">
-            <span class="clabel">LinkedIn</span>
-            <span class="cval"><a href="https://linkedin.com/in/nikhil-rajan-7bb37a360" target="_blank">nikhil-rajan-7bb37a360</a></span>
-          </div>
+        <div class="record-item">
+          <div class="record-line">Dean's List</div>
+          <div class="record-note">every graded semester</div>
         </div>
-        <div class="sidebar-rule"></div>
-        <div class="clabel" style="margin-bottom:0.6rem;">Research Interests</div>
-        <div>
-          <span class="chip">Stochastic Modelling</span>
-          <span class="chip">Derivative Pricing</span>
-          <span class="chip">Credit Risk</span>
-          <span class="chip">Market Microstructure</span>
-          <span class="chip">Welfare Economics</span>
+        <div class="record-item">
+          <div class="record-line"><span class="star">&#9733;</span> University Gold Medalist</div>
+          <div class="record-note">Rank 1</div>
         </div>
       </div>
 
-      <div class="about-main">
-        <div class="about-bio">
-          <p>My name is Nikhil Rajan. I recently completed my undergraduate degree in Mathematical Economics at the <a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a> and am now persuing my postgraduate degree in quant finance at the <a href="https://www.lse.ac.uk/" target="_blank" class="inst-link">London School of Economics</a>. What drew me in was seeing how ideas from measure theory, especially risk-neutral expectations, are used directly in option pricing models like Black Scholes.</p>
-          <p>Since then, I have been building and testing models around that: simulating GBM paths, pricing options with Monte Carlo, and checking how sensitive outputs are to discretisation, volatility, and parameter shifts. Most of this I have implemented in Python and C++, with particular interest in how pricing errors, convergence, and simulation variance behave under different modelling choices.</p>
-          <p>I am most interested in how model outputs change when you vary things like the time step, volatility assumptions, or the numerical scheme being used. My current projects span market microstructure (liquidity regimes as Markov chains), credit risk (reconstructing the Jarrow-Lando-Turnbull framework from first principles, and a hidden Markov model for credit stress detection), financial contagion between the S&amp;P 500 and Nifty 50, and a dynamic welfare analysis of sin taxation using Markov consumption models calibrated to NSSO data.</p>
-          <p>At <a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a>, I have held 7 teaching assistantships covering stochastic processes, game theory, time series analysis, microeconomics, multivariable calculus, and finance. I maintained a CGPA of 9.61 and was awarded the University Gold Medal for graduating Rank 1 in my batch. I have also been on the Dean's List in every graded semester.</p>
-          <p>Outside academics, I am a huge football fan, especially of Real Madrid CF, and closely follow both La Liga and the Premier League. For fun, I sometimes build small prediction models around football using recent form, player ratings, xG trends, injuries, and fixture difficulty to estimate title races and relegation probabilities over a season. I also follow cricket across all formats and end up watching almost every major sporting event at some point.</p>
+      <div class="bio">
+        <p>My name is Nikhil Rajan. I recently completed my undergraduate degree in Mathematical Economics at the <a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a> and am now persuing my postgraduate degree in quant finance at the <a href="https://www.lse.ac.uk/" target="_blank" class="inst-link">London School of Economics</a>. What drew me in was seeing how ideas from measure theory, especially risk-neutral expectations, are used directly in option pricing models like Black Scholes.</p>
+        <p>Since then, I have been building and testing models around that: simulating GBM paths, pricing options with Monte Carlo, and checking how sensitive outputs are to discretisation, volatility, and parameter shifts. Most of this I have implemented in Python and C++, with particular interest in how pricing errors, convergence, and simulation variance behave under different modelling choices.</p>
+        <p>I am most interested in how model outputs change when you vary things like the time step, volatility assumptions, or the numerical scheme being used. My current projects span market microstructure (liquidity regimes as Markov chains), credit risk (reconstructing the Jarrow-Lando-Turnbull framework from first principles, and a hidden Markov model for credit stress detection), financial contagion between the S&amp;P 500 and Nifty 50, and a dynamic welfare analysis of sin taxation using Markov consumption models calibrated to NSSO data.</p>
+        <p>At <a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a>, I have held 7 teaching assistantships covering stochastic processes, game theory, time series analysis, microeconomics, multivariable calculus, and finance. I maintained a CGPA of 9.61 and was awarded the University Gold Medal for graduating Rank 1 in my batch. I have also been on the Dean's List in every graded semester.</p>
+        <p>Outside academics, I am a huge football fan, especially of Real Madrid CF, and closely follow both La Liga and the Premier League. For fun, I sometimes build small prediction models around football using recent form, player ratings, xG trends, injuries, and fixture difficulty to estimate title races and relegation probabilities over a season. I also follow cricket across all formats and end up watching almost every major sporting event at some point.</p>
+      </div>
+
+      <div class="colophon">
+        <div>
+          <div class="colophon-hd">Contact</div>
+          <dl class="dl">
+            <dt>Location</dt><dd>Chennai, India</dd>
+            <dt>Email</dt><dd><a href="mailto:n.rajan2@lse.ac.uk">n.rajan2@lse.ac.uk</a></dd>
+            <dt>LinkedIn</dt><dd><a href="https://linkedin.com/in/nikhil-rajan-7bb37a360" target="_blank">nikhil-rajan-7bb37a360</a></dd>
+          </dl>
+        </div>
+        <div>
+          <div class="colophon-hd">Research interests</div>
+          <ul class="int-list">
+            <li>Stochastic Modelling</li>
+            <li>Derivative Pricing</li>
+            <li>Credit Risk</li>
+            <li>Market Microstructure</li>
+            <li>Welfare Economics</li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
   <footer>
     <p>Nikhil Rajan &nbsp;&middot;&nbsp; Chennai, India</p>
-    <p>nikhilrajan0502@gmail.com</p>
+    <a href="mailto:n.rajan2@lse.ac.uk">n.rajan2@lse.ac.uk</a>
   </footer>
 </div>
 
 <!-- RESEARCH -->
 <div class="page" id="page-research">
   <div class="wrap">
-    <div class="section-label">Research</div>
-    <div id="research-landing">
-      <div class="res-cat-grid">
-        <div class="res-cat-card" onclick="showResearchCat('finance')">
-          <div class="res-cat-num">I &nbsp;&middot;&nbsp; Mathematical Finance</div>
-          <div class="res-cat-title">Mathematical Finance</div>
-          <div class="res-cat-papers">
-            <div class="res-cat-paper"><span class="res-cat-paper-num">01</span>Liquidity Regimes and Optimal Execution</div>
-            <div class="res-cat-paper"><span class="res-cat-paper-num">02</span>Credit Rating Transitions and Defaultable Bonds</div>
-            <div class="res-cat-paper"><span class="res-cat-paper-num">03</span>Financial Contagion: S&amp;P 500 and Nifty 50</div>
-            <div class="res-cat-paper"><span class="res-cat-paper-num">04</span>HMM Framework for Credit Stress and Recession Warning</div>
+    <div class="col">
+      <div id="research-landing">
+        <h2 class="page-title">Research</h2>
+        <p class="page-lede">Work in mathematical finance and mathematical economics. Open any title to read the full write-up.</p>
+
+        <div class="res-group">
+          <div class="res-group-hd" onclick="showResearchCat('finance')" tabindex="0" role="button">
+            <span class="res-group-title">Mathematical Finance</span>
+            <span class="res-group-count">4 papers</span>
           </div>
-          <div class="res-cat-footer">
-            <span class="res-cat-count">4 papers</span>
-            <span class="res-cat-arrow">&#8594;</span>
+          <div class="res-row" onclick="showProject('liquidity')" tabindex="0" role="button">
+            <span class="res-row-title">Liquidity Regimes and Optimal Execution</span>
+            <span class="status status-wp">Working Paper</span>
+          </div>
+          <div class="res-row" onclick="showProject('credit')" tabindex="0" role="button">
+            <span class="res-row-title">Credit Rating Transitions and Defaultable Bonds</span>
+            <span class="status status-done">Complete</span>
+          </div>
+          <div class="res-row" onclick="showProject('contagion')" tabindex="0" role="button">
+            <span class="res-row-title">Financial Contagion: S&amp;P 500 and Nifty 50</span>
+            <span class="status status-done">Complete</span>
+          </div>
+          <div class="res-row" onclick="showProject('hmm_credit')" tabindex="0" role="button">
+            <span class="res-row-title">HMM Framework for Credit Stress and Recession Warning</span>
+            <span class="status status-wp">Working Paper</span>
           </div>
         </div>
-        <div class="res-cat-card" onclick="showResearchCat('economics')">
-          <div class="res-cat-num">II &nbsp;&middot;&nbsp; Mathematical Economics</div>
-          <div class="res-cat-title">Mathematical Economics</div>
-          <div class="res-cat-papers">
-            <div class="res-cat-paper"><span class="res-cat-paper-num">01</span>Optimal Sin Taxation under Stochastic Consumption</div>
-            <div class="res-cat-paper"><span class="res-cat-paper-num">02</span>Labour Market Effects of MGNREGA</div>
+
+        <div class="res-group">
+          <div class="res-group-hd" onclick="showResearchCat('economics')" tabindex="0" role="button">
+            <span class="res-group-title">Mathematical Economics</span>
+            <span class="res-group-count">2 papers</span>
           </div>
-          <div class="res-cat-footer">
-            <span class="res-cat-count">2 papers</span>
-            <span class="res-cat-arrow">&#8594;</span>
+          <div class="res-row" onclick="showProject('sintax')" tabindex="0" role="button">
+            <span class="res-row-title">Optimal Sin Taxation under Stochastic Consumption</span>
+            <span class="status status-done">Complete</span>
+          </div>
+          <div class="res-row" onclick="showProject('mgnrega')" tabindex="0" role="button">
+            <span class="res-row-title">Labour Market Effects of MGNREGA</span>
+            <span class="status status-done">Complete</span>
           </div>
         </div>
       </div>
-    </div>
-    <div id="research-cat-view" style="display:none;">
-      <button class="d-back" onclick="showResearchLanding()">&#8592; All Research</button>
-      <div id="res-cat-label-display"></div>
-      <div class="proj-list" id="research-cat-projects"></div>
+
+      <div id="research-cat-view" style="display:none;">
+        <button class="back" onclick="showResearchLanding()">&#8592; All research</button>
+        <div id="res-cat-label-display"></div>
+        <div id="research-cat-projects"></div>
+      </div>
     </div>
   </div>
-  <footer><p>Nikhil Rajan</p><p>nikhilrajan0502@gmail.com</p></footer>
+  <footer><p>Nikhil Rajan</p><a href="mailto:n.rajan2@lse.ac.uk">n.rajan2@lse.ac.uk</a></footer>
 </div>
 
 <!-- PROJECT DETAIL -->
 <div class="page" id="page-project-detail">
   <div class="wrap">
-    <button class="d-back" onclick="backFromProject()">&#8592; <span id="proj-back-label">Research</span></button>
-    <div id="project-detail-content"></div>
+    <div class="col">
+      <button class="back" onclick="backFromProject()">&#8592; <span id="proj-back-label">Research</span></button>
+      <div id="project-detail-content"></div>
+    </div>
   </div>
+  <footer><p>Nikhil Rajan</p><a href="mailto:n.rajan2@lse.ac.uk">n.rajan2@lse.ac.uk</a></footer>
 </div>
 
 <!-- TEACHING -->
 <div class="page" id="page-teaching">
   <div class="wrap">
-    <div class="section-label">Teaching</div>
-    <p class="teaching-intro">Seven teaching assistantships at <a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a>, spanning mathematics, probability, economics, and finance. Click any card to read what was covered.</p>
-    <div class="teaching-grid">
+    <div class="col">
+      <h2 class="page-title">Teaching</h2>
+      <p class="page-lede">Seven teaching assistantships at <a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a>, spanning mathematics, probability, economics, and finance. Open any course to read what was covered.</p>
 
-      <div class="ta-card" onclick="showTeaching('mitx25')">
-        <div class="ta-card-icon ta-bg-5"><span class="ta-icon-text">&#x221E;</span></div>
-        <div class="ta-card-body">
-          <div class="ta-card-sem">May to Jul 2025</div>
-          <div class="ta-card-title">MITx MicroMasters: Foundations of Modern Finance I &amp; II</div>
-          <div class="ta-card-inst">TECO Summer Course</div>
-          <div class="ta-card-prof">Co-TA with Anagha &middot; 8 Assignments + Final Exam</div>
-          <div class="ta-card-cta">Topics, Assignments &amp; Notes &#8594;</div>
-        </div>
+      <div class="rec" onclick="showTeaching('mitx25')" tabindex="0" role="button">
+        <span class="rec-glyph">&#x221E;</span>
+        <span>
+          <span class="rec-title">MITx MicroMasters: Foundations of Modern Finance I &amp; II</span>
+          <span class="rec-sub">TECO Summer Course</span>
+          <span class="rec-prof">Co-TA with Anagha &middot; 8 Assignments + Final Exam</span>
+        </span>
+        <span class="rec-right"><span class="rec-term">May to Jul 2025</span><span class="rec-open">Open course</span></span>
       </div>
 
-      <div class="ta-card" onclick="showTeaching('sp25')">
-        <div class="ta-card-icon ta-bg-3"><span class="ta-icon-text">&#x03A9;</span></div>
-        <div class="ta-card-body">
-          <div class="ta-card-sem">Sem V &middot; Jul to Nov 2025</div>
-          <div class="ta-card-title">Stochastic Processes</div>
-          <div class="ta-card-inst">Madras School of Economics</div>
-          <div class="ta-card-prof">Under <a href="https://srikanthbpai.github.io/" target="_blank" onclick="event.stopPropagation();" style="color:var(--accent);text-decoration:none;border-bottom:1.5px solid #d4e0f5;">Prof. Srikant B. Pai</a></div>
-          <div class="ta-card-cta">View Topics &#8594;</div>
-        </div>
+      <div class="rec" onclick="showTeaching('sp25')" tabindex="0" role="button">
+        <span class="rec-glyph">&#x03A9;</span>
+        <span>
+          <span class="rec-title">Stochastic Processes</span>
+          <span class="rec-sub">Madras School of Economics</span>
+          <span class="rec-prof">Under <a href="https://srikanthbpai.github.io/" target="_blank" onclick="event.stopPropagation();">Prof. Srikant B. Pai</a></span>
+        </span>
+        <span class="rec-right"><span class="rec-term">Sem V &middot; Jul to Nov 2025</span><span class="rec-open">Open course</span></span>
       </div>
 
-      <div class="ta-card" onclick="showTeaching('ts26')">
-        <div class="ta-card-icon ta-bg-1"><span class="ta-icon-text">&#x223F;</span></div>
-        <div class="ta-card-body">
-          <div class="ta-card-sem">Sem VI &middot; Jan 2026 to Present</div>
-          <div class="ta-card-title">Time Series Analysis</div>
-          <div class="ta-card-inst">Madras School of Economics</div>
-          <div class="ta-card-prof">Under <a href="https://srikanthbpai.github.io/" target="_blank" onclick="event.stopPropagation();" style="color:var(--accent);text-decoration:none;border-bottom:1.5px solid #d4e0f5;">Prof. Srikant B. Pai</a></div>
-          <div class="ta-card-cta">View Topics &#8594;</div>
-        </div>
+      <div class="rec" onclick="showTeaching('ts26')" tabindex="0" role="button">
+        <span class="rec-glyph">&#x223F;</span>
+        <span>
+          <span class="rec-title">Time Series Analysis</span>
+          <span class="rec-sub">Madras School of Economics</span>
+          <span class="rec-prof">Under <a href="https://srikanthbpai.github.io/" target="_blank" onclick="event.stopPropagation();">Prof. Srikant B. Pai</a></span>
+        </span>
+        <span class="rec-right"><span class="rec-term">Sem VI &middot; Jan 2026 to Present</span><span class="rec-open">Open course</span></span>
       </div>
 
-      <div class="ta-card" onclick="showTeaching('gt26')">
-        <div class="ta-card-icon ta-bg-2"><span class="ta-icon-text">&#x25B7;&#x25B7;</span></div>
-        <div class="ta-card-body">
-          <div class="ta-card-sem">Sem VI &middot; Jan 2026 to Present</div>
-          <div class="ta-card-title">Game Theory</div>
-          <div class="ta-card-inst">Madras School of Economics (2nd Year)</div>
-          <div class="ta-card-prof">Under Prof. Aritri Chakravarty</div>
-          <div class="ta-card-cta">View Topics &#8594;</div>
-        </div>
+      <div class="rec" onclick="showTeaching('gt26')" tabindex="0" role="button">
+        <span class="rec-glyph">&#x25B7;</span>
+        <span>
+          <span class="rec-title">Game Theory</span>
+          <span class="rec-sub">Madras School of Economics (2nd Year)</span>
+          <span class="rec-prof">Under Prof. Aritri Chakravarty</span>
+        </span>
+        <span class="rec-right"><span class="rec-term">Sem VI &middot; Jan 2026 to Present</span><span class="rec-open">Open course</span></span>
       </div>
 
-      <div class="ta-card" onclick="showTeaching('micro25')">
-        <div class="ta-card-icon ta-bg-4"><span class="ta-icon-text">&#x03C3;</span></div>
-        <div class="ta-card-body">
-          <div class="ta-card-sem">Sem V &middot; Jul to Nov 2025</div>
-          <div class="ta-card-title">Intermediate Microeconomics</div>
-          <div class="ta-card-inst">Madras School of Economics (2nd Year)</div>
-          <div class="ta-card-prof">Under Prof. Aritri Chakravarty</div>
-          <div class="ta-card-cta">View Topics &#8594;</div>
-        </div>
+      <div class="rec" onclick="showTeaching('micro25')" tabindex="0" role="button">
+        <span class="rec-glyph">&#x03C3;</span>
+        <span>
+          <span class="rec-title">Intermediate Microeconomics</span>
+          <span class="rec-sub">Madras School of Economics (2nd Year)</span>
+          <span class="rec-prof">Under Prof. Aritri Chakravarty</span>
+        </span>
+        <span class="rec-right"><span class="rec-term">Sem V &middot; Jul to Nov 2025</span><span class="rec-open">Open course</span></span>
       </div>
 
-      <div class="ta-card" onclick="showTeaching('calc25')">
-        <div class="ta-card-icon ta-bg-6"><span class="ta-icon-text">&#x2207;</span></div>
-        <div class="ta-card-body">
-          <div class="ta-card-sem">Sem IV &middot; Jan to Apr 2025</div>
-          <div class="ta-card-title">Multivariable Calculus</div>
-          <div class="ta-card-inst">Madras School of Economics (2nd Year)</div>
-          <div class="ta-card-prof">Under Dr. Poorna Pushkala Narayanan</div>
-          <div class="ta-card-cta">View Topics &#8594;</div>
-        </div>
+      <div class="rec" onclick="showTeaching('calc25')" tabindex="0" role="button">
+        <span class="rec-glyph">&#x2207;</span>
+        <span>
+          <span class="rec-title">Multivariable Calculus</span>
+          <span class="rec-sub">Madras School of Economics (2nd Year)</span>
+          <span class="rec-prof">Under Dr. Poorna Pushkala Narayanan</span>
+        </span>
+        <span class="rec-right"><span class="rec-term">Sem IV &middot; Jan to Apr 2025</span><span class="rec-open">Open course</span></span>
       </div>
 
-      <div class="ta-card" onclick="showTeaching('calc24')">
-        <div class="ta-card-icon ta-bg-7"><span class="ta-icon-text">&#x222B;</span></div>
-        <div class="ta-card-body">
-          <div class="ta-card-sem">Sem II &middot; Mar 2024</div>
-          <div class="ta-card-title">Multivariable Calculus (Peer)</div>
-          <div class="ta-card-inst">Madras School of Economics (1st Year, Peer)</div>
-          <div class="ta-card-prof">Under Dr. Poorna Pushkala Narayanan</div>
-          <div class="ta-card-cta">View Topics &#8594;</div>
-        </div>
+      <div class="rec" onclick="showTeaching('calc24')" tabindex="0" role="button">
+        <span class="rec-glyph">&#x222B;</span>
+        <span>
+          <span class="rec-title">Multivariable Calculus (Peer)</span>
+          <span class="rec-sub">Madras School of Economics (1st Year, Peer)</span>
+          <span class="rec-prof">Under Dr. Poorna Pushkala Narayanan</span>
+        </span>
+        <span class="rec-right"><span class="rec-term">Sem II &middot; Mar 2024</span><span class="rec-open">Open course</span></span>
       </div>
 
     </div>
   </div>
-  <footer><p>Nikhil Rajan</p><p>nikhilrajan0502@gmail.com</p></footer>
+  <footer><p>Nikhil Rajan</p><a href="mailto:n.rajan2@lse.ac.uk">n.rajan2@lse.ac.uk</a></footer>
 </div>
 
 <!-- TEACHING DETAIL -->
 <div class="page" id="page-teaching-detail">
   <div class="wrap">
-    <button class="d-back" onclick="showPage('teaching')">&#8592; Back to Teaching</button>
-    <div id="teaching-detail-content"></div>
+    <div class="col">
+      <button class="back" onclick="showPage('teaching')">&#8592; Back to teaching</button>
+      <div id="teaching-detail-content"></div>
+    </div>
   </div>
+  <footer><p>Nikhil Rajan</p><a href="mailto:n.rajan2@lse.ac.uk">n.rajan2@lse.ac.uk</a></footer>
 </div>
 
 <!-- NOTES -->
 <div class="page" id="page-notes">
   <div class="wrap">
-    <div class="section-label">Notes</div>
-    <p class="notes-page-intro">Study notes and reference materials prepared during teaching assistantships and independent study. All materials are shared as-is and should be cross-checked against standard references.</p>
-    <div class="notes-page-grid">
+    <div class="col">
+      <h2 class="page-title">Notes</h2>
+      <p class="page-lede">Study notes and reference materials prepared during teaching assistantships and independent study. All materials are shared as-is and should be cross-checked against standard references.</p>
 
-      <div class="notes-page-card">
-        <div class="notes-page-card-header">
-          <div class="notes-page-icon notes-page-icon-purple">&#128218;</div>
-          <div class="notes-page-meta">
-            <div class="notes-page-course-tag">Finance &middot; MITx MicroMasters &middot; TECO Summer 2025</div>
-            <div class="notes-page-title">Markowitz Portfolio Theory</div>
-            <div class="notes-page-sub">Mean-variance optimisation from first principles, with worked examples</div>
-          </div>
+      <div class="note-card">
+        <div class="note-head">
+          <div class="note-src">Finance &middot; MITx MicroMasters &middot; TECO Summer 2025</div>
+          <div class="note-title">Markowitz Portfolio Theory</div>
+          <div class="note-sub">Mean-variance optimisation from first principles, with worked examples</div>
         </div>
-        <div class="notes-page-card-body">
-          <div class="notes-page-desc">These notes cover Markowitz Portfolio Theory from first principles: the mean-variance framework, construction of the efficient frontier, the minimum variance portfolio, and the two-fund separation theorem. Worked numerical examples are included alongside the theory. Prepared as a supplementary resource for students in the TECO Summer course on Foundations of Modern Finance.</div>
-          <div class="notes-page-warning">
-            <div style="font-size:0.85rem;flex-shrink:0;padding-top:0.1rem;">&#9888;</div>
-            <div class="notes-page-warning-text">These notes have not been formally proofread and may contain minor errors. They are shared as a study aid and should be cross-checked against standard references (Markowitz 1952; Bodie, Kane, Marcus).</div>
+        <div class="note-body">
+          <div class="note-desc">These notes cover Markowitz Portfolio Theory from first principles: the mean-variance framework, construction of the efficient frontier, the minimum variance portfolio, and the two-fund separation theorem. Worked numerical examples are included alongside the theory. Prepared as a supplementary resource for students in the TECO Summer course on Foundations of Modern Finance.</div>
+          <div class="note-warn">
+            <div style="color:var(--ochre);flex-shrink:0;">&#9888;</div>
+            <div class="note-warn-t">These notes have not been formally proofread and may contain minor errors. They are shared as a study aid and should be cross-checked against standard references (Markowitz 1952; Bodie, Kane, Marcus).</div>
           </div>
-          <div class="notes-page-chips">
-            <span class="notes-page-chip">Mean-Variance Optimisation</span>
-            <span class="notes-page-chip">Efficient Frontier</span>
-            <span class="notes-page-chip">Minimum Variance Portfolio</span>
-            <span class="notes-page-chip">Two-Fund Separation</span>
-            <span class="notes-page-chip">Worked Examples</span>
+          <div class="note-chips">
+            <span class="note-chip">Mean-Variance Optimisation</span>
+            <span class="note-chip">Efficient Frontier</span>
+            <span class="note-chip">Minimum Variance Portfolio</span>
+            <span class="note-chip">Two-Fund Separation</span>
+            <span class="note-chip">Worked Examples</span>
           </div>
-          <div class="notes-page-footer">
-            <div class="notes-page-file">&#128196; markowitz_portfolio_theory.pdf</div>
-            <a href="markowitz_portfolio_theory%20(1).pdf" target="_blank" class="notes-page-dl-btn">&#8595; Open Notes</a>
+          <div class="note-foot">
+            <div class="note-file">markowitz_portfolio_theory.pdf</div>
+            <a href="markowitz_portfolio_theory%20(1).pdf" target="_blank" class="note-btn">Open notes</a>
           </div>
         </div>
       </div>
 
     </div>
   </div>
-  <footer><p>Nikhil Rajan</p><p>nikhilrajan0502@gmail.com</p></footer>
+  <footer><p>Nikhil Rajan</p><a href="mailto:n.rajan2@lse.ac.uk">n.rajan2@lse.ac.uk</a></footer>
 </div>
 
 <!-- EDUCATION -->
 <div class="page" id="page-education">
   <div class="wrap">
-    <div class="section-label">Education</div>
-    <div class="edu-entry">
-      <div class="edu-header">
-        <div>
-          <div class="edu-school"><a href="https://www.lse.ac.uk/" target="_blank" class="inst-link">London School of Economics and Political Science</a></div>
-          <div class="edu-deg">MSc Financial Statistics &amp; Mathematics</div>
-        </div>
-        <div class="edu-meta">London, United Kingdom &middot; 2026 to 2027</div>
-      </div>
-      <div class="course-block">
-        <div class="course-row" onclick="this.classList.toggle('open')">
-          <div class="course-hdr"><span class="course-nm"><span class="course-code">ST409</span>Stochastic Processes</span><span class="course-arr">&#9658;</span></div>
-          <div class="course-body">Martingales and the optional stopping theorem. Poisson and compound Poisson processes. Brownian motion and stochastic calculus, building up to stochastic differential equations, with applications throughout in finance and insurance.</div>
-        </div>
-        <div class="course-row" onclick="this.classList.toggle('open')">
-          <div class="course-hdr"><span class="course-nm"><span class="course-code">FM413</span>Fixed Income</span><span class="course-arr">&#9658;</span></div>
-          <div class="course-body">Yield, duration, and convexity. Curve fitting, bootstrapping, and duration-based hedging. Government and corporate bonds, including convertible, callable, and puttable structures. Caps, floors, collars, swaps, and swaptions, with an introduction to mortgage-backed securities and credit risk transfer.</div>
-        </div>
-        <div class="course-row" onclick="this.classList.toggle('open')">
-          <div class="course-hdr"><span class="course-nm"><span class="course-code">MA415</span>The Mathematics of the Black and Scholes Theory</span><span class="course-arr">&#9658;</span></div>
-          <div class="course-body">Replication and martingale measures in the binomial tree model, and the passage to continuous time. Risk-neutral valuation, the Black-Scholes PDE, and pricing formulae for European calls and puts. PDE methods for hedging, implied volatility, stochastic volatility models, and foreign exchange options.</div>
-        </div>
-        <div class="course-row" onclick="this.classList.toggle('open')">
-          <div class="course-hdr"><span class="course-nm"><span class="course-code">MA416</span>The Foundations of Interest Rate and Credit Risk Theory</span><span class="course-arr">&#9658;</span></div>
-          <div class="course-body">Multi-dimensional Black-Scholes theory with stochastic market data. Discount bond dynamics through short-rate models and the market price of risk, and through the Heath-Jarrow-Morton framework. Interest rate market models and the foundations of credit risk.</div>
-        </div>
-        <div class="course-row" onclick="this.classList.toggle('open')">
-          <div class="course-hdr"><span class="course-nm"><span class="course-code">ST463</span>Stochastic Simulation, Training and Calibration</span><span class="course-arr">&#9658;</span></div>
-          <div class="course-body">Monte Carlo methods and simulation of stochastic processes, including generative adversarial networks for risk management. Generalised linear models bridging into deep neural networks. Calibration of statistical and machine learning models, closing with reinforcement learning applied to hedging and swing option pricing.</div>
-        </div>
-        <div class="course-row" onclick="this.classList.toggle('open')">
-          <div class="course-hdr"><span class="course-nm"><span class="course-code">ST436</span>Financial Statistics I</span><span class="course-arr">&#9658;</span></div>
-          <div class="course-body">Financial time series in R, low- and high-frequency. ARCH-type volatility models, Markowitz portfolio theory, and the CAPM. Machine learning for financial forecasting, Value at Risk, and simple trading strategies, working with real market data throughout.</div>
-        </div>
-        <div class="course-row" onclick="this.classList.toggle('open')">
-          <div class="course-hdr"><span class="course-nm"><span class="course-code">ST458</span>Financial Statistics II</span><span class="course-arr">&#9658;</span></div>
-          <div class="course-body">Decision trees, random forests, and gradient boosting. Neural networks and LSTMs applied to financial data. Factor models, cointegration, and Granger causality. Portfolio allocation and exposure constraints in high-frequency data, consolidated through case studies.</div>
-        </div>
-        <div class="course-row" onclick="this.classList.toggle('open')">
-          <div class="course-hdr"><span class="course-nm"><span class="course-code">ST460</span>Statistical Inference: Principles and Methods</span><span class="course-arr">&#9658;</span></div>
-          <div class="course-body">Foundational principles and methods in probability and statistics, including likelihood-based inference. Linear regression analysis with real data in R, with simulation and hands-on estimation built in throughout.</div>
-        </div>
-      </div>
-    </div>
+    <div class="col">
+      <h2 class="page-title">Education</h2>
+      <p class="page-lede tight">Degrees and coursework. Open a course to see what it covers.</p>
 
-    <div class="edu-entry">
-      <div class="edu-header">
-        <div>
-          <div class="edu-school"><a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a></div>
-          <div class="edu-deg">BA (Honours) Economics</div>
+      <div class="entry">
+        <div class="entry-head">
+          <div>
+            <div class="entry-school"><a href="https://www.lse.ac.uk/" target="_blank" class="inst-link">London School of Economics and Political Science</a></div>
+            <div class="entry-deg">MSc Financial Statistics</div>
+          </div>
+          <div class="entry-meta">London, United Kingdom &middot; 2026 to 2027</div>
         </div>
-        <div class="edu-meta">Chennai, India &middot; 2023 to 2026</div>
+        <div class="course-block">
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
+            <div class="course-hdr"><span class="course-nm"><span class="course-code">ST409</span>Stochastic Processes</span><span class="course-sign"></span></div>
+            <div class="course-body">Martingales and the optional stopping theorem. Poisson and compound Poisson processes. Brownian motion and stochastic calculus, building up to stochastic differential equations, with applications throughout in finance and insurance.</div>
+          </div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
+            <div class="course-hdr"><span class="course-nm"><span class="course-code">FM413</span>Fixed Income</span><span class="course-sign"></span></div>
+            <div class="course-body">Yield, duration, and convexity. Curve fitting, bootstrapping, and duration-based hedging. Government and corporate bonds, including convertible, callable, and puttable structures. Caps, floors, collars, swaps, and swaptions, with an introduction to mortgage-backed securities and credit risk transfer.</div>
+          </div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
+            <div class="course-hdr"><span class="course-nm"><span class="course-code">MA415</span>The Mathematics of the Black and Scholes Theory</span><span class="course-sign"></span></div>
+            <div class="course-body">Replication and martingale measures in the binomial tree model, and the passage to continuous time. Risk-neutral valuation, the Black-Scholes PDE, and pricing formulae for European calls and puts. PDE methods for hedging, implied volatility, stochastic volatility models, and foreign exchange options.</div>
+          </div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
+            <div class="course-hdr"><span class="course-nm"><span class="course-code">MA416</span>The Foundations of Interest Rate and Credit Risk Theory</span><span class="course-sign"></span></div>
+            <div class="course-body">Multi-dimensional Black-Scholes theory with stochastic market data. Discount bond dynamics through short-rate models and the market price of risk, and through the Heath-Jarrow-Morton framework. Interest rate market models and the foundations of credit risk.</div>
+          </div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
+            <div class="course-hdr"><span class="course-nm"><span class="course-code">ST463</span>Stochastic Simulation, Training and Calibration</span><span class="course-sign"></span></div>
+            <div class="course-body">Monte Carlo methods and simulation of stochastic processes, including generative adversarial networks for risk management. Generalised linear models bridging into deep neural networks. Calibration of statistical and machine learning models, closing with reinforcement learning applied to hedging and swing option pricing.</div>
+          </div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
+            <div class="course-hdr"><span class="course-nm"><span class="course-code">ST436</span>Financial Statistics I</span><span class="course-sign"></span></div>
+            <div class="course-body">Financial time series in R, low- and high-frequency. ARCH-type volatility models, Markowitz portfolio theory, and the CAPM. Machine learning for financial forecasting, Value at Risk, and simple trading strategies, working with real market data throughout.</div>
+          </div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
+            <div class="course-hdr"><span class="course-nm"><span class="course-code">ST458</span>Financial Statistics II</span><span class="course-sign"></span></div>
+            <div class="course-body">Decision trees, random forests, and gradient boosting. Neural networks and LSTMs applied to financial data. Factor models, cointegration, and Granger causality. Portfolio allocation and exposure constraints in high-frequency data, consolidated through case studies.</div>
+          </div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
+            <div class="course-hdr"><span class="course-nm"><span class="course-code">ST460</span>Statistical Inference: Principles and Methods</span><span class="course-sign"></span></div>
+            <div class="course-body">Foundational principles and methods in probability and statistics, including likelihood-based inference. Linear regression analysis with real data in R, with simulation and hands-on estimation built in throughout.</div>
+          </div>
+        </div>
       </div>
-      <div class="edu-note">
-        <strong>CGPA: 9.61 / 10.0</strong> &nbsp;&middot;&nbsp; Dean's List: Semester II (9.9), Semester III (10.0), Semester IV (9.77), Semester V (9.50), Semester VI (9.50)
-      </div>
-      <div class="course-block">
-        <div class="course-row" onclick="this.classList.toggle('open')"><div class="course-hdr"><span class="course-nm">Stochastic Processes</span><span class="course-arr">&#9658;</span></div><div class="course-body">Markov chains in discrete and continuous time: classification of states, stationary distributions. Martingales. BM, Poisson processes. First-passage times and hitting probabilities.</div></div>
-        <div class="course-row" onclick="this.classList.toggle('open')"><div class="course-hdr"><span class="course-nm">Real Analysis</span><span class="course-arr">&#9658;</span></div><div class="course-body">Sequences, series, continuity, differentiability, Riemann integration. Metric spaces. Convergence theorems.</div></div>
-        <div class="course-row" onclick="this.classList.toggle('open')"><div class="course-hdr"><span class="course-nm">Advanced Differential Equations</span><span class="course-arr">&#9658;</span></div><div class="course-body">ODEs and PDEs, BVPs, phase-plane analysis, Fourier methods. Applications to continuous-time financial and economic models.</div></div>
-        <div class="course-row" onclick="this.classList.toggle('open')"><div class="course-hdr"><span class="course-nm">Linear Algebra</span><span class="course-arr">&#9658;</span></div><div class="course-body">Vector spaces, eigendecomposition, matrix factorisation, linear transformations. Transition matrices, PCA, factor models.</div></div>
-        <div class="course-row" onclick="this.classList.toggle('open')"><div class="course-hdr"><span class="course-nm">Time Series Analysis</span><span class="course-arr">&#9658;</span></div><div class="course-body">Hamilton's TSA. ARMA, ARIMA, VAR. Unit roots and cointegration, spectral methods.</div></div>
-        <div class="course-row" onclick="this.classList.toggle('open')"><div class="course-hdr"><span class="course-nm">Econometrics</span><span class="course-arr">&#9658;</span></div><div class="course-body">OLS, GLS, IV, panel data, treatment effects. Causal inference. Stata.</div></div>
-        <div class="course-row" onclick="this.classList.toggle('open')"><div class="course-hdr"><span class="course-nm">Game Theory</span><span class="course-arr">&#9658;</span></div><div class="course-body">Normal and extensive form games. Nash equilibrium, SPNE. Mechanism design, auctions. Applications to IO and policy.</div></div>
-        <div class="course-row" onclick="this.classList.toggle('open')"><div class="course-hdr"><span class="course-nm">Money and Banking</span><span class="course-arr">&#9658;</span></div><div class="course-body">Monetary theory, central banking, credit creation, interest rates, policy transmission.</div></div>
-        <div class="course-row" onclick="this.classList.toggle('open')"><div class="course-hdr"><span class="course-nm">Statistics</span><span class="course-arr">&#9658;</span></div><div class="course-body">Probability, distributions, hypothesis testing, MLE, Bayesian inference, statistical computing.</div></div>
-        <div class="course-row" onclick="this.classList.toggle('open')"><div class="course-hdr"><span class="course-nm">Data Science (Python and MATLAB)</span><span class="course-arr">&#9658;</span></div><div class="course-body">Data wrangling, visualisation, numerical optimisation, simulation, intro ML. Python and MATLAB.</div></div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div>
+            <div class="entry-school"><a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a></div>
+            <div class="entry-deg">BA (Honours) Economics</div>
+          </div>
+          <div class="entry-meta">Chennai, India &middot; 2023 to 2026</div>
+        </div>
+        <div class="entry-note">
+          <strong>CGPA: 9.61 / 10.0</strong> &nbsp;&middot;&nbsp; Dean's List: Semester II (9.9), Semester III (10.0), Semester IV (9.77), Semester V (9.50), Semester VI (9.50)
+        </div>
+        <div class="course-block">
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Stochastic Processes</span><span class="course-sign"></span></div><div class="course-body">Markov chains in discrete and continuous time: classification of states, stationary distributions. Martingales. BM, Poisson processes. First-passage times and hitting probabilities.</div></div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Real Analysis</span><span class="course-sign"></span></div><div class="course-body">Sequences, series, continuity, differentiability, Riemann integration. Metric spaces. Convergence theorems.</div></div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Advanced Differential Equations</span><span class="course-sign"></span></div><div class="course-body">ODEs and PDEs, BVPs, phase-plane analysis, Fourier methods. Applications to continuous-time financial and economic models.</div></div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Linear Algebra</span><span class="course-sign"></span></div><div class="course-body">Vector spaces, eigendecomposition, matrix factorisation, linear transformations. Transition matrices, PCA, factor models.</div></div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Time Series Analysis</span><span class="course-sign"></span></div><div class="course-body">Hamilton's TSA. ARMA, ARIMA, VAR. Unit roots and cointegration, spectral methods.</div></div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Econometrics</span><span class="course-sign"></span></div><div class="course-body">OLS, GLS, IV, panel data, treatment effects. Causal inference. Stata.</div></div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Game Theory</span><span class="course-sign"></span></div><div class="course-body">Normal and extensive form games. Nash equilibrium, SPNE. Mechanism design, auctions. Applications to IO and policy.</div></div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Money and Banking</span><span class="course-sign"></span></div><div class="course-body">Monetary theory, central banking, credit creation, interest rates, policy transmission.</div></div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Statistics</span><span class="course-sign"></span></div><div class="course-body">Probability, distributions, hypothesis testing, MLE, Bayesian inference, statistical computing.</div></div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Data Science (Python and MATLAB)</span><span class="course-sign"></span></div><div class="course-body">Data wrangling, visualisation, numerical optimisation, simulation, intro ML. Python and MATLAB.</div></div>
+        </div>
       </div>
     </div>
   </div>
-  <footer><p>Nikhil Rajan</p><p>nikhilrajan0502@gmail.com</p></footer>
+  <footer><p>Nikhil Rajan</p><a href="mailto:n.rajan2@lse.ac.uk">n.rajan2@lse.ac.uk</a></footer>
 </div>
 
 <!-- EXPERIENCE -->
 <div class="page" id="page-experience">
   <div class="wrap">
-    <div class="section-label">Experience</div>
-    <div class="exp-entry">
-      <div class="exp-header">
-        <div>
-          <div class="exp-role">Research Intern</div>
-          <div class="exp-org"><a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a> &nbsp;&middot;&nbsp; Advisor: Dr. Naveen Srinivasan</div>
+    <div class="col">
+      <h2 class="page-title">Experience</h2>
+      <p class="page-lede tight">Research and industry work.</p>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div>
+            <div class="exp-role">Research Intern</div>
+            <div class="exp-org"><a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a> &nbsp;&middot;&nbsp; Advisor: Dr. Naveen Srinivasan</div>
+          </div>
+          <div class="entry-meta">December 2024 to January 2025</div>
         </div>
-        <div class="exp-date">December 2024 to January 2025</div>
+        <ul class="exp-ul">
+          <li>Studied horizontal innovation and knowledge spillovers within the Romer endogenous growth model using analytical and numerical methods, focusing on long-run productivity implications of innovation intensity.</li>
+          <li>Developed micro-founded models and ran calibrated simulations to examine how the rate and direction of knowledge accumulation shapes steady-state growth trajectories.</li>
+        </ul>
       </div>
-      <ul class="exp-ul">
-        <li>Studied horizontal innovation and knowledge spillovers within the Romer endogenous growth model using analytical and numerical methods, focusing on long-run productivity implications of innovation intensity.</li>
-        <li>Developed micro-founded models and ran calibrated simulations to examine how the rate and direction of knowledge accumulation shapes steady-state growth trajectories.</li>
-      </ul>
-    </div>
-    <div class="exp-entry">
-      <div class="exp-header">
-        <div>
-          <div class="exp-role">Finance Intern</div>
-          <div class="exp-org">V MACS Yosaney &nbsp;&middot;&nbsp; Chennai, India</div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div>
+            <div class="exp-role">Finance Intern</div>
+            <div class="exp-org">V MACS Yosaney &nbsp;&middot;&nbsp; Chennai, India</div>
+          </div>
+          <div class="entry-meta">May 2024 to July 2024</div>
         </div>
-        <div class="exp-date">May 2024 to July 2024</div>
+        <ul class="exp-ul">
+          <li>Built an automated tool to generate profit and loss statements, balance sheets, and supporting schedules, improving reporting speed and accuracy across client accounts.</li>
+          <li>Analysed financial statements for MSMEs and evaluated credit products from banks and NBFCs to map documentation requirements, risk parameters, and eligibility thresholds.</li>
+          <li>Worked directly with clients on financial reports and automation projects.</li>
+        </ul>
       </div>
-      <ul class="exp-ul">
-        <li>Built an automated tool to generate profit and loss statements, balance sheets, and supporting schedules, improving reporting speed and accuracy across client accounts.</li>
-        <li>Analysed financial statements for MSMEs and evaluated credit products from banks and NBFCs to map documentation requirements, risk parameters, and eligibility thresholds.</li>
-        <li>Worked directly with clients on financial reports and automation projects.</li>
-      </ul>
-    </div>
-    <div class="sub-label">Other</div>
-    <div class="exp-entry" style="border-top:1px solid var(--border);">
-      <div class="exp-header">
-        <div>
-          <div class="exp-role">App Development</div>
-          <div class="exp-org">Eminence Class Recognition</div>
+
+      <div class="sub-head">Other</div>
+      <div class="entry" style="border-top:1px solid var(--rule);">
+        <div class="entry-head">
+          <div>
+            <div class="exp-role">App Development</div>
+            <div class="exp-org">Eminence Class Recognition</div>
+          </div>
         </div>
+        <ul class="exp-ul">
+          <li>Developed an education-tech application under India's first project-based learning programme, run jointly by IIT Madras, Rhapsody Plus, Intellect, and UC San Diego.</li>
+        </ul>
       </div>
-      <ul class="exp-ul">
-        <li>Developed an education-tech application under India's first project-based learning programme, run jointly by IIT Madras, Rhapsody Plus, Intellect, and UC San Diego.</li>
-      </ul>
     </div>
   </div>
-  <footer><p>Nikhil Rajan</p><p>nikhilrajan0502@gmail.com</p></footer>
+  <footer><p>Nikhil Rajan</p><a href="mailto:n.rajan2@lse.ac.uk">n.rajan2@lse.ac.uk</a></footer>
 </div>
 
 <!-- ARTICLES -->
 <div class="page" id="page-articles">
   <div class="wrap">
-    <div class="section-label">Articles</div>
-    <p style="font-size:1rem;color:var(--text-dim);margin-bottom:0.6rem;font-style:italic;font-family:var(--serif);">Notes and short pieces on topics worth writing about.</p>
-    <div class="articles-empty">I am currently working on a few pieces and will upload them here soon.</div>
+    <div class="col">
+      <h2 class="page-title">Articles</h2>
+      <p class="page-lede tight">Notes and short pieces on topics worth writing about.</p>
+      <div class="empty">I am currently working on a few pieces and will upload them here soon.</div>
+    </div>
   </div>
-  <footer><p>Nikhil Rajan</p><p>nikhilrajan0502@gmail.com</p></footer>
+  <footer><p>Nikhil Rajan</p><a href="mailto:n.rajan2@lse.ac.uk">n.rajan2@lse.ac.uk</a></footer>
 </div>
 
 <script>
@@ -1413,7 +1386,7 @@ function showPage(id) {
   document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
   document.getElementById('page-' + id).classList.add('active');
   window.scrollTo(0, 0);
-  document.querySelectorAll('.nav-links button').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelectorAll('.rail-nav button').forEach(function(b){ b.classList.remove('active'); });
   var nb = document.getElementById('nb-' + id);
   if (nb) nb.classList.add('active');
 }
@@ -1431,18 +1404,21 @@ function showResearchCat(cat) {
   document.getElementById('research-landing').style.display = 'none';
   document.getElementById('research-cat-view').style.display = 'block';
   var labels = { finance: 'Mathematical Finance', economics: 'Mathematical Economics' };
-  document.getElementById('res-cat-label-display').innerHTML = '<div class="res-sub-hd">' + labels[cat] + '</div>';
+  var counts = { finance: '4 papers', economics: '2 papers' };
+  document.getElementById('res-cat-label-display').innerHTML =
+    '<h2 class="page-title">' + labels[cat] + '</h2>' +
+    '<p class="page-lede tight">' + counts[cat] + '</p>';
   var keys = { finance: ['liquidity','credit','contagion','hmm_credit'], economics: ['sintax','mgnrega'] };
   var html = '';
   keys[cat].forEach(function(key) {
     var p = PROJECTS[key];
     var tags = p.tags.slice(0,4).map(function(t){ return '<span class="proj-tag">' + t + '</span>'; }).join('');
-    html += '<div class="proj-item" onclick="showProject(\'' + key + '\')">' +
-      '<div class="proj-code">' + p.cat + '</div>' +
+    html += '<div class="proj-item" tabindex="0" role="button" onclick="showProject(\'' + key + '\')">' +
+      '<div class="proj-head"><span class="proj-code">' + p.cat + '</span>' +
+      '<span class="status ' + p.statusClass + '">' + p.status + '</span></div>' +
       '<div class="proj-title">' + p.title + '</div>' +
       '<div class="proj-desc">' + p.desc + '</div>' +
-      '<div class="proj-foot"><div class="proj-tags">' + tags + '</div>' +
-      '<span class="proj-status ' + p.statusClass + '">' + p.status + '</span></div></div>';
+      '<div class="proj-tags">' + tags + '</div></div>';
   });
   document.getElementById('research-cat-projects').innerHTML = html;
   window.scrollTo(0, 0);
@@ -1457,15 +1433,16 @@ function showProject(key) {
   if (!p) return;
   var tags = p.tags.map(function(t){ return '<span class="proj-tag">' + t + '</span>'; }).join('');
   document.getElementById('project-detail-content').innerHTML =
-    '<div class="d-cat">' + p.cat + '</div>' +
-    '<div class="d-title">' + p.title + '</div>' +
-    '<div class="d-meta">Status: ' + p.status + ' &nbsp;&middot;&nbsp; ' + p.date + '</div>' +
+    '<div class="d-code">' + p.cat + '</div>' +
+    '<h2 class="d-title">' + p.title + '</h2>' +
+    '<div class="d-meta"><span class="status ' + p.statusClass + '">' + p.status + '</span>' +
+    '<span class="yr">' + p.date + '</span></div>' +
     '<div class="d-tags">' + tags + '</div>' +
     '<div class="d-body">' + p.body + '</div>';
   var labels = { finance: 'Mathematical Finance', economics: 'Mathematical Economics' };
   document.getElementById('proj-back-label').textContent = _researchCat ? labels[_researchCat] : 'Research';
   showPage('project-detail');
-  document.querySelectorAll('.nav-links button').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelectorAll('.rail-nav button').forEach(function(b){ b.classList.remove('active'); });
   document.getElementById('nb-research').classList.add('active');
 }
 
@@ -1478,35 +1455,35 @@ function showTeaching(key) {
     var profName = t.professor.url
       ? '<a href="' + t.professor.url + '" target="_blank">' + t.professor.name + '</a>'
       : t.professor.name;
-    rolesHtml += '<span class="prof-badge"><span class="prof-label">Under</span>' + profName + '</span>';
+    rolesHtml += '<span class="role-badge"><span class="lbl">Under</span>' + profName + '</span>';
   }
   if (t.coTA) {
-    rolesHtml += '<span class="cota-badge"><span class="prof-label">Co-TA</span>' + t.coTA + ' &middot; Equal work split</span>';
+    rolesHtml += '<span class="role-badge alt"><span class="lbl">Co-TA</span>' + t.coTA + ' &middot; Equal work split</span>';
   }
 
   var topicsHtml = t.topics.map(function(tp){ return '<li>' + tp + '</li>'; }).join('');
 
-  var html = '<div class="d-cat">' + t.sem + '</div>'
-    + '<div class="d-title">' + t.title + '</div>'
+  var html = '<div class="d-code">' + t.sem + '</div>'
+    + '<h2 class="d-title">' + t.title + '</h2>'
     + '<div class="d-meta">' + t.inst + ' &nbsp;&middot;&nbsp; ' + t.duration + '</div>'
-    + (rolesHtml ? '<div style="margin-top:0.7rem;margin-bottom:0.3rem;">' + rolesHtml + '</div>' : '')
-    + '<div style="margin-top:1.6rem;padding-top:1.6rem;border-top:1px solid var(--border)"></div>';
+    + (rolesHtml ? '<div class="roles">' + rolesHtml + '</div>' : '')
+    + '<div style="margin-top:1.7rem;border-top:1.5px solid var(--ink);"></div>';
 
   html += '<div class="td-section"><div class="td-hd">Overview</div><p>' + t.desc + '</p></div>';
-  html += '<div class="td-section"><div class="td-hd">Topics Covered</div><ul class="td-topics">' + topicsHtml + '</ul></div>';
+  html += '<div class="td-section"><div class="td-hd">Topics covered</div><ul class="td-topics">' + topicsHtml + '</ul></div>';
 
   if (t.assignments && t.assignments.length > 0) {
-    html += '<div class="assign-section">'
-      + '<div class="td-hd">Weekly Assignments</div>'
+    html += '<div class="td-section">'
+      + '<div class="td-hd">Weekly assignments</div>'
       + '<div class="assign-intro">Eight weekly assignment sheets were created and distributed throughout the course. Each sheet combines rigorous mathematical derivations with theory questions based on the MITx lecture material. Students were required to submit solutions weekly; sheets were graded and returned with feedback.</div>'
       + '<ul class="assign-list">';
     t.assignments.forEach(function(a) {
       html += '<li class="assign-item">'
-        + '<div class="assign-item-left">'
+        + '<span class="assign-left">'
         + '<span class="assign-num">W' + a.week + '</span>'
         + '<span class="assign-name">' + a.label + '</span>'
-        + '</div>'
-        + '<a href="' + a.file + '" target="_blank" class="assign-link">&#128196; Open PDF</a>'
+        + '</span>'
+        + '<a href="' + a.file + '" target="_blank" class="assign-link">Open PDF</a>'
         + '</li>';
     });
     html += '</ul></div>';
@@ -1514,54 +1491,48 @@ function showTeaching(key) {
 
   if (t.finalExam) {
     html += '<div class="td-section">'
-      + '<div class="td-hd">Final Examination</div>'
+      + '<div class="td-hd">Final examination</div>'
       + '<div class="exam-card">'
-      + '<div class="exam-card-left">'
-      + '<div class="exam-label">Final Exam &middot; TECO Summer 2025</div>'
+      + '<div>'
       + '<div class="exam-title">' + t.finalExam.label + '</div>'
       + '<div class="exam-sub">Covers all topics from Foundations of Modern Finance I &amp; II</div>'
       + '</div>'
-      + '<a href="' + t.finalExam.file + '" target="_blank" class="exam-dl-btn">&#128196; Open PDF</a>'
+      + '<a href="' + t.finalExam.file + '" target="_blank" class="exam-btn">Open PDF</a>'
       + '</div>'
       + '</div>';
   }
 
   if (t.notes) {
     var n = t.notes;
-    var chipsHtml = n.chips.map(function(c){ return '<span class="notes-topic-chip">' + c + '</span>'; }).join('');
+    var chipsHtml = n.chips.map(function(c){ return '<span class="note-chip">' + c + '</span>'; }).join('');
     html += '<div class="td-section">'
       + '<div class="td-hd">Notes</div>'
-      + '<div class="notes-card">'
-      + '<div class="notes-card-header">'
-      + '<div class="notes-icon">&#128218;</div>'
-      + '<div class="notes-header-text">'
-      + '<div class="notes-tag">Student Notes &middot; Finance</div>'
-      + '<div class="notes-card-title">' + n.title + '</div>'
+      + '<div class="note-card">'
+      + '<div class="note-head">'
+      + '<div class="note-src">Student Notes &middot; Finance</div>'
+      + '<div class="note-title">' + n.title + '</div>'
       + '</div>'
+      + '<div class="note-body">'
+      + '<div class="note-desc">These notes cover Markowitz Portfolio Theory from first principles: the mean-variance framework, construction of the efficient frontier, the minimum variance portfolio, and the two-fund separation theorem. Worked numerical examples are included alongside the theory. Prepared as a supplementary resource for students in the TECO Summer course.</div>'
+      + '<div class="note-warn">'
+      + '<div style="color:var(--ochre);flex-shrink:0;">&#9888;</div>'
+      + '<div class="note-warn-t">These notes have not been formally proofread and may contain minor errors. They are shared as a study aid and should be cross-checked against standard references (Markowitz 1952; Bodie, Kane, Marcus).</div>'
       + '</div>'
-      + '<div class="notes-card-body">'
-      + '<div class="notes-desc">These notes cover Markowitz Portfolio Theory from first principles: the mean-variance framework, construction of the efficient frontier, the minimum variance portfolio, and the two-fund separation theorem. Worked numerical examples are included alongside the theory. Prepared as a supplementary resource for students in the TECO Summer course.</div>'
-      + '<div class="notes-warning">'
-      + '<div class="notes-warning-icon">&#9888;</div>'
-      + '<div class="notes-warning-text">These notes have not been formally proofread and may contain minor errors. They are shared as a study aid and should be cross-checked against standard references (Markowitz 1952; Bodie, Kane, Marcus).</div>'
-      + '</div>'
-      + '<div class="notes-topics-mini">' + chipsHtml + '</div>'
-      + '<div class="notes-dl-row">'
-      + '<div class="notes-file-info">&#128196; markowitz_portfolio_theory.pdf</div>'
-      + '<a href="' + n.fileEncoded + '" target="_blank" class="notes-dl-btn">&#8595; Open Notes</a>'
+      + '<div class="note-chips">' + chipsHtml + '</div>'
+      + '<div class="note-foot">'
+      + '<div class="note-file">markowitz_portfolio_theory.pdf</div>'
+      + '<a href="' + n.fileEncoded + '" target="_blank" class="note-btn">Open notes</a>'
       + '</div>'
       + '</div>'
       + '</div>'
-      + '<div style="margin-top:0.8rem;font-family:var(--mono);font-size:0.62rem;color:var(--accent);cursor:pointer;" onclick="showPage(\'notes\')">'
-      + '&#128196; Also available in the Notes section &#8594;'
-      + '</div>'
+      + '<span class="note-xref" tabindex="0" role="button" onclick="showPage(\'notes\')">Also available in the Notes section</span>'
       + '</div>';
   }
 
   if (t.passedStudents && t.passedStudents.length > 0) {
     var stuHtml = t.passedStudents.map(function(s){ return '<span class="student-chip">' + s + '</span>'; }).join('');
-    html += '<div class="students-section">'
-      + '<div class="td-hd">Students Who Passed</div>'
+    html += '<div class="td-section">'
+      + '<div class="td-hd">Students who passed</div>'
       + '<p class="students-intro">The following students successfully completed the course and passed the final examination.</p>'
       + '<div class="students-grid">' + stuHtml + '</div>'
       + '</div>';
@@ -1569,9 +1540,68 @@ function showTeaching(key) {
 
   document.getElementById('teaching-detail-content').innerHTML = html;
   showPage('teaching-detail');
-  document.querySelectorAll('.nav-links button').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelectorAll('.rail-nav button').forEach(function(b){ b.classList.remove('active'); });
   document.getElementById('nb-teaching').classList.add('active');
 }
+
+/* Keyboard access for clickable rows */
+document.addEventListener('keydown', function(e) {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  var el = document.activeElement;
+  if (!el || el.getAttribute('role') !== 'button' || el.tagName === 'BUTTON' || el.tagName === 'A') return;
+  e.preventDefault();
+  el.click();
+});
+
+/* Hero: simulated GBM sample paths, drawn once on load */
+(function() {
+  var svg = document.getElementById('gbm');
+  if (!svg) return;
+  var W = 620, H = 210, N = 190, K = 5;
+  var seed = 20260502;
+  function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+  function gauss() {
+    var u = rnd() || 1e-9, v = rnd() || 1e-9;
+    return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+  }
+  var mu = 0.06, sig = 0.9, dt = 1 / N;
+  var series = [], lo = Infinity, hi = -Infinity;
+  for (var k = 0; k < K; k++) {
+    var s = 1, pts = [1];
+    for (var i = 1; i <= N; i++) {
+      s = s * Math.exp((mu - 0.5 * sig * sig) * dt + sig * Math.sqrt(dt) * gauss());
+      pts.push(s);
+      if (s < lo) lo = s; if (s > hi) hi = s;
+    }
+    series.push(pts);
+  }
+  var pad = 14, span = (hi - lo) || 1;
+  var ns = 'http://www.w3.org/2000/svg';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  series.forEach(function(pts, k) {
+    var d = '';
+    pts.forEach(function(v, i) {
+      var x = (i / N) * W;
+      var y = H - pad - ((v - lo) / span) * (H - 2 * pad);
+      d += (i === 0 ? 'M' : 'L') + x.toFixed(1) + ' ' + y.toFixed(1) + ' ';
+    });
+    var p = document.createElementNS(ns, 'path');
+    p.setAttribute('d', d.trim());
+    p.setAttribute('stroke', k === 0 ? '#1c3d6e' : '#6b7079');
+    p.setAttribute('stroke-width', k === 0 ? '1.3' : '0.8');
+    p.setAttribute('opacity', k === 0 ? '0.38' : '0.16');
+    p.setAttribute('vector-effect', 'non-scaling-stroke');
+    svg.appendChild(p);
+    if (!reduce) {
+      var len = p.getTotalLength();
+      p.style.strokeDasharray = len;
+      p.style.strokeDashoffset = len;
+      p.style.transition = 'stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1) ' + (0.15 + k * 0.09) + 's';
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ p.style.strokeDashoffset = '0'; }); });
+    }
+  });
+})();
 </script>
 </body>
 </html>
