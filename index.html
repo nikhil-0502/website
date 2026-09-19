@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Nikhil Rajan | Economics, Mathematical Finance, LSE</title>
 
-<meta name="description" content="Nikhil Rajan: final-year BA Economics student at Madras School of Economics (CGPA 9.61), MSc Financial Statistics at LSE. Research in stochastic modelling, derivative pricing, credit risk, and welfare economics."/>
+<meta name="description" content="Nikhil Rajan: BA Economics graduate of Madras School of Economics (CGPA 9.61), now MSc Financial Statistics at LSE. Research in stochastic modelling, derivative pricing, credit risk, and welfare economics."/>
 <meta name="keywords" content="Nikhil Rajan, Nikhil Rajan MSE, Nikhil Rajan LSE, Nikhil Rajan economist, Nikhil Rajan Madras School of Economics, mathematical finance, stochastic processes, quantitative finance"/>
 <meta name="author" content="Nikhil Rajan"/>
 <meta name="robots" content="index, follow"/>
@@ -53,7 +53,7 @@
     "https://linkedin.com/in/nikhil-rajan-7bb37a360",
     "https://nikhil-0502.github.io/website/"
   ],
-  "description": "Nikhil Rajan is a final-year BA Economics student at Madras School of Economics with a CGPA of 9.61, MSc Financial Statistics and Mathematics at the London School of Economics."
+  "description": "Nikhil Rajan is a BA Economics graduate of Madras School of Economics (CGPA 9.61) and an MSc Financial Statistics and Mathematics student at the London School of Economics."
 }
 </script>
 
@@ -278,8 +278,13 @@ h2.page-title {
   letter-spacing: -0.045em; line-height: 0.94; color: var(--ink);
   margin-bottom: 1.4rem; position: relative;
 }
-.hero-deg { font-family: var(--serif); font-size: 1.12rem; color: var(--ink-2); line-height: 1.8; max-width: 38ch; position: relative; }
-.hero-deg em { font-style: italic; color: var(--ink-3); }
+.hero-deg { display: flex; flex-direction: column; gap: 1rem; max-width: 46ch; position: relative; }
+.hero-cred { display: flex; flex-direction: column; line-height: 1.4; }
+.hero-cred-main { font-family: var(--serif); font-size: 1.18rem; font-weight: 600; color: var(--ink); letter-spacing: -0.012em; }
+.hero-cred-meta { font-family: var(--serif); font-size: 1rem; color: var(--ink-3); margin-top: 0.14rem; }
+.hero-cred-meta .inst-link { white-space: nowrap; }
+.hero-cred-meta em { font-style: italic; color: var(--ink-4); }
+.hero-sep { margin: 0 0.55ch; color: var(--rule-2); }
 
 .record { display: flex; flex-wrap: wrap; gap: 0 3.2rem; margin-bottom: 3.4rem; }
 .record-item { padding-right: 3.2rem; border-right: 1px solid var(--rule); }
@@ -627,10 +632,16 @@ footer a:hover { color: var(--accent); }
         <div class="hero-plot" id="hero-plot" aria-hidden="true"><canvas id="gbm"></canvas></div>
         <div class="hero-cap" id="hero-cap" aria-hidden="true">140 simulated GBM paths, terminal distribution at right</div>
         <h1 class="hero-name">Nikhil Rajan</h1>
-        <p class="hero-deg">
-          Bachelors in Mathematical Economics, <a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a> <em>(2023 to 2026)</em><br/>
-          Masters in Financial Statistics; Mathematics, <a href="https://www.lse.ac.uk/" target="_blank" class="inst-link">LSE</a> <em>(2026 to 2027)</em>
-        </p>
+        <div class="hero-deg">
+          <div class="hero-cred">
+            <span class="hero-cred-main">Bachelor&#8217;s in Mathematical Economics</span>
+            <span class="hero-cred-meta"><a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a><span class="hero-sep">&middot;</span><em>2023 to 2026</em></span>
+          </div>
+          <div class="hero-cred">
+            <span class="hero-cred-main">Master&#8217;s in Financial Statistics</span>
+            <span class="hero-cred-meta"><a href="https://www.lse.ac.uk/" target="_blank" class="inst-link">London School of Economics</a><span class="hero-sep">&middot;</span><em>2026 to 2027</em></span>
+          </div>
+        </div>
       </header>
 
       <div class="record">
@@ -649,10 +660,10 @@ footer a:hover { color: var(--accent); }
       </div>
 
       <div class="bio">
-        <p>My name is Nikhil Rajan. I recently completed my undergraduate degree in Mathematical Economics at the <a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a> and am now persuing my postgraduate degree in quant finance at the <a href="https://www.lse.ac.uk/" target="_blank" class="inst-link">London School of Economics</a>. What drew me in was seeing how ideas from measure theory, especially risk-neutral expectations, are used directly in option pricing models like Black Scholes.</p>
+        <p>My name is Nikhil Rajan. I recently completed my undergraduate degree in Mathematical Economics at the <a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a> and am now pursuing my postgraduate degree in quantitative finance at the <a href="https://www.lse.ac.uk/" target="_blank" class="inst-link">London School of Economics</a>. What drew me in was seeing how ideas from measure theory, especially risk-neutral expectations, are used directly in option pricing models like Black-Scholes.</p>
         <p>Since then, I have been building and testing models around that: simulating GBM paths, pricing options with Monte Carlo, and checking how sensitive outputs are to discretisation, volatility, and parameter shifts. Most of this I have implemented in Python and C++, with particular interest in how pricing errors, convergence, and simulation variance behave under different modelling choices.</p>
         <p>I am most interested in how model outputs change when you vary things like the time step, volatility assumptions, or the numerical scheme being used. My current projects span market microstructure (liquidity regimes as Markov chains), credit risk (reconstructing the Jarrow-Lando-Turnbull framework from first principles, and a hidden Markov model for credit stress detection), financial contagion between the S&amp;P 500 and Nifty 50, and a dynamic welfare analysis of sin taxation using Markov consumption models calibrated to NSSO data.</p>
-        <p>At <a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a>, I have held 7 teaching assistantships covering stochastic processes, game theory, time series analysis, microeconomics, multivariable calculus, and finance. I maintained a CGPA of 9.61 and was awarded the University Gold Medal for graduating Rank 1 in my batch. I have also been on the Dean's List in every graded semester.</p>
+        <p>At <a href="https://mse.ac.in/" target="_blank" class="inst-link">Madras School of Economics</a>, I have held seven teaching assistantships covering stochastic processes, game theory, time series analysis, microeconomics, multivariable calculus, and finance. I maintained a CGPA of 9.61 and was awarded the University Gold Medal for graduating Rank 1 in my batch. I have also been on the Dean's List in every graded semester.</p>
         <p>Outside academics, I am a huge football fan, especially of Real Madrid CF, and closely follow both La Liga and the Premier League. For fun, I sometimes build small prediction models around football using recent form, player ratings, xG trends, injuries, and fixture difficulty to estimate title races and relegation probabilities over a season. I also follow cricket across all formats and end up watching almost every major sporting event at some point.</p>
       </div>
 
@@ -1757,253 +1768,387 @@ window.addEventListener('scroll', function(){ updateProgress(); spy(); }, { pass
   });
 })();
 
-/* ============ COMMAND PALETTE ============ */
-(function() {
-  var back = document.getElementById('cmd-back'),
-      input = document.getElementById('cmd-input'),
-      list = document.getElementById('cmd-results');
-  var items = null, shown = [], cursor = 0;
-
-  function build() {
-    if (items) return items;
-    items = [];
-    [['About','about'],['Research','research'],['Teaching','teaching'],['Notes','notes'],['Education','education'],['Experience','experience'],['Articles','articles']]
-      .forEach(function(p) {
-        var el = document.getElementById('page-' + p[1]);
-        var text = (['about','experience','notes','articles'].indexOf(p[1]) > -1 && el) ? el.textContent.replace(/\s+/g, ' ') : '';
-        items.push({ kind: 'Page', title: p[0], sub: '', hay: p[0] + ' ' + text, run: function(){ p[1] === 'research' ? showResearchLanding() : showPage(p[1]); } });
-      });
-    Object.keys(PROJECTS).forEach(function(k) {
-      var p = PROJECTS[k];
-      items.push({
-        kind: p.catKey === 'finance' ? 'Finance' : 'Economics',
-        title: strip(p.title), sub: p.status + ' · ' + p.date,
-        hay: strip(p.title + ' ' + p.desc + ' ' + p.tags.join(' ')),
-        run: function(){ _researchCat = p.catKey; showProject(k); }
-      });
-    });
-    Object.keys(TEACHING).forEach(function(k) {
-      var t = TEACHING[k];
-      items.push({
-        kind: 'Teaching', title: strip(t.title), sub: strip(t.sem),
-        hay: strip(t.title + ' ' + t.desc + ' ' + t.topics.join(' ')),
-        run: function(){ showTeaching(k); }
-      });
-    });
-    document.querySelectorAll('#page-education .course-row').forEach(function(row) {
-      var nm = row.querySelector('.course-nm'), body = row.querySelector('.course-body');
-      var codeEl = row.querySelector('.course-code');
-      var code = codeEl ? codeEl.textContent.trim() : '';
-      var name = nm.textContent.replace(code, '').trim();
-      var school = row.closest('.entry').querySelector('.entry-school').textContent.trim();
-      items.push({
-        kind: 'Course', title: name, sub: code ? code + ' · ' + school : school,
-        hay: name + ' ' + code + ' ' + (body ? body.textContent : ''),
-        run: function() {
-          showPage('education');
-          document.querySelectorAll('#page-education .course-row.open').forEach(function(r){ r.classList.remove('open'); });
-          row.classList.add('open', 'flash');
-          setTimeout(function(){ row.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 60);
-          setTimeout(function(){ row.classList.remove('flash'); }, 1600);
-        }
-      });
-    });
-    items.push({ kind: 'File', title: 'Curriculum vitae (PDF)', sub: 'Download', hay: 'cv resume curriculum vitae pdf', run: function(){ window.open('Nikhil_CV_FI.pdf', '_blank'); } });
-    items.push({ kind: 'File', title: 'Markowitz Portfolio Theory notes (PDF)', sub: 'Notes', hay: 'markowitz portfolio theory notes efficient frontier pdf', run: function(){ window.open('markowitz_portfolio_theory%20(1).pdf', '_blank'); } });
-    return items;
-  }
-
-  function strip(s) { var d = document.createElement('div'); d.innerHTML = s; return d.textContent; }
-  function esc(s) { return s.replace(/[&<>]/g, function(c){ return { '&':'&amp;','<':'&lt;','>':'&gt;' }[c]; }); }
-
-  function mark(title, q) {
-    if (!q) return esc(title);
-    var i = title.toLowerCase().indexOf(q);
-    if (i < 0) return esc(title);
-    return esc(title.slice(0, i)) + '<mark>' + esc(title.slice(i, i + q.length)) + '</mark>' + esc(title.slice(i + q.length));
-  }
-
-  function search(q) {
-    var all = build();
-    q = q.trim().toLowerCase();
-    if (!q) return all.filter(function(x){ return x.kind === 'Page' || x.kind === 'Finance' || x.kind === 'Economics'; });
-    var terms = q.split(/\s+/);
-    var out = [];
-    all.forEach(function(x) {
-      var hay = (x.title + ' ' + x.sub + ' ' + x.hay).toLowerCase();
-      var ok = terms.every(function(t){ return hay.indexOf(t) > -1; });
-      if (!ok) return;
-      var ti = x.title.toLowerCase().indexOf(terms[0]);
-      out.push({ x: x, s: (ti === 0 ? 0 : ti > 0 ? 1 : 2) * 1000 + (ti > 0 ? ti : 0) });
-    });
-    out.sort(function(a, b){ return a.s - b.s; });
-    return out.slice(0, 24).map(function(o){ return o.x; });
-  }
-
-  function render(q) {
-    shown = search(q); cursor = 0;
-    if (!shown.length) { list.innerHTML = '<div class="cmd-none">Nothing matches that. Try a topic, a course code, or a method.</div>'; return; }
-    var html = '', lastKind = null;
-    shown.forEach(function(x, i) {
-      if (x.kind !== lastKind) { html += '<div class="cmd-group">' + x.kind + '</div>'; lastKind = x.kind; }
-      html += '<div class="cmd-item' + (i === 0 ? ' on' : '') + '" data-i="' + i + '">'
-        + '<div><div class="cmd-t">' + mark(x.title, q.trim().toLowerCase().split(/\s+/)[0]) + '</div>'
-        + (x.sub ? '<div class="cmd-sub">' + esc(x.sub) + '</div>' : '') + '</div>'
-        + '<div class="cmd-kind">' + x.kind + '</div></div>';
-    });
-    list.innerHTML = html;
-    list.querySelectorAll('.cmd-item').forEach(function(el) {
-      el.addEventListener('mouseenter', function(){ move(+el.getAttribute('data-i'), true); });
-      el.addEventListener('click', function(){ run(+el.getAttribute('data-i')); });
-    });
-  }
-
-  function move(i, silent) {
-    if (!shown.length) return;
-    cursor = (i + shown.length) % shown.length;
-    var els = list.querySelectorAll('.cmd-item');
-    els.forEach(function(e, j){ e.classList.toggle('on', j === cursor); });
-    if (!silent && els[cursor]) els[cursor].scrollIntoView({ block: 'nearest' });
-  }
-
-  function run(i) { var x = shown[i]; if (!x) return; close(); x.run(); }
-  function open() { back.classList.add('on'); input.value = ''; render(''); setTimeout(function(){ input.focus(); }, 20); }
-  function close() { back.classList.remove('on'); }
-
-  document.getElementById('cmd-open').addEventListener('click', open);
-  back.addEventListener('click', function(e){ if (e.target === back) close(); });
-  input.addEventListener('input', function(){ render(input.value); });
-  input.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowDown') { e.preventDefault(); move(cursor + 1); }
-    else if (e.key === 'ArrowUp') { e.preventDefault(); move(cursor - 1); }
-    else if (e.key === 'Enter') { e.preventDefault(); run(cursor); }
-    else if (e.key === 'Escape') { close(); }
-  });
-  document.addEventListener('keydown', function(e) {
-    var typing = /^(INPUT|TEXTAREA)$/.test((document.activeElement || {}).tagName);
-    if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) { e.preventDefault(); back.classList.contains('on') ? close() : open(); }
-    else if (e.key === '/' && !typing && !back.classList.contains('on')) { e.preventDefault(); open(); }
-    else if (e.key === 'Escape' && back.classList.contains('on')) close();
-  });
-})();
-
-/* ============ KEYBOARD ACCESS FOR ROWS ============ */
+/* ============ KEYBOARD ACTIVATION FOR ROWS ============ */
+/* Elements with role="button" and inline onclick should also fire on Enter / Space. */
 document.addEventListener('keydown', function(e) {
-  if (e.key !== 'Enter' && e.key !== ' ') return;
+  if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
   var el = document.activeElement;
-  if (!el || el.getAttribute('role') !== 'button' || el.tagName === 'BUTTON' || el.tagName === 'A') return;
+  if (!el || el.getAttribute('role') !== 'button') return;
+  var tag = el.tagName;
+  if (tag === 'BUTTON' || tag === 'A' || tag === 'INPUT' || tag === 'TEXTAREA') return;
   e.preventDefault();
   el.click();
 });
 
-/* ============ HERO: MONTE CARLO OF GBM PATHS ============ */
+/* ============ COMMAND PALETTE ============ */
 (function() {
-  var wrap = document.getElementById('hero-plot');
-  if (!wrap) return;
-  var cv = document.getElementById('gbm'), ctx = cv && cv.getContext ? cv.getContext('2d') : null, cap = document.getElementById('hero-cap');
-  if (!ctx) return;
-  var K = 140, N = 110, series = null, lo = 0, hi = 1, bins = [], binMax = 1;
+  var back = document.getElementById('cmd-back');
+  var input = document.getElementById('cmd-input');
+  var results = document.getElementById('cmd-results');
+  var openBtn = document.getElementById('cmd-open');
+  if (!back || !input || !results) return;
 
-  function simulate() {
-    var seed = 20260502;
-    function rnd(){ seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
-    function gauss(){ var u = rnd() || 1e-9, v = rnd() || 1e-9; return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
-    var mu = 0.06, sig = 0.8, dt = 1 / N, flat = [], terminal = [];
-    series = [];
-    for (var k = 0; k < K; k++) {
-      var s = 1, pts = [1];
-      for (var i = 1; i <= N; i++) {
-        s = s * Math.exp((mu - 0.5 * sig * sig) * dt + sig * Math.sqrt(dt) * gauss());
-        pts.push(s); flat.push(s);
-      }
-      terminal.push(s); series.push(pts);
-    }
-    flat.sort(function(a,b){ return a-b; });
-    lo = flat[Math.floor(flat.length * 0.012)];
-    hi = flat[Math.floor(flat.length * 0.988)];
-    var B = 24; bins = new Array(B).fill(0);
-    terminal.forEach(function(v) {
-      var b = Math.floor(((v - lo) / (hi - lo)) * B);
-      if (b >= 0 && b < B) bins[b]++;
+  var items = [], flat = [], sel = 0;
+
+  function buildIndex() {
+    items = [];
+
+    // Sections / pages
+    var pages = [
+      { title: 'About', sub: 'Biography and record', kind: 'Page', run: function(){ showPage('about'); } },
+      { title: 'Research', sub: 'All papers', kind: 'Page', run: function(){ showResearchLanding(); } },
+      { title: 'Teaching', sub: 'Assistantships and courses', kind: 'Page', run: function(){ showPage('teaching'); } },
+      { title: 'Notes', sub: 'Study materials', kind: 'Page', run: function(){ showPage('notes'); } },
+      { title: 'Education', sub: 'Degrees and coursework', kind: 'Page', run: function(){ showPage('education'); } },
+      { title: 'Experience', sub: 'Research and industry', kind: 'Page', run: function(){ showPage('experience'); } },
+      { title: 'Articles', sub: 'Notes and short pieces', kind: 'Page', run: function(){ showPage('articles'); } }
+    ];
+    pages.forEach(function(p){ items.push(p); });
+
+    // Papers
+    Object.keys(PROJECTS).forEach(function(key) {
+      var p = PROJECTS[key];
+      items.push({
+        title: p.title,
+        sub: (p.catKey === 'finance' ? 'Mathematical Finance' : 'Mathematical Economics') + ' · ' + p.status,
+        kind: 'Paper',
+        run: (function(k){ return function(){ _researchCat = PROJECTS[k].catKey; showProject(k); }; })(key)
+      });
     });
-    binMax = Math.max.apply(null, bins) || 1;
+
+    // Teaching
+    Object.keys(TEACHING).forEach(function(key) {
+      var t = TEACHING[key];
+      var title = t.title.replace(/&amp;/g, '&');
+      items.push({
+        title: title,
+        sub: (t.inst || '') + ' · ' + (t.sem || ''),
+        kind: 'Teaching',
+        run: (function(k){ return function(){ showTeaching(k); }; })(key)
+      });
+    });
+
+    // Courses (from the Education page DOM)
+    document.querySelectorAll('#page-education .course-block').forEach(function(block, bi) {
+      block.querySelectorAll('.course-row').forEach(function(row) {
+        var nmEl = row.querySelector('.course-nm');
+        if (!nmEl) return;
+        var name = nmEl.textContent.replace(/\s+/g, ' ').trim();
+        items.push({
+          title: name,
+          sub: (bi === 0 ? 'LSE' : 'MSE') + ' course',
+          kind: 'Course',
+          run: (function(r){ return function(){
+            showPage('education');
+            setTimeout(function(){
+              r.classList.add('open');
+              r.classList.add('flash');
+              r.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              setTimeout(function(){ r.classList.remove('flash'); }, 1400);
+            }, 80);
+          }; })(row)
+        });
+      });
+    });
+
+    // Notes
+    items.push({
+      title: 'Markowitz Portfolio Theory',
+      sub: 'Student notes · mean-variance optimisation',
+      kind: 'Note',
+      run: function(){ showPage('notes'); }
+    });
   }
 
-  function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+  function escapeReg(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
-  function draw(instant) {
-    var r = wrap.getBoundingClientRect();
-    if (!r.width) return;
-    var dpr = window.devicePixelRatio || 1;
-    cv.width = r.width * dpr; cv.height = r.height * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, r.width, r.height);
+  function mark(text, q) {
+    if (!q) return text;
+    var re = new RegExp('(' + escapeReg(q) + ')', 'ig');
+    return text.replace(re, '<mark>$1</mark>');
+  }
 
-    var W = r.width, H = r.height, pad = 12, plotW = W * 0.78, histX = W * 0.815, histW = W - histX;
-    var accent = css('--accent'), ink = css('--ink-4');
-    var span = (hi - lo) || 1;
-    function X(i) { return (i / N) * plotW; }
-    function Y(v) { return H - pad - ((Math.max(lo, Math.min(hi, v)) - lo) / span) * (H - 2 * pad); }
+  function render(q) {
+    q = (q || '').trim();
+    var lower = q.toLowerCase();
+    var matched = q
+      ? items.filter(function(it){
+          return (it.title + ' ' + it.sub + ' ' + it.kind).toLowerCase().indexOf(lower) > -1;
+        })
+      : items.slice();
 
-    function segment(from, to) {
-      for (var k = 0; k < K; k++) {
-        var hl = (k % 47 === 0);
-        ctx.beginPath();
-        ctx.strokeStyle = hl ? accent : ink;
-        ctx.globalAlpha = hl ? 0.42 : 0.09;
-        ctx.lineWidth = hl ? 1.2 : 0.7;
-        ctx.moveTo(X(from), Y(series[k][from]));
-        for (var i = from + 1; i <= to; i++) ctx.lineTo(X(i), Y(series[k][i]));
-        ctx.stroke();
-      }
-      ctx.globalAlpha = 1;
-    }
+    flat = matched;
+    sel = 0;
 
-    function histogram(alpha) {
-      var B = bins.length, bh = (H - 2 * pad) / B;
-      ctx.globalAlpha = alpha;
-      for (var b = 0; b < B; b++) {
-        var w = (bins[b] / binMax) * histW * 0.92;
-        var y = H - pad - (b + 1) * bh;
-        ctx.fillStyle = accent;
-        ctx.globalAlpha = alpha * 0.22;
-        ctx.fillRect(histX, y + bh * 0.16, w, bh * 0.68);
-      }
-      ctx.globalAlpha = alpha * 0.5;
-      ctx.strokeStyle = ink; ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.moveTo(histX - 6, pad); ctx.lineTo(histX - 6, H - pad); ctx.stroke();
-      ctx.globalAlpha = 1;
-    }
-
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (instant || reduce) {
-      segment(0, N); histogram(1); if (cap) cap.classList.add('in');
+    if (!matched.length) {
+      results.innerHTML = '<div class="cmd-none">No matches for "' + q.replace(/</g,'&lt;') + '".</div>';
       return;
     }
-    var step = 0, perFrame = 2;
-    (function frame() {
-      var to = Math.min(N, step + perFrame);
-      segment(step, to);
-      step = to;
-      if (step < N) requestAnimationFrame(frame);
-      else {
-        var a = 0;
-        (function fade() { a += 0.06; histogram(Math.min(1, a)); if (a < 1) requestAnimationFrame(fade); })();
-        if (cap) cap.classList.add('in');
-      }
-    })();
+
+    // group by kind, preserving a sensible order
+    var order = ['Page','Paper','Teaching','Course','Note'];
+    var groups = {};
+    matched.forEach(function(it){ (groups[it.kind] = groups[it.kind] || []).push(it); });
+
+    var html = '', idx = 0;
+    var flatOrdered = [];
+    order.forEach(function(kind) {
+      if (!groups[kind]) return;
+      html += '<div class="cmd-group">' + kind + '</div>';
+      groups[kind].forEach(function(it) {
+        it._i = idx;
+        flatOrdered.push(it);
+        html += '<div class="cmd-item' + (idx === 0 ? ' on' : '') + '" data-i="' + idx + '">'
+          + '<div><div class="cmd-t">' + mark(it.title, q) + '</div>'
+          + (it.sub ? '<div class="cmd-sub">' + mark(it.sub, q) + '</div>' : '')
+          + '</div><div class="cmd-kind">' + it.kind + '</div></div>';
+        idx++;
+      });
+    });
+    flat = flatOrdered;
+    results.innerHTML = html;
+
+    results.querySelectorAll('.cmd-item').forEach(function(el) {
+      el.addEventListener('mouseenter', function(){ move(parseInt(el.getAttribute('data-i'), 10)); });
+      el.addEventListener('click', function(){ run(parseInt(el.getAttribute('data-i'), 10)); });
+    });
   }
 
-  simulate();
-  window._drawHero = draw;
-  requestAnimationFrame(function(){ draw(false); });
-  var t; window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(function(){ draw(true); }, 180); });
+  function move(i) {
+    var els = results.querySelectorAll('.cmd-item');
+    if (!els.length) return;
+    if (i < 0) i = els.length - 1;
+    if (i >= els.length) i = 0;
+    sel = i;
+    els.forEach(function(el, k){ el.classList.toggle('on', k === i); });
+    var cur = els[i];
+    if (cur) cur.scrollIntoView({ block: 'nearest' });
+  }
+
+  function run(i) {
+    if (typeof i === 'number') sel = i;
+    var it = flat[sel];
+    if (!it) return;
+    close();
+    it.run();
+  }
+
+  function open() {
+    buildIndex();
+    back.classList.add('on');
+    input.value = '';
+    render('');
+    setTimeout(function(){ input.focus(); }, 30);
+  }
+
+  function close() {
+    back.classList.remove('on');
+    input.blur();
+  }
+
+  if (openBtn) openBtn.addEventListener('click', open);
+
+  input.addEventListener('input', function(){ render(input.value); });
+
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowDown') { e.preventDefault(); move(sel + 1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); move(sel - 1); }
+    else if (e.key === 'Enter') { e.preventDefault(); run(); }
+    else if (e.key === 'Escape') { e.preventDefault(); close(); }
+  });
+
+  back.addEventListener('mousedown', function(e) {
+    if (e.target === back) close();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    var typing = /^(INPUT|TEXTAREA|SELECT)$/.test((document.activeElement || {}).tagName || '');
+    if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
+      e.preventDefault();
+      back.classList.contains('on') ? close() : open();
+    } else if (e.key === '/' && !typing && !back.classList.contains('on')) {
+      e.preventDefault();
+      open();
+    } else if (e.key === 'Escape' && back.classList.contains('on')) {
+      close();
+    }
+  });
 })();
 
+/* ============ HERO: MONTE CARLO GBM ============ */
+(function() {
+  var wrap = document.getElementById('hero-plot');
+  var canvas = document.getElementById('gbm');
+  var cap = document.getElementById('hero-cap');
+  if (!wrap || !canvas) return;
+  var ctx = canvas.getContext('2d');
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Deterministic RNG so the plot is stable across redraws.
+  function mulberry32(a) {
+    return function() {
+      a |= 0; a = (a + 0x6D2B79F5) | 0;
+      var t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function gauss(rng) {
+    var u = 0, v = 0;
+    while (u === 0) u = rng();
+    while (v === 0) v = rng();
+    return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+  }
+
+  var NPATH = 140, NSTEP = 90;
+  var mu = 0.06, sigma = 0.9, dt = 1 / NSTEP;
+
+  var paths = null, terminal = null;
+
+  function simulate() {
+    var rng = mulberry32(20260919);
+    paths = [];
+    terminal = [];
+    for (var i = 0; i < NPATH; i++) {
+      var s = 1, row = [s];
+      for (var t = 0; t < NSTEP; t++) {
+        s = s * Math.exp((mu - 0.5 * sigma * sigma) * dt + sigma * Math.sqrt(dt) * gauss(rng));
+        row.push(s);
+      }
+      paths.push(row);
+      terminal.push(s);
+    }
+  }
+
+  function cssVar(name, fallback) {
+    var v = getComputedStyle(document.documentElement).getPropertyValue(name);
+    return (v && v.trim()) || fallback;
+  }
+
+  function sizeCanvas() {
+    var dpr = window.devicePixelRatio || 1;
+    var w = wrap.clientWidth, h = wrap.clientHeight;
+    if (!w || !h) return false;
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    return true;
+  }
+
+  function draw(progress) {
+    var w = wrap.clientWidth, h = wrap.clientHeight;
+    if (!w || !h) return;
+    ctx.clearRect(0, 0, w, h);
+
+    var padT = 14, padB = 14;
+    var plotW = w * 0.78, histW = w - plotW;
+    var lo = 0.15, hi = 0;
+    for (var i = 0; i < terminal.length; i++) hi = Math.max(hi, terminal[i]);
+    hi = Math.max(hi, 2.2) * 1.05;
+
+    function X(t) { return (t / NSTEP) * plotW; }
+    function Y(v) {
+      var top = padT, bot = h - padB;
+      var frac = (v - lo) / (hi - lo);
+      return bot - Math.max(0, Math.min(1, frac)) * (bot - top);
+    }
+
+    var line = cssVar('--ink-4', '#7c7369');
+    var accent = cssVar('--accent', '#8a3324');
+
+    // paths
+    var shown = Math.max(1, Math.floor(NPATH * progress));
+    ctx.lineWidth = 0.6;
+    for (var p = 0; p < shown; p++) {
+      var row = paths[p];
+      var end = terminal[p];
+      ctx.strokeStyle = line;
+      ctx.globalAlpha = 0.16;
+      ctx.beginPath();
+      for (var t2 = 0; t2 < row.length; t2++) {
+        var x = X(t2), y = Y(row[t2]);
+        t2 === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+
+    // a few highlighted paths
+    ctx.lineWidth = 1.1;
+    ctx.strokeStyle = accent;
+    ctx.globalAlpha = 0.55;
+    [7, 61, 119].forEach(function(pi) {
+      if (pi >= shown) return;
+      var row = paths[pi];
+      ctx.beginPath();
+      for (var t3 = 0; t3 < row.length; t3++) {
+        var x = X(t3), y = Y(row[t3]);
+        t3 === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    });
+    ctx.globalAlpha = 1;
+
+    // terminal histogram at right
+    if (progress >= 0.98) {
+      var bins = 26, counts = new Array(bins).fill(0);
+      for (var k = 0; k < terminal.length; k++) {
+        var frac = (terminal[k] - lo) / (hi - lo);
+        var b = Math.max(0, Math.min(bins - 1, Math.floor(frac * bins)));
+        counts[b]++;
+      }
+      var maxC = Math.max.apply(null, counts) || 1;
+      var top = padT, bot = h - padB, binH = (bot - top) / bins;
+      ctx.fillStyle = accent;
+      for (var b2 = 0; b2 < bins; b2++) {
+        var barW = (counts[b2] / maxC) * (histW - 6);
+        var yy = bot - (b2 + 1) * binH;
+        ctx.globalAlpha = 0.28;
+        ctx.fillRect(plotW + 4, yy + 1, barW, binH - 1.5);
+      }
+      ctx.globalAlpha = 1;
+    }
+  }
+
+  var raf = null;
+  function animate() {
+    if (raf) cancelAnimationFrame(raf);
+    if (reduce) { draw(1); reveal(); return; }
+    var start = null, dur = 1500;
+    function step(ts) {
+      if (start === null) start = ts;
+      var pr = Math.min(1, (ts - start) / dur);
+      draw(pr);
+      if (pr < 1) { raf = requestAnimationFrame(step); }
+      else { reveal(); }
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  function reveal() { if (cap) cap.classList.add('in'); }
+
+  window._drawHero = function(redraw) {
+    if (!paths) simulate();
+    if (!sizeCanvas()) return;
+    if (redraw) { draw(1); reveal(); } else { animate(); }
+  };
+
+  var resizeTimer = null;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      if (window._drawHero) window._drawHero(true);
+    }, 160);
+  });
+})();
 
 /* ============ BOOT ============ */
 route();
 updateProgress();
+if (window._drawHero) {
+  requestAnimationFrame(function(){ window._drawHero(false); });
+}
 
 </script>
 </body>
