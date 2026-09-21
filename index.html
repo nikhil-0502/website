@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Nikhil Rajan | Economics, Mathematical Finance, LSE</title>
+
+<script>(function(){try{var t=localStorage.getItem('nr-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 
 <meta name="description" content="Nikhil Rajan: BA Economics graduate of Madras School of Economics (CGPA 9.61), now MSc Financial Statistics at LSE. Research in stochastic modelling, derivative pricing, credit risk, and welfare economics."/>
 <meta name="keywords" content="Nikhil Rajan, Nikhil Rajan MSE, Nikhil Rajan LSE, Nikhil Rajan economist, Nikhil Rajan Madras School of Economics, mathematical finance, stochastic processes, quantitative finance"/>
@@ -102,10 +104,10 @@
 }
 
 html[data-theme="dark"] {
-  --paper:      #121010;
+  --paper:      #100e0c;
   --paper-2:    #1c1918;
   --paper-3:    #252120;
-  --card:       #171413;
+  --card:       #17130f;
   --ink:        #f2ece4;
   --ink-2:      #cfc5ba;
   --ink-3:      #a2988d;
@@ -126,7 +128,7 @@ html[data-theme="dark"] {
   --violet-line:#392f56;
   --ochre:      #d8ab58;
   --ochre-wash: #241d10;
-  --shadow:     0 26px 64px rgba(0,0,0,0.6);
+  --shadow:     0 30px 70px rgba(0,0,0,0.62);
 }
 
 html { font-size: 17px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -264,8 +266,14 @@ h2.page-title {
 .page-lede.tight { margin-bottom: 2.6rem; }
 
 /* ---------- HERO ---------- */
-.hero { position: relative; padding-bottom: 2.8rem; margin-bottom: 3rem; border-bottom: 1px solid var(--rule); }
-.hero-plot { position: absolute; right: -2rem; top: -2.2rem; width: 48%; height: 258px; pointer-events: none; }
+.hero { position: relative; padding-bottom: 2.8rem; margin-bottom: 3rem; border-bottom: 1px solid var(--rule); isolation: isolate; }
+.hero::before {
+  content: ''; position: absolute; z-index: 0; left: -6%; top: -16%;
+  width: 56%; height: 150%; pointer-events: none; opacity: 0.5;
+  background: radial-gradient(closest-side, var(--wash), transparent 78%);
+}
+html[data-theme="dark"] .hero::before { opacity: 1; background: radial-gradient(closest-side, rgba(227,156,127,0.12), transparent 76%); }
+.hero-plot { position: absolute; right: -2rem; top: -2.2rem; width: 48%; height: 258px; pointer-events: none; z-index: 2; }
 .hero-plot canvas { width: 100%; height: 100%; display: block;
   -webkit-mask-image: linear-gradient(100deg, transparent 0%, #000 36%, #000 93%, transparent 100%);
   mask-image: linear-gradient(100deg, transparent 0%, #000 36%, #000 93%, transparent 100%);
@@ -276,9 +284,9 @@ h2.page-title {
   font-family: var(--display); font-size: clamp(3rem, 6.6vw, 4.6rem); font-weight: 600;
   font-variation-settings: 'SOFT' 0, 'WONK' 1, 'opsz' 144;
   letter-spacing: -0.045em; line-height: 0.94; color: var(--ink);
-  margin-bottom: 1.4rem; position: relative;
+  margin-bottom: 1.4rem; position: relative; z-index: 1;
 }
-.hero-deg { display: flex; flex-direction: column; gap: 1rem; max-width: 46ch; position: relative; }
+.hero-deg { display: flex; flex-direction: column; gap: 1rem; max-width: 46ch; position: relative; z-index: 1; }
 .hero-cred { display: flex; flex-direction: column; line-height: 1.4; }
 .hero-cred-main { font-family: var(--serif); font-size: 1.18rem; font-weight: 600; color: var(--ink); letter-spacing: -0.012em; }
 .hero-cred-meta { font-family: var(--serif); font-size: 1rem; color: var(--ink-3); margin-top: 0.14rem; }
@@ -521,10 +529,25 @@ h2.page-title {
 .cmd-foot { display: flex; gap: 1.4rem; padding: 0.62rem 1.45rem; border-top: 1px solid var(--rule); background: var(--paper-2); }
 .cmd-foot span { font-family: var(--mono); font-size: 0.62rem; color: var(--ink-4); }
 
-/* ---------- FOOTER ---------- */
-footer { margin-left: var(--rail); padding: 1.9rem 4.4rem 3rem; max-width: calc(var(--rail) + 1160px); border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-footer p, footer a { font-family: var(--mono); font-size: 0.66rem; color: var(--ink-4); }
-footer a:hover { color: var(--accent); }
+/* ---------- ENHANCEMENTS ---------- */
+.d-read { color: var(--ink-4); }
+.d-share { font-family: var(--sans); font-size: 0.8rem; color: var(--accent); background: none; border: 1px solid var(--rule-2); padding: 0.26rem 0.72rem; cursor: pointer; line-height: 1.45; transition: border-color 0.18s var(--ease), color 0.18s var(--ease), background 0.18s var(--ease); }
+.d-share:hover { border-color: var(--accent); }
+.d-share.ok { color: var(--green); border-color: var(--green-line); background: var(--green-wash); }
+
+.to-top { position: fixed; right: 1.7rem; bottom: 1.7rem; z-index: 150; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--rule-2); background: var(--card); color: var(--ink-2); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; line-height: 1; box-shadow: var(--shadow); opacity: 0; transform: translateY(12px) scale(0.94); pointer-events: none; transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), color 0.18s var(--ease), border-color 0.18s var(--ease); }
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { color: var(--accent); border-color: var(--accent); }
+
+.sc-panel { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: min(440px, calc(100vw - 2.4rem)); background: var(--card); border: 1px solid var(--rule-2); box-shadow: var(--shadow); padding: 1.6rem 1.75rem 1.75rem; animation: rise 0.26s var(--ease) both; }
+.sc-hd { font-family: var(--sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 1.05rem; }
+.sc-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid var(--rule); }
+.sc-row:last-child { border-bottom: none; padding-bottom: 0; }
+.sc-label { font-family: var(--serif); font-size: 1.02rem; color: var(--ink-2); }
+.sc-keys { display: flex; gap: 0.4rem; flex-shrink: 0; }
+.sc-keys kbd { font-family: var(--mono); font-size: 0.68rem; color: var(--ink-2); background: var(--paper-2); border: 1px solid var(--rule-2); border-radius: 4px; padding: 0.16rem 0.46rem; }
+@media (max-width: 880px) { .to-top { right: 1rem; bottom: 1rem; } }
+@media print { .to-top, #sc-back { display: none !important; } }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 1180px) { .detail-grid { grid-template-columns: 1fr; gap: 0; } .toc { display: none; } }
@@ -579,7 +602,7 @@ footer a:hover { color: var(--accent); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .page.active, .cmd, .course-row.open .course-body { animation: none; }
+  .page.active, .cmd, .sc-panel, .course-row.open .course-body { animation: none; }
   * { transition: none !important; }
 }
 
@@ -603,6 +626,20 @@ footer a:hover { color: var(--accent); }
     <div class="cmd-foot"><span>enter to open</span><span>arrow keys to move</span><span>esc to close</span></div>
   </div>
 </div>
+
+<div class="cmd-back" id="sc-back" role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
+  <div class="sc-panel">
+    <div class="sc-hd">Keyboard shortcuts</div>
+    <div class="sc-row"><span class="sc-label">Search everything</span><span class="sc-keys"><kbd>&#8984;K</kbd><kbd>/</kbd></span></div>
+    <div class="sc-row"><span class="sc-label">Move through results</span><span class="sc-keys"><kbd>&#8593;</kbd><kbd>&#8595;</kbd></span></div>
+    <div class="sc-row"><span class="sc-label">Open selection</span><span class="sc-keys"><kbd>Enter</kbd></span></div>
+    <div class="sc-row"><span class="sc-label">Switch light and dark</span><span class="sc-keys"><kbd>T</kbd></span></div>
+    <div class="sc-row"><span class="sc-label">Show this help</span><span class="sc-keys"><kbd>?</kbd></span></div>
+    <div class="sc-row"><span class="sc-label">Close</span><span class="sc-keys"><kbd>Esc</kbd></span></div>
+  </div>
+</div>
+
+<button class="to-top" id="to-top" type="button" aria-label="Back to top">&#8593;</button>
 
 <aside class="rail">
   <button class="rail-name" onclick="showPage('about')">Nikhil Rajan</button>
@@ -1567,9 +1604,36 @@ function backFromProject() {
   _researchCat ? showResearchCat(_researchCat) : showResearchLanding();
 }
 
+function copyPaperLink(btn, key) {
+  var url = location.origin + location.pathname + '#paper/' + key;
+  var done = function() {
+    var orig = btn.getAttribute('data-label') || 'Copy link';
+    btn.textContent = 'Link copied';
+    btn.classList.add('ok');
+    setTimeout(function(){ btn.textContent = orig; btn.classList.remove('ok'); }, 1600);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(done, function(){ fallbackCopy(url); done(); });
+  } else {
+    fallbackCopy(url); done();
+  }
+}
+function fallbackCopy(text) {
+  try {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly', '');
+    ta.style.position = 'absolute'; ta.style.left = '-9999px';
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+  } catch (e) {}
+}
+
 function showProject(key, keepHash) {
   var p = PROJECTS[key];
   if (!p) return;
+  var plain = (p.body || '').replace(/<[^>]+>/g, ' ');
+  var words = (plain.match(/[A-Za-z0-9]+/g) || []).length;
+  var mins = Math.max(1, Math.round(words / 190));
   var tags = p.tags.map(function(t){ return '<span class="proj-tag">' + t + '</span>'; }).join('');
   var siblings = CATS[p.catKey], idx = siblings.indexOf(key);
   var prev = idx > 0 ? siblings[idx-1] : null, next = idx < siblings.length-1 ? siblings[idx+1] : null;
@@ -1582,7 +1646,9 @@ function showProject(key, keepHash) {
     '<div class="d-code">' + p.cat + '</div>' +
     '<h2 class="d-title">' + p.title + '</h2>' +
     '<div class="d-meta"><span class="status ' + p.statusClass + '">' + p.status + '</span>' +
-    '<span class="yr">' + p.date + '</span></div>' +
+    '<span class="yr">' + p.date + '</span>' +
+    '<span class="yr d-read">' + mins + ' min read</span>' +
+    '<button type="button" class="d-share" data-label="Copy link" onclick="copyPaperLink(this,\'' + key + '\')">Copy link</button></div>' +
     '<div class="d-tags">' + tags + '</div>' +
     '<div class="d-body">' + p.body + '</div>' + navHtml;
 
@@ -1756,15 +1822,52 @@ window.addEventListener('scroll', function(){ updateProgress(); spy(); }, { pass
   function label() { btn.lastElementChild.textContent = root.getAttribute('data-theme') === 'dark' ? 'Light mode' : 'Dark mode'; }
   var saved = null;
   try { saved = localStorage.getItem('nr-theme'); } catch (e) {}
-  if (saved) root.setAttribute('data-theme', saved);
-  else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) root.setAttribute('data-theme', 'dark');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  else root.setAttribute('data-theme', 'dark');
   label();
-  btn.addEventListener('click', function() {
+  function toggle() {
     var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     try { localStorage.setItem('nr-theme', next); } catch (e) {}
     label();
     if (window._drawHero) window._drawHero(true);
+  }
+  btn.addEventListener('click', toggle);
+  window._toggleTheme = toggle;
+})();
+
+/* ============ BACK TO TOP ============ */
+(function() {
+  var btn = document.getElementById('to-top');
+  if (!btn) return;
+  function upd() { if (window.scrollY > 560) btn.classList.add('show'); else btn.classList.remove('show'); }
+  window.addEventListener('scroll', upd, { passive: true });
+  btn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  upd();
+})();
+
+/* ============ SHORTCUTS OVERLAY ============ */
+(function() {
+  var back = document.getElementById('sc-back');
+  if (!back) return;
+  function open() { back.classList.add('on'); }
+  function close() { back.classList.remove('on'); }
+  back.addEventListener('mousedown', function(e){ if (e.target === back) close(); });
+  document.addEventListener('keydown', function(e) {
+    var tag = ((document.activeElement || {}).tagName) || '';
+    var typing = /^(INPUT|TEXTAREA|SELECT)$/.test(tag);
+    var cmd = document.getElementById('cmd-back');
+    var cmdOpen = cmd && cmd.classList.contains('on');
+    if (e.key === '?' && !typing && !cmdOpen) {
+      e.preventDefault();
+      back.classList.contains('on') ? close() : open();
+    } else if ((e.key === 't' || e.key === 'T') && !typing && !cmdOpen && !e.metaKey && !e.ctrlKey && !e.altKey) {
+      e.preventDefault();
+      if (window._toggleTheme) window._toggleTheme();
+    } else if (e.key === 'Escape' && back.classList.contains('on')) {
+      e.preventDefault();
+      close();
+    }
   });
 })();
 
