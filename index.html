@@ -99,6 +99,7 @@
   --mono:       'IBM Plex Mono', ui-monospace, monospace;
 
   --rail:       266px;
+  --shell:      1600px;
   --measure:    66ch;
   --ease:       cubic-bezier(.2,.75,.3,1);
 }
@@ -182,7 +183,7 @@ p { text-wrap: pretty; }
 
 /* ---------- RAIL ---------- */
 .rail {
-  position: fixed; top: 0; left: 0; bottom: 0; width: var(--rail); z-index: 100;
+  position: fixed; top: 0; left: max(0px, calc((100vw - var(--shell)) / 2)); bottom: 0; width: var(--rail); z-index: 100;
   background: var(--paper); border-right: 1px solid var(--rule);
   display: flex; flex-direction: column; padding: 3.4rem 0 1.6rem;
 }
@@ -250,9 +251,10 @@ p { text-wrap: pretty; }
 .page.active { display: block; animation: rise 0.44s var(--ease) both; }
 @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
-.wrap { margin-left: var(--rail); padding: 5.4rem 4.4rem 6rem; max-width: calc(var(--rail) + 1160px); }
-.wrap.wide { max-width: calc(var(--rail) + 1300px); }
-.col { max-width: 900px; }
+.wrap { margin-left: calc(max(0px, (100vw - var(--shell)) / 2) + var(--rail)); margin-right: max(0px, (100vw - var(--shell)) / 2); padding: 5.4rem 4.4rem 6rem; max-width: none; }
+.wrap.wide { max-width: none; }
+.col { max-width: 1180px; }
+footer { margin-left: calc(max(0px, (100vw - var(--shell)) / 2) + var(--rail)); margin-right: max(0px, (100vw - var(--shell)) / 2); padding: 0 4.4rem; }
 
 h2.page-title {
   font-family: var(--display); font-size: 2.4rem; font-weight: 600;
@@ -548,9 +550,9 @@ html[data-theme="dark"] .hero::before { opacity: 1; background: radial-gradient(
 /* ---------- ABOUT: WIDE TWO-COLUMN LAYOUT ---------- */
 @media (min-width: 1300px) {
   .about-wrap { max-width: none; }
-  .about-col { max-width: 1220px; margin: 0 auto; }
+  .about-col { max-width: none; margin: 0; }
   .about-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; column-gap: 4.5rem; align-items: start; margin-top: 2.8rem; }
-  .about-grid > .bio { max-width: 80ch; }
+  .about-grid > .bio { max-width: none; }
   .about-side { display: flex; flex-direction: column; gap: 2.4rem; }
   .about-side > .record { flex-direction: column; gap: 0; margin: 0; }
   .about-side .record-item { width: 100%; flex: 0 0 auto; border-right: none; padding: 1.1rem 0; border-bottom: 1px solid var(--rule); }
