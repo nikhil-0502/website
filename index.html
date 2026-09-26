@@ -498,8 +498,8 @@ html[data-theme="dark"] .hero::before { opacity: 1; background: radial-gradient(
 .course-body { display: none; font-family: var(--serif); font-size: 1.01rem; color: var(--ink-3); line-height: 1.74; padding: 0 0.45rem 1.2rem; max-width: 68ch; }
 .course-row.open .course-body { display: block; animation: rise 0.3s ease both; }
 .course-code { font-family: var(--mono); font-size: 0.68rem; color: var(--accent); margin-right: 0.72rem; }
-.course-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.95rem; }
-.course-tag { font-family: var(--sans); font-size: 0.68rem; color: var(--accent); background: var(--wash); border: 1px solid var(--wash-line); padding: 0.16rem 0.58rem; border-radius: 2px; letter-spacing: 0.005em; white-space: nowrap; }
+.course-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.35rem; }
+.course-tag { font-family: var(--sans); font-size: 0.73rem; color: var(--accent); background: var(--wash); border: 1px solid var(--wash-line); padding: 0.26rem 0.66rem; border-radius: 3px; letter-spacing: 0.005em; white-space: nowrap; }
 .course-lead { display: block; }
 
 /* ---------- COMMAND PALETTE ---------- */
@@ -941,57 +941,38 @@ html[data-theme="dark"] .hero::before { opacity: 1; background: radial-gradient(
           </div>
           <div class="entry-meta">London, United Kingdom &middot; 2026 to 2027</div>
         </div>
-        <div class="entry-note">
-          Eight taught courses drawn from the Statistics, Mathematics and Finance departments, from continuous-time stochastic calculus and market microstructure through derivative pricing, machine learning and statistical inference. Open any course for its scope and core machinery.
-        </div>
         <div class="course-block">
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
             <div class="course-hdr"><span class="course-nm"><span class="course-code">ST409</span>Stochastic Calculus</span><span class="course-sign"></span></div>
-            <div class="course-body"><span class="course-lead">Measure-theoretic probability taken to its limit and rebuilt as the language of continuous-time finance. The course moves from discrete-time martingales and the optional stopping theorem through Doob's inequalities, Poisson processes and Brownian motion, to the Ito integral and Ito's formula for general predictable integrands. It culminates in the martingale representation theorem, Girsanov's change of measure, stochastic differential equations and the Feynman-Kac theorem: the exact machinery behind equivalent martingale measures, no-arbitrage pricing and Black-Scholes.</span>
-              <div class="course-tags"><span class="course-tag">Martingales</span><span class="course-tag">Ito Calculus</span><span class="course-tag">Girsanov's Theorem</span><span class="course-tag">Feynman-Kac</span><span class="course-tag">SDEs</span><span class="course-tag">No-Arbitrage Pricing</span></div>
-            </div>
+            <div class="course-body">Brownian motion and its properties; construction and properties of the It&ocirc; stochastic integral with respect to Brownian motion, continuous local martingales, and It&ocirc; processes; It&ocirc;&#8217;s formula for functions of Brownian motion and It&ocirc; processes; exponential martingales and L&eacute;vy&#8217;s characterisation of Brownian motion; stochastic differential equations, including weak and strong solutions and conditions for existence and uniqueness; martingale representation theorem; Girsanov&#8217;s theorem and changes of probability measure and drift; and the connection between stochastic processes and partial differential equations through the Feynman-Kac theorem, with applications to continuous-time financial models.</div>
           </div>
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
             <div class="course-hdr"><span class="course-nm"><span class="course-code">ST461</span>Mathematics of Market Microstructure</span><span class="course-sign"></span></div>
-            <div class="course-body"><span class="course-lead">Among the most demanding courses in the programme. Order arrival and price formation are modelled with stochastic processes with and without jumps, and optimisation under uncertainty is solved through the Hamilton-Jacobi-Bellman equation. The first half develops price impact, optimal execution (Almgren-Chriss, Obizhaeva-Wang) and the Avellaneda-Stoikov market-making model; the second turns to equilibrium under asymmetric information, the continuous-time Kyle and Glosten-Milgrom models, using stochastic filtering and Kalman techniques to recover unobservable signals, before closing on dark pools, decentralised exchanges and automated market making.</span>
-              <div class="course-tags"><span class="course-tag">Hamilton-Jacobi-Bellman</span><span class="course-tag">Optimal Execution</span><span class="course-tag">Kyle Model</span><span class="course-tag">Stochastic Filtering</span><span class="course-tag">Limit Order Books</span></div>
-            </div>
+            <div class="course-body">The mathematical foundations of algorithmic and high-frequency trading. Covers optimal execution (Almgren-Chriss, Obizhaeva-Wang) and market making with inventory and price-impact models (Avellaneda-Stoikov), built on stochastic control and Hamilton-Jacobi-Bellman equations. Extends to market equilibrium under asymmetric information, covering the Kyle and Glosten-Milgrom models and limit order book dynamics, using stochastic filtering (Kalman). Concludes with modern market structure: decentralised exchanges, automated market making, and dark pools.</div>
           </div>
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
             <div class="course-hdr"><span class="course-nm"><span class="course-code">MA415</span>The Mathematics of the Black and Scholes Theory</span><span class="course-sign"></span></div>
-            <div class="course-body"><span class="course-lead">The theory of risk-neutral valuation, done rigorously. Beginning with replication and martingale measures in the binomial tree, the course passes to continuous time to derive the Black-Scholes PDE and closed-form prices for European calls and puts as discounted risk-neutral expectations. It then builds out PDE methods for hedging, implied and stochastic volatility, and the pricing of foreign-exchange options.</span>
-              <div class="course-tags"><span class="course-tag">Risk-Neutral Valuation</span><span class="course-tag">Black-Scholes PDE</span><span class="course-tag">Martingale Measures</span><span class="course-tag">Stochastic Volatility</span><span class="course-tag">FX Options</span></div>
-            </div>
+            <div class="course-body">How option pricing really works. It begins with the binomial tree and replication, then moves into continuous time for the Black-Scholes PDE and the formulas for calls and puts. After that it's hedging with PDEs, implied and stochastic volatility, and pricing FX options. The maths gets heavy once the PDEs start.</div>
           </div>
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
             <div class="course-hdr"><span class="course-nm"><span class="course-code">ST463</span>Stochastic Simulation, Training and Calibration</span><span class="course-sign"></span></div>
-            <div class="course-body"><span class="course-lead">Simulation and modern machine learning brought to risk. The course covers Monte Carlo methods and the simulation of stochastic processes, generative adversarial networks for risk management, and the bridge from generalised linear models to deep neural networks. It ends on the genuinely hard problem of calibrating statistical and machine-learning models, and on reinforcement learning applied to hedging and swing-option pricing in energy markets.</span>
-              <div class="course-tags"><span class="course-tag">Monte Carlo</span><span class="course-tag">GANs</span><span class="course-tag">Deep Neural Networks</span><span class="course-tag">Model Calibration</span><span class="course-tag">Reinforcement Learning</span></div>
-            </div>
+            <div class="course-body">Simulation and machine learning put to work on risk. You do Monte Carlo and simulate stochastic processes, then move from simple linear models all the way up to deep neural networks and GANs. The hard part is getting these models calibrated properly. It finishes with reinforcement learning for hedging and pricing swing options in energy markets.</div>
           </div>
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
             <div class="course-hdr"><span class="course-nm"><span class="course-code">FM413</span>Fixed Income Markets</span><span class="course-sign"></span></div>
-            <div class="course-body"><span class="course-lead">A rigorous treatment of interest-rate markets and the instruments written on them. It runs from yield, duration and convexity through curve fitting, bootstrapping and duration-based hedging to the factors driving the whole term structure, valued with no-arbitrage trees, calibration and continuous-time models. Coverage spans government and corporate bonds, convertible, callable and puttable, together with caps, floors, collars, swaps and swaptions, mortgage-backed securities and credit-risk transfer.</span>
-              <div class="course-tags"><span class="course-tag">Duration &amp; Convexity</span><span class="course-tag">Term Structure</span><span class="course-tag">No-Arbitrage Trees</span><span class="course-tag">Swaps &amp; Swaptions</span><span class="course-tag">MBS &amp; Credit Transfer</span></div>
-            </div>
+            <div class="course-body">Pretty much everything to do with bonds and interest rate products. It starts with yield, duration and convexity, then curve fitting, bootstrapping and hedging. You cover government and corporate bonds, including the convertible, callable and puttable kinds, plus caps, floors, swaps and swaptions. Mortgage-backed securities and credit risk transfer come in near the end.</div>
           </div>
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
             <div class="course-hdr"><span class="course-nm"><span class="course-code">ST436</span>Financial Statistics I</span><span class="course-sign"></span></div>
-            <div class="course-body"><span class="course-lead">The empirical core of the programme, taught hands-on in R. It works through low- and high-frequency financial time series, ARCH-type volatility models, Markowitz portfolio theory and the CAPM, then machine learning for forecasting, Value at Risk and simple trading strategies, all on real market data.</span>
-              <div class="course-tags"><span class="course-tag">Financial Time Series</span><span class="course-tag">ARCH / GARCH</span><span class="course-tag">CAPM</span><span class="course-tag">Value at Risk</span><span class="course-tag">R</span></div>
-            </div>
+            <div class="course-body">The hands-on stats course, all done in R. You work with real financial data, both low and high frequency, fit ARCH type models for volatility, and go through Markowitz portfolio theory and the CAPM. There's also machine learning for forecasting, Value at Risk and a few simple trading strategies.</div>
           </div>
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
             <div class="course-hdr"><span class="course-nm"><span class="course-code">ST458</span>Financial Statistics II</span><span class="course-sign"></span></div>
-            <div class="course-body"><span class="course-lead">The advanced continuation of Financial Statistics I. It covers decision trees, random forests and gradient boosting, neural networks and LSTMs on financial data, then factor models, cointegration and Granger causality, closing with portfolio allocation and gross-exposure constraints for vast portfolios in high-frequency data.</span>
-              <div class="course-tags"><span class="course-tag">Gradient Boosting</span><span class="course-tag">LSTMs</span><span class="course-tag">Cointegration</span><span class="course-tag">Granger Causality</span><span class="course-tag">High-Frequency Allocation</span></div>
-            </div>
+            <div class="course-body">The second half of the stats sequence, and it leans a lot more into machine learning. You cover decision trees, random forests and gradient boosting, then neural networks and LSTMs on financial data. It also gets into factor models, cointegration, Granger causality, and building portfolios in high frequency data.</div>
           </div>
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
-            <div class="course-hdr"><span class="course-nm">Statistics</span><span class="course-sign"></span></div>
-            <div class="course-body"><span class="course-lead">The mathematical foundations of statistical inference, at pace. From probability and multivariate distributions the course builds through the law of large numbers, central limit theorem and the delta method to estimation theory: sufficiency, the Rao-Blackwell theorem, maximum likelihood and the Cramer-Rao bound. It then develops testing from the Neyman-Pearson lemma through likelihood-ratio, Wald and score tests and Wilks' theorem, false-discovery control, Bayesian inference, and linear regression up to the Gauss-Markov theorem.</span>
-              <div class="course-tags"><span class="course-tag">Maximum Likelihood</span><span class="course-tag">Cramer-Rao Bound</span><span class="course-tag">Neyman-Pearson</span><span class="course-tag">Wilks' Theorem</span><span class="course-tag">Gauss-Markov</span></div>
-            </div>
+            <div class="course-hdr"><span class="course-nm"><span class="course-code">ST460</span>Statistics for Finance</span><span class="course-sign"></span></div>
+            <div class="course-body">Asymptotic theory and the foundations of statistical inference. Convergence in probability and distribution, the law of large numbers and central limit theorem, Slutsky&#8217;s theorem and the delta method; sufficiency, exponential families and the Rao-Blackwell theorem; maximum likelihood, Fisher information and the Cram&eacute;r-Rao lower bound, with consistency, asymptotic normality and efficiency; hypothesis testing through the Neyman-Pearson lemma, likelihood-ratio, Wald and score tests, and Wilks&#8217; theorem; control of the false discovery rate under multiplicity; Bayesian inference and decision theory; and the Gauss-Markov theorem, robust inference, and the distinction between association and causation in linear models.</div>
           </div>
         </div>
       </div>
