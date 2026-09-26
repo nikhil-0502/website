@@ -498,16 +498,9 @@ html[data-theme="dark"] .hero::before { opacity: 1; background: radial-gradient(
 .course-body { display: none; font-family: var(--serif); font-size: 1.01rem; color: var(--ink-3); line-height: 1.74; padding: 0 0.45rem 1.2rem; max-width: 68ch; }
 .course-row.open .course-body { display: block; animation: rise 0.3s ease both; }
 .course-code { font-family: var(--mono); font-size: 0.68rem; color: var(--accent); margin-right: 0.72rem; }
-
-.exp-role { font-family: var(--serif); font-size: 1.26rem; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; }
-.exp-org { font-family: var(--serif); font-size: 1.02rem; font-style: italic; color: var(--ink-3); margin-top: 0.24rem; }
-.exp-ul { list-style: none; margin-top: 1.3rem; max-width: 72ch; }
-.exp-ul li { font-family: var(--serif); font-size: 1.04rem; color: var(--ink-2); line-height: 1.72; padding: 0.75rem 0 0.75rem 1.5rem; border-bottom: 1px solid var(--rule); position: relative; }
-.exp-ul li::before { content: ''; position: absolute; left: 0; top: 1.55rem; width: 8px; height: 1px; background: var(--rule-2); }
-.exp-ul li:first-child { border-top: 1px solid var(--rule); }
-.exp-ul li:last-child { border-bottom: none; }
-.sub-head { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-4); margin: 3.6rem 0 0.4rem; }
-.empty { font-family: var(--serif); font-size: 1.12rem; font-style: italic; color: var(--ink-3); padding: 3rem 0; border-top: 1px solid var(--rule); max-width: 54ch; }
+.course-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.95rem; }
+.course-tag { font-family: var(--sans); font-size: 0.68rem; color: var(--accent); background: var(--wash); border: 1px solid var(--wash-line); padding: 0.16rem 0.58rem; border-radius: 2px; letter-spacing: 0.005em; white-space: nowrap; }
+.course-lead { display: block; }
 
 /* ---------- COMMAND PALETTE ---------- */
 .cmd-back { position: fixed; inset: 0; z-index: 300; background: rgba(23,20,15,0.42); backdrop-filter: blur(4px); display: none; }
@@ -615,6 +608,7 @@ html[data-theme="dark"] .hero::before { opacity: 1; background: radial-gradient(
 
 </style>
 </head>
+
 <body>
 
 <div class="progress" aria-hidden="true"><i></i></div>
@@ -947,38 +941,57 @@ html[data-theme="dark"] .hero::before { opacity: 1; background: radial-gradient(
           </div>
           <div class="entry-meta">London, United Kingdom &middot; 2026 to 2027</div>
         </div>
+        <div class="entry-note">
+          Eight taught courses drawn from the Statistics, Mathematics and Finance departments, from continuous-time stochastic calculus and market microstructure through derivative pricing, machine learning and statistical inference. Open any course for its scope and core machinery.
+        </div>
         <div class="course-block">
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
-            <div class="course-hdr"><span class="course-nm"><span class="course-code">ST409</span>Stochastic Processes</span><span class="course-sign"></span></div>
-            <div class="course-body">Martingales and the optional stopping theorem. Poisson and compound Poisson processes. Brownian motion and stochastic calculus, building up to stochastic differential equations, with applications throughout in finance and insurance.</div>
+            <div class="course-hdr"><span class="course-nm"><span class="course-code">ST409</span>Stochastic Calculus</span><span class="course-sign"></span></div>
+            <div class="course-body"><span class="course-lead">Measure-theoretic probability taken to its limit and rebuilt as the language of continuous-time finance. The course moves from discrete-time martingales and the optional stopping theorem through Doob's inequalities, Poisson processes and Brownian motion, to the Ito integral and Ito's formula for general predictable integrands. It culminates in the martingale representation theorem, Girsanov's change of measure, stochastic differential equations and the Feynman-Kac theorem: the exact machinery behind equivalent martingale measures, no-arbitrage pricing and Black-Scholes.</span>
+              <div class="course-tags"><span class="course-tag">Martingales</span><span class="course-tag">Ito Calculus</span><span class="course-tag">Girsanov's Theorem</span><span class="course-tag">Feynman-Kac</span><span class="course-tag">SDEs</span><span class="course-tag">No-Arbitrage Pricing</span></div>
+            </div>
           </div>
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
-            <div class="course-hdr"><span class="course-nm"><span class="course-code">FM413</span>Fixed Income</span><span class="course-sign"></span></div>
-            <div class="course-body">Yield, duration, and convexity. Curve fitting, bootstrapping, and duration-based hedging. Government and corporate bonds, including convertible, callable, and puttable structures. Caps, floors, collars, swaps, and swaptions, with an introduction to mortgage-backed securities and credit risk transfer.</div>
+            <div class="course-hdr"><span class="course-nm"><span class="course-code">ST461</span>Mathematics of Market Microstructure</span><span class="course-sign"></span></div>
+            <div class="course-body"><span class="course-lead">Among the most demanding courses in the programme. Order arrival and price formation are modelled with stochastic processes with and without jumps, and optimisation under uncertainty is solved through the Hamilton-Jacobi-Bellman equation. The first half develops price impact, optimal execution (Almgren-Chriss, Obizhaeva-Wang) and the Avellaneda-Stoikov market-making model; the second turns to equilibrium under asymmetric information, the continuous-time Kyle and Glosten-Milgrom models, using stochastic filtering and Kalman techniques to recover unobservable signals, before closing on dark pools, decentralised exchanges and automated market making.</span>
+              <div class="course-tags"><span class="course-tag">Hamilton-Jacobi-Bellman</span><span class="course-tag">Optimal Execution</span><span class="course-tag">Kyle Model</span><span class="course-tag">Stochastic Filtering</span><span class="course-tag">Limit Order Books</span></div>
+            </div>
           </div>
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
             <div class="course-hdr"><span class="course-nm"><span class="course-code">MA415</span>The Mathematics of the Black and Scholes Theory</span><span class="course-sign"></span></div>
-            <div class="course-body">Replication and martingale measures in the binomial tree model, and the passage to continuous time. Risk-neutral valuation, the Black-Scholes PDE, and pricing formulae for European calls and puts. PDE methods for hedging, implied volatility, stochastic volatility models, and foreign exchange options.</div>
-          </div>
-          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
-            <div class="course-hdr"><span class="course-nm"><span class="course-code">MA416</span>The Foundations of Interest Rate and Credit Risk Theory</span><span class="course-sign"></span></div>
-            <div class="course-body">Multi-dimensional Black-Scholes theory with stochastic market data. Discount bond dynamics through short-rate models and the market price of risk, and through the Heath-Jarrow-Morton framework. Interest rate market models and the foundations of credit risk.</div>
+            <div class="course-body"><span class="course-lead">The theory of risk-neutral valuation, done rigorously. Beginning with replication and martingale measures in the binomial tree, the course passes to continuous time to derive the Black-Scholes PDE and closed-form prices for European calls and puts as discounted risk-neutral expectations. It then builds out PDE methods for hedging, implied and stochastic volatility, and the pricing of foreign-exchange options.</span>
+              <div class="course-tags"><span class="course-tag">Risk-Neutral Valuation</span><span class="course-tag">Black-Scholes PDE</span><span class="course-tag">Martingale Measures</span><span class="course-tag">Stochastic Volatility</span><span class="course-tag">FX Options</span></div>
+            </div>
           </div>
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
             <div class="course-hdr"><span class="course-nm"><span class="course-code">ST463</span>Stochastic Simulation, Training and Calibration</span><span class="course-sign"></span></div>
-            <div class="course-body">Monte Carlo methods and simulation of stochastic processes, including generative adversarial networks for risk management. Generalised linear models bridging into deep neural networks. Calibration of statistical and machine learning models, closing with reinforcement learning applied to hedging and swing option pricing.</div>
+            <div class="course-body"><span class="course-lead">Simulation and modern machine learning brought to risk. The course covers Monte Carlo methods and the simulation of stochastic processes, generative adversarial networks for risk management, and the bridge from generalised linear models to deep neural networks. It ends on the genuinely hard problem of calibrating statistical and machine-learning models, and on reinforcement learning applied to hedging and swing-option pricing in energy markets.</span>
+              <div class="course-tags"><span class="course-tag">Monte Carlo</span><span class="course-tag">GANs</span><span class="course-tag">Deep Neural Networks</span><span class="course-tag">Model Calibration</span><span class="course-tag">Reinforcement Learning</span></div>
+            </div>
+          </div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
+            <div class="course-hdr"><span class="course-nm"><span class="course-code">FM413</span>Fixed Income Markets</span><span class="course-sign"></span></div>
+            <div class="course-body"><span class="course-lead">A rigorous treatment of interest-rate markets and the instruments written on them. It runs from yield, duration and convexity through curve fitting, bootstrapping and duration-based hedging to the factors driving the whole term structure, valued with no-arbitrage trees, calibration and continuous-time models. Coverage spans government and corporate bonds, convertible, callable and puttable, together with caps, floors, collars, swaps and swaptions, mortgage-backed securities and credit-risk transfer.</span>
+              <div class="course-tags"><span class="course-tag">Duration &amp; Convexity</span><span class="course-tag">Term Structure</span><span class="course-tag">No-Arbitrage Trees</span><span class="course-tag">Swaps &amp; Swaptions</span><span class="course-tag">MBS &amp; Credit Transfer</span></div>
+            </div>
           </div>
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
             <div class="course-hdr"><span class="course-nm"><span class="course-code">ST436</span>Financial Statistics I</span><span class="course-sign"></span></div>
-            <div class="course-body">Financial time series in R, low- and high-frequency. ARCH-type volatility models, Markowitz portfolio theory, and the CAPM. Machine learning for financial forecasting, Value at Risk, and simple trading strategies, working with real market data throughout.</div>
+            <div class="course-body"><span class="course-lead">The empirical core of the programme, taught hands-on in R. It works through low- and high-frequency financial time series, ARCH-type volatility models, Markowitz portfolio theory and the CAPM, then machine learning for forecasting, Value at Risk and simple trading strategies, all on real market data.</span>
+              <div class="course-tags"><span class="course-tag">Financial Time Series</span><span class="course-tag">ARCH / GARCH</span><span class="course-tag">CAPM</span><span class="course-tag">Value at Risk</span><span class="course-tag">R</span></div>
+            </div>
           </div>
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
             <div class="course-hdr"><span class="course-nm"><span class="course-code">ST458</span>Financial Statistics II</span><span class="course-sign"></span></div>
-            <div class="course-body">Decision trees, random forests, and gradient boosting. Neural networks and LSTMs applied to financial data. Factor models, cointegration, and Granger causality. Portfolio allocation and exposure constraints in high-frequency data, consolidated through case studies.</div>
+            <div class="course-body"><span class="course-lead">The advanced continuation of Financial Statistics I. It covers decision trees, random forests and gradient boosting, neural networks and LSTMs on financial data, then factor models, cointegration and Granger causality, closing with portfolio allocation and gross-exposure constraints for vast portfolios in high-frequency data.</span>
+              <div class="course-tags"><span class="course-tag">Gradient Boosting</span><span class="course-tag">LSTMs</span><span class="course-tag">Cointegration</span><span class="course-tag">Granger Causality</span><span class="course-tag">High-Frequency Allocation</span></div>
+            </div>
           </div>
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button">
-            <div class="course-hdr"><span class="course-nm"><span class="course-code">ST460</span>Statistical Inference: Principles and Methods</span><span class="course-sign"></span></div>
-            <div class="course-body">Foundational principles and methods in probability and statistics, including likelihood-based inference. Linear regression analysis with real data in R, with simulation and hands-on estimation built in throughout.</div>
+            <div class="course-hdr"><span class="course-nm">Statistics</span><span class="course-sign"></span></div>
+            <div class="course-body"><span class="course-lead">The mathematical foundations of statistical inference, at pace. From probability and multivariate distributions the course builds through the law of large numbers, central limit theorem and the delta method to estimation theory: sufficiency, the Rao-Blackwell theorem, maximum likelihood and the Cramer-Rao bound. It then develops testing from the Neyman-Pearson lemma through likelihood-ratio, Wald and score tests and Wilks' theorem, false-discovery control, Bayesian inference, and linear regression up to the Gauss-Markov theorem.</span>
+              <div class="course-tags"><span class="course-tag">Maximum Likelihood</span><span class="course-tag">Cramer-Rao Bound</span><span class="course-tag">Neyman-Pearson</span><span class="course-tag">Wilks' Theorem</span><span class="course-tag">Gauss-Markov</span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -1405,13 +1418,15 @@ var TEACHING = {
     duration: '5 months',
     professor: { name: 'Prof. Srikant B. Pai', url: 'https://srikanthbpai.github.io/' },
     coTA: null,
-    desc: 'Led weekly problem-solving sessions and wrote detailed solution notes distributed to the cohort after each session. Covered core topics including Markov chains, martingales, Poisson processes, and Brownian motion.',
+    desc: 'I took the weekly tutorials for this course. Every week I sat with the students and worked through the problems, and after each class I wrote out the full solutions and shared them with the whole batch. We covered Markov chains, martingales, Poisson processes and Brownian motion.',
     topics: [
-      'Discrete-time Markov chains: classification of states, irreducibility, periodicity, stationary distributions',
-      'Markov decision processes: value functions, Bellman equations, policy iteration and value iteration',
-      'Martingales: optional stopping theorem, convergence theorems, financial applications',
-      'Poisson processes: inter-arrival times, superposition, thinning, compound Poisson processes',
-      'Brownian motion and the Wiener process: construction, properties, quadratic variation'
+      'Markov chains',
+      'Markov decision processes',
+      'Martingales',
+      'Optional stopping theorem',
+      'Poisson processes',
+      'Brownian motion',
+      'Quadratic variation'
     ],
     assignments: null, finalExam: null, notes: null, passedStudents: null
   },
@@ -1422,14 +1437,15 @@ var TEACHING = {
     duration: '5 months',
     professor: { name: 'Prof. Aritri Chakravarty', url: null },
     coTA: null,
-    desc: 'Designed tutorial problem sets and ran sessions on advanced microeconomic concepts. Based on Hal Varian and Osborne.',
+    desc: 'I made the tutorial problem sets and ran the sessions for the second years. Most of the material came from Varian and Osborne. We spent the time working through the harder parts of the course, like monopoly, general equilibrium and the oligopoly models.',
     topics: [
-      'Monopoly: profit maximisation, price discrimination, social welfare',
-      'General equilibrium: Walrasian equilibrium, Edgeworth box, first and second welfare theorems',
-      'Externalities: Pigouvian taxes, Coase theorem, public goods',
-      'Welfare analysis: consumer surplus, deadweight loss, social welfare functions',
-      'Oligopoly models: Cournot, Bertrand, Stackelberg (Osborne)',
-      'Market structure: entry deterrence and limit pricing'
+      'Monopoly',
+      'Price discrimination',
+      'General equilibrium',
+      'Welfare theorems',
+      'Externalities',
+      'Oligopoly (Cournot, Bertrand, Stackelberg)',
+      'Entry deterrence and limit pricing'
     ],
     assignments: null, finalExam: null, notes: null, passedStudents: null
   },
@@ -1440,14 +1456,17 @@ var TEACHING = {
     duration: '3 months',
     professor: null,
     coTA: 'Anagha',
-    desc: 'Served as Teaching Assistant (alongside Anagha, with equal work split) for a rigorous summer programme based on the MITx MicroMasters in Finance. The course covered core quantitative finance from first principles: derivatives pricing, portfolio theory, CAPM, capital structure, and risk management. Eight weekly assignment sheets were designed and distributed to students, each combining rigorous mathematical derivations with conceptual theory questions drawn directly from the MITx course material. A final examination question paper was also prepared and administered.',
+    desc: 'I was one of two TAs for this summer course, and Anagha and I split the work equally. It was based on the MITx finance course from MIT and covered the basics of quant finance from the ground up: pricing options and other derivatives, portfolio theory, the CAPM, capital structure and risk. I wrote eight weekly assignment sheets, each with a mix of proper maths problems and shorter theory questions from the lectures. I also set the final exam paper.',
     topics: [
-      'Derivatives pricing: options, futures, swaps; put-call parity; binomial trees',
-      'Portfolio theory: mean-variance optimisation, efficient frontier, Sharpe ratio',
-      'CAPM: security market line, beta, systematic and idiosyncratic risk',
-      'Capital budgeting: NPV, IRR, real options, project analysis',
-      'Capital structure: Modigliani-Miller, trade-off theory, pecking order',
-      'Risk management: hedging strategies, value at risk, scenario analysis'
+      'Derivatives pricing',
+      'Put-call parity',
+      'Binomial trees',
+      'Portfolio theory',
+      'Efficient frontier',
+      'CAPM',
+      'Capital budgeting (NPV, IRR)',
+      'Capital structure (Modigliani-Miller)',
+      'Value at Risk'
     ],
     assignments: [
       { week: 1, label: 'Week 1 Assignment', file: 'Finance_Assign_1.pdf' },
@@ -1481,13 +1500,15 @@ var TEACHING = {
     duration: '4 months',
     professor: { name: 'Dr. Poorna Pushkala Narayanan', url: null },
     coTA: null,
-    desc: 'Conducted weekly tutorial sessions for the second-year cohort. Based on Thomas Calculus.',
+    desc: 'I took the weekly tutorials for the second-year batch. We followed Thomas Calculus and went through partial derivatives, gradients, optimisation with and without constraints, and double and triple integrals.',
     topics: [
-      'Partial derivatives: computation, geometric interpretation, higher-order partials',
-      'Gradient, directional derivatives, and the chain rule in multiple variables',
-      'Constrained optimisation: Lagrange multipliers, equality and inequality constraints',
-      'Unconstrained optimisation: second-order conditions, saddle points, bordered Hessian',
-      'Double and triple integrals: Fubini theorem, change of variables, Jacobians'
+      'Partial derivatives',
+      'Gradient and directional derivatives',
+      'Chain rule',
+      'Lagrange multipliers',
+      'Unconstrained optimisation',
+      'Double and triple integrals',
+      'Jacobians'
     ],
     assignments: null, finalExam: null, notes: null, passedStudents: null
   },
@@ -1498,13 +1519,15 @@ var TEACHING = {
     duration: '4 months (ongoing)',
     professor: { name: 'Prof. Srikant B. Pai', url: 'https://srikanthbpai.github.io/' },
     coTA: null,
-    desc: "Setting and evaluating weekly assignments for the senior batch, working through the first five chapters of Hamilton's Time Series Analysis.",
+    desc: "I set and mark the weekly assignments for the senior batch. We are working our way through the first five chapters of Hamilton's Time Series Analysis.",
     topics: [
-      'ARMA processes: stationarity, invertibility, autocovariance structure',
-      'ARIMA: integration, differencing, unit root identification',
-      'Unit root testing: Dickey-Fuller, augmented DF, Phillips-Perron tests',
-      'VAR models: estimation, lag selection, Granger causality, impulse response functions',
-      'Estimation: OLS, MLE, Yule-Walker equations (Hamilton Ch. 1 to 5)'
+      'ARMA processes',
+      'ARIMA',
+      'Unit root tests (Dickey-Fuller)',
+      'VAR models',
+      'Granger causality',
+      'Impulse response functions',
+      'Yule-Walker equations'
     ],
     assignments: null, finalExam: null, notes: null, passedStudents: null
   },
@@ -1515,14 +1538,16 @@ var TEACHING = {
     duration: '4 months (ongoing)',
     professor: { name: 'Prof. Aritri Chakravarty', url: null },
     coTA: null,
-    desc: 'Running weekly assignment sessions for the second-year cohort, covering core game-theoretic concepts in both normal and extensive form settings.',
+    desc: 'I run the weekly assignment sessions for the second years. We go through the main game theory ideas one at a time, in both normal and extensive form.',
     topics: [
-      'Normal form games: dominant strategies, iterated elimination, Nash equilibrium',
-      'Extensive form games: information sets, strategies, backward induction',
-      'Subgame perfect Nash equilibrium: credible threats, Zermelo theorem',
-      'Repeated games: folk theorems, cooperation and punishment strategies',
-      'Mechanism design: revelation principle, incentive compatibility, Vickrey auctions',
-      'Auctions: first-price, second-price, English, Dutch, revenue equivalence'
+      'Normal form games',
+      'Nash equilibrium',
+      'Extensive form games',
+      'Backward induction',
+      'Subgame perfect equilibrium',
+      'Repeated games',
+      'Mechanism design',
+      'Auctions'
     ],
     assignments: null, finalExam: null, notes: null, passedStudents: null
   },
@@ -1533,12 +1558,12 @@ var TEACHING = {
     duration: '1 month',
     professor: { name: 'Dr. Poorna Pushkala Narayanan', url: null },
     coTA: null,
-    desc: 'Conducted three intensive pre-examination revision sessions for the first-year cohort, covering all major topics and clarifying conceptual doubts.',
+    desc: 'Just before the exams, I took three revision sessions for the first years. I went back over all the main topics from the semester and helped clear up the things people were stuck on.',
     topics: [
-      'Full syllabus revision: all topics from the semester in condensed form',
-      'Key concept consolidation: common misconceptions addressed systematically',
-      'Exam technique: time management, question prioritisation, presentation',
-      'Worked examples: representative past problems with complete solutions'
+      'Partial derivatives',
+      'Lagrange multipliers',
+      'Multiple integrals',
+      'Past exam problems'
     ],
     assignments: null, finalExam: null, notes: null, passedStudents: null
   }
@@ -1685,13 +1710,12 @@ function showTeaching(key, keepHash) {
     + (rolesHtml ? '<div class="roles">' + rolesHtml + '</div>' : '')
     + '<div style="margin-top:1.7rem;border-top:1.5px solid var(--ink);"></div>';
 
-  html += '<div class="td-section"><div class="td-hd">Overview</div><p>' + t.desc + '</p></div>';
   html += '<div class="td-section"><div class="td-hd">Topics covered</div><ul class="td-topics">' + topicsHtml + '</ul></div>';
 
   if (t.assignments && t.assignments.length > 0) {
     html += '<div class="td-section">'
       + '<div class="td-hd">Weekly assignments</div>'
-      + '<div class="assign-intro">Eight weekly assignment sheets were created and distributed throughout the course. Each sheet combines rigorous mathematical derivations with theory questions based on the MITx lecture material. Students were required to submit solutions weekly; sheets were graded and returned with feedback.</div>'
+      + '<div class="assign-intro">Eight weekly sheets, set and marked each week.</div>'
       + '<ul class="assign-list">';
     t.assignments.forEach(function(a) {
       html += '<li class="assign-item">'
