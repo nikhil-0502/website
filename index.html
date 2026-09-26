@@ -501,6 +501,9 @@ html[data-theme="dark"] .hero::before { opacity: 1; background: radial-gradient(
 .course-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.35rem; }
 .course-tag { font-family: var(--sans); font-size: 0.73rem; color: var(--accent); background: var(--wash); border: 1px solid var(--wash-line); padding: 0.26rem 0.66rem; border-radius: 3px; letter-spacing: 0.005em; white-space: nowrap; }
 .course-lead { display: block; }
+.course-body ul { list-style: none; margin: 0.5rem 0 0; }
+.course-body li { position: relative; padding: 0.32rem 0 0.32rem 1rem; line-height: 1.62; }
+.course-body li::before { content: ''; position: absolute; left: 0; top: 0.95rem; width: 6px; height: 1px; background: var(--rule-2); }
 
 /* ---------- COMMAND PALETTE ---------- */
 .cmd-back { position: fixed; inset: 0; z-index: 300; background: rgba(23,20,15,0.42); backdrop-filter: blur(4px); display: none; }
@@ -993,16 +996,59 @@ html[data-theme="dark"] .hero::before { opacity: 1; background: radial-gradient(
           <strong>CGPA: 9.61 / 10.0</strong> &nbsp;&middot;&nbsp; Dean's List: Semester II (9.9), Semester III (10.0), Semester IV (9.77), Semester V (9.50), Semester VI (9.50)
         </div>
         <div class="course-block">
-          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Stochastic Processes</span><span class="course-sign"></span></div><div class="course-body">Markov chains in discrete and continuous time: classification of states, stationary distributions. Martingales. BM, Poisson processes. First-passage times and hitting probabilities.</div></div>
-          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Real Analysis</span><span class="course-sign"></span></div><div class="course-body">Sequences, series, continuity, differentiability, Riemann integration. Metric spaces. Convergence theorems.</div></div>
-          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Advanced Differential Equations</span><span class="course-sign"></span></div><div class="course-body">ODEs and PDEs, BVPs, phase-plane analysis, Fourier methods. Applications to continuous-time financial and economic models.</div></div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Stochastic Processes</span><span class="course-sign"></span></div><div class="course-body">
+              <ul>
+                <li>Discrete-time Markov chains: definition and examples, the Chapman-Kolmogorov equation, absorbing states, the state structure of finite-state chains, and theorems on transience, positive recurrence, ergodicity and stationarity.</li>
+                <li>Probability spaces and partition sigma-algebras for discrete random variables, and conditional expectation with respect to a sigma-algebra.</li>
+                <li>Martingales and the basic theorems motivated by gambling, and the connection between discrete-time Markov chains and martingales through potential theory.</li>
+                <li>Finance: expected utility, the risk profiles of different agents, and the derivation of the fundamental pricing equations (the Cochrane and Lucas views), leading to the martingale asset pricing theorem with proof.</li>
+                <li>The Poisson process as a L&eacute;vy process: iid exponential interarrival times, the order statistics of uniforms conditional on the number of arrivals, and the strong Markov property.</li>
+                <li>The Wiener process as a L&eacute;vy process: a sketch of Donsker's random walk theorem, and the almost sure nowhere-differentiability of its sample paths.</li>
+              </ul>
+            </div></div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Real Analysis</span><span class="course-sign"></span></div><div class="course-body">
+              <ul>
+                <li>Metric spaces: open and closed sets, limit points, closure and neighbourhoods, with the standard examples (R, R^n in the usual and max metrics, l-infinity, C[a,b], the discrete metric).</li>
+                <li>Connected sets, and the theorem that a continuous image of a connected set is connected.</li>
+                <li>Compact sets: the Heine-Borel theorem, closed subsets of compact sets, every infinite subset having a limit point in the set, and continuous functions on a compact space attaining their maximum and minimum.</li>
+                <li>Continuous functions: the three equivalent definitions of continuity, and the open and closed inverse-image characterisations.</li>
+                <li>Sequences and series: Cauchy sequences, the monotone convergence theorem, Bolzano-Weierstrass, the comparison, ratio and Cauchy condensation tests, p-series and the alternating series test.</li>
+                <li>The real number system: the completeness axiom, supremum and infimum, the Archimedean property, density of the rationals, and the uncountability of R.</li>
+              </ul>
+            </div></div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Time Series Analysis</span><span class="course-sign"></span></div><div class="course-body">
+              <ul>
+                <li>Difference equations analysed with matrices and lag operators.</li>
+                <li>Stationarity, covariance stationarity and ergodicity.</li>
+                <li>ARMA processes: stability, invertibility and Wold's decomposition.</li>
+                <li>Linear minimum mean squared error (MMSE) forecasting, with Wiener-Kolmogorov representations and forecast updating.</li>
+                <li>Maximum likelihood estimation for Gaussian time series models.</li>
+                <li>Model selection and diagnostics: the Akaike information criterion, the Ljung-Box test, normality tests and Dickey-Fuller tests.</li>
+                <li>The Box-Jenkins modelling philosophy.</li>
+              </ul>
+            </div></div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Statistics</span><span class="course-sign"></span></div><div class="course-body">
+              <ul>
+                <li>Basics of probability theory.</li>
+                <li>Random variables and their distributions, including the special distributions.</li>
+                <li>The law of large numbers and the central limit theorems.</li>
+                <li>Estimation and hypothesis testing.</li>
+                <li>Regression.</li>
+              </ul>
+            </div></div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Data Science (Python and MATLAB)</span><span class="course-sign"></span></div><div class="course-body">
+              <ul>
+                <li>Programming basics: plotting, iteration, recursion and simulation.</li>
+                <li>Basic data structures such as stacks.</li>
+                <li>MATLAB taught from the ground up, with no set textbook.</li>
+                <li>Python taught from the first section of <a href="https://python-programming.quantecon.org/intro.html" target="_blank" class="inst-link">Thomas Sargent's QuantEcon course</a> for economists.</li>
+              </ul>
+            </div></div>
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Linear Algebra</span><span class="course-sign"></span></div><div class="course-body">Vector spaces, eigendecomposition, matrix factorisation, linear transformations. Transition matrices, PCA, factor models.</div></div>
-          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Time Series Analysis</span><span class="course-sign"></span></div><div class="course-body">Hamilton's TSA. ARMA, ARIMA, VAR. Unit roots and cointegration, spectral methods.</div></div>
+          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Advanced Differential Equations</span><span class="course-sign"></span></div><div class="course-body">ODEs and PDEs, BVPs, phase-plane analysis, Fourier methods. Applications to continuous-time financial and economic models.</div></div>
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Econometrics</span><span class="course-sign"></span></div><div class="course-body">OLS, GLS, IV, panel data, treatment effects. Causal inference. Stata.</div></div>
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Game Theory</span><span class="course-sign"></span></div><div class="course-body">Normal and extensive form games. Nash equilibrium, SPNE. Mechanism design, auctions. Applications to IO and policy.</div></div>
           <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Money and Banking</span><span class="course-sign"></span></div><div class="course-body">Monetary theory, central banking, credit creation, interest rates, policy transmission.</div></div>
-          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Statistics</span><span class="course-sign"></span></div><div class="course-body">Probability, distributions, hypothesis testing, MLE, Bayesian inference, statistical computing.</div></div>
-          <div class="course-row" onclick="this.classList.toggle('open')" tabindex="0" role="button"><div class="course-hdr"><span class="course-nm">Data Science (Python and MATLAB)</span><span class="course-sign"></span></div><div class="course-body">Data wrangling, visualisation, numerical optimisation, simulation, intro ML. Python and MATLAB.</div></div>
         </div>
       </div>
     </div>
